@@ -2,7 +2,7 @@
 ;; Configuration pertaining to system software outside of Emacs
 
 ;; Set up load path
-(add-to-list 'exec-path "/usr/local/bin" t)
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; Use GNU ls if available for dired support
 (when (executable-find "gls")
