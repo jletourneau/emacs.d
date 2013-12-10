@@ -65,6 +65,11 @@
 (show-paren-mode t)
 (ido-mode t)
 
+(require 'uniquify)
+(setq
+ uniquify-buffer-name-style 'forward
+ uniquify-strip-common-suffix t)
+
 ;; Minor modes we don't want
 (menu-bar-mode -1)
 (tool-bar-mode -1)
