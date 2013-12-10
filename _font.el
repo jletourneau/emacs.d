@@ -1,10 +1,4 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Font lock adjustments
-
-;; (set-face-attribute
-;;  'font-lock-comment-face nil :slant 'italic :foreground "Gray60")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Fontset config
 
 ;; Unicode ranges: http://www.alanwood.net/unicode/unicode_samples.html
