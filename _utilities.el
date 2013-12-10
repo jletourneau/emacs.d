@@ -6,7 +6,8 @@
 
 ;; Use GNU ls if available for dired support
 (when (executable-find "gls")
-  (setq insert-directory-program "gls"))
+  (setq insert-directory-program "gls")
+  (setq dired-listing-switches "-GXhl --group-directories-first"))
 
 ;; Use ag or ack in preference to grep if available
 (setq
