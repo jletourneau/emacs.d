@@ -76,3 +76,12 @@
 (setq
  uniquify-buffer-name-style 'forward
  uniquify-strip-common-suffix t)
+
+;; Setup for buffers that represent actual files
+(add-hook
+ 'find-file-hook
+ (lambda ()
+   (setq indent-tabs-mode nil
+         indicate-buffer-boundaries 'left
+         show-trailing-whitespace t
+         truncate-lines t)))
