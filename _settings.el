@@ -89,8 +89,21 @@
  (lambda ()
    (setq indent-tabs-mode nil
          indicate-buffer-boundaries 'left
-         show-trailing-whitespace t
          truncate-lines t)))
+
+;; Whitespace setup; also only for buffers with actual files
+(add-hook
+ 'find-file-hook
+ (lambda ()
+   (setq whitespace-style '(face trailing tabs tab-mark)
+         whitespace-display-mappings '((tab-mark 9 [8658 9])))
+   (whitespace-mode 1)))
+
+(eval-after-load
+    "whitespace"
+  '(progn
+     (set-face-background 'whitespace-trailing (face-foreground 'warning))
+     (set-face-background 'whitespace-tab (face-foreground 'warning))))
 
 ;; OS X settings
 (setq

@@ -14,12 +14,12 @@
 
 ;; Various and sundry symbols in the Unicode hinterlands
 (set-fontset-font "fontset-standard" '(#x20d0 . #x20ff) "Arial Unicode MS")
-(set-fontset-font "fontset-standard" '(#x2150 . #x21ff) "Arial Unicode MS")
+(set-fontset-font "fontset-standard" '(#x2150 . #x218f) "Arial Unicode MS")
 (set-fontset-font "fontset-standard" '(#x2300 . #x27ff) "Arial Unicode MS")
 (set-fontset-font "fontset-standard" '(#xfb00 . #xfb4f) "Arial Unicode MS")
 (set-fontset-font "fontset-standard" '(#xff00 . #xffef) "Arial Unicode MS")
 (set-fontset-font "fontset-standard" '(#x2100 . #x214f) "Apple Symbols")
-(set-fontset-font "fontset-standard" '(#x21eb . #x21ff) "Apple Symbols")
+(set-fontset-font "fontset-standard" '(#x2190 . #x21ff) "Apple Symbols")
 (set-fontset-font "fontset-standard" '(#x237b . #x23ff) "Apple Symbols")
 (set-fontset-font "fontset-standard" '(#x2596 . #x259f) "Apple Symbols")
 (set-fontset-font "fontset-standard" '(#x2670 . #x26ff) "Apple Symbols")
