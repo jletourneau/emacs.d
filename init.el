@@ -5,7 +5,7 @@
 (add-hook
  'after-init-hook
  (lambda ()
-   (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+   (add-to-list 'load-path (expand-file-name "~/.emacs.d/include"))
    (load "_settings" t)
    (load "_utilities" t)
    (load "_font" t)
