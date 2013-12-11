@@ -10,12 +10,10 @@
   (setq dired-listing-switches "-Gahl --group-directories-first"))
 
 ;; Use ag or ack in preference to grep if available
-(setq
- grep-command
- (cond
-  ((executable-find "ag")
-   "ag --nogroup --nocolor --smart-case ")
-  ((executable-find "ack")
-   "ack --nogroup --nocolor --smart-case ")
-  (t
-   "grep --line-number --recursive --ignore-case ")))
+(let ((ag  (executable-find "ag"))
+      (ack (executable-find "ack")))
+  (setq grep-command
+        (cond
+         (ag  (concat ag  " --nogroup --nocolor --smart-case "))
+         (ack (concat ack " --nogroup --nocolor --smart-case "))
+         (t "grep --line-number --recursive --ignore-case "))))
