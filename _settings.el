@@ -1,36 +1,41 @@
+;; Autosave/backup options
 (setq
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
  auto-save-list-file-prefix "~/.autosave/save-"
- backup-directory-alist '(("." . "~/.backups"))
+ backup-directory-alist '(("." . "~/.backups")))
+
+;; Buffer contents options
+(setq
+ fill-column 79
+ tab-width 8
+ sentence-end-double-space nil
+ require-final-newline t)
+
+;; Emacs UI options
+(setq
  completion-ignore-case t
  confirm-kill-emacs 'y-or-n-p
- default-fill-column 79
- default-input-method "latin-1-postfix"
- default-tab-width 8
  display-time-24hr-format t
  display-time-day-and-date t
- font-lock-maximum-decoration t
  frame-title-format '("%f")
  hourglass-delay 2
  inhibit-default-init t
  inhibit-startup-echo-area-message user-login-name
- inhibit-startup-message t
+ inhibit-startup-screen t
  kill-whole-line t
  magic-mode-alist '()
- message-signature-separator "^-- *$"
- mouse-wheel-progressive-speed nil
  mouse-yank-at-point t
- read-file-name-completion-ignore-case t
- require-final-newline t
  ring-bell-function (lambda () nil)
  save-abbrevs nil
- scroll-conservatively 20
- scroll-margin 8
- sentence-end-double-space nil
- speedbar-show-unknown-files t
- speedbar-use-images nil
  use-dialog-box nil
  woman-use-own-frame nil)
+
+;; Scrolling options
+(setq
+ mouse-wheel-progressive-speed t
+ mouse-wheel-scroll-amount '(1)
+ scroll-conservatively 20
+ scroll-margin 8)
 
 ;; ido-mode settings
 (setq
@@ -51,6 +56,7 @@
  calendar-holiday-marker 'warning)
 
 ;; Unicode/i18n stuff
+(setq default-input-method "latin-1-postfix")
 (prefer-coding-system 'utf-8-unix)
 (set-terminal-coding-system 'utf-8)
 
@@ -85,3 +91,13 @@
          indicate-buffer-boundaries 'left
          show-trailing-whitespace t
          truncate-lines t)))
+
+;; OS X settings
+(setq
+ delete-by-moving-to-trash t
+ trash-directory (expand-file-name "~/.Trash")
+ ns-pop-up-frames nil
+ mac-control-modifier 'control
+ mac-option-modifier 'meta
+ mac-command-modifier 'meta
+ mac-function-modifier 'super)
