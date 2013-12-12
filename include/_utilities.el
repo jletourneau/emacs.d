@@ -2,7 +2,8 @@
 ;; Configuration pertaining to system software outside of Emacs
 
 ;; Set up load path
-(add-to-list 'exec-path "/usr/local/bin")
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; Use GNU ls if available for dired support
 (when (executable-find "gls")

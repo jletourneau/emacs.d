@@ -5,6 +5,7 @@
 (depends-on "coffee-mode")
 (depends-on "dash")
 (depends-on "epl")
+(depends-on "exec-path-from-shell")
 (depends-on "f")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
