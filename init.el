@@ -6,11 +6,11 @@
  'after-init-hook
  (lambda ()
    (add-to-list 'load-path (expand-file-name "~/.emacs.d/include"))
+   (load "_defuns" t)
    (load "_settings" t)
    (load "_packages" t)
    (load "_utilities" t)
    (load "_font" t)
-   (load "_defuns" t)
    (load "_keybindings" t)
    (if (display-graphic-p)
        (load "_gui" t)

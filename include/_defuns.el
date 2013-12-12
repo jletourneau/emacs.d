@@ -1,3 +1,9 @@
+(defmacro after-load (mode &rest body)
+  "Simple wrapper around `eval-after-load` + `progn` pattern."
+  (declare (indent defun))
+  `(eval-after-load ,mode
+     '(progn ,@body)))
+
 (defun unfill-paragraph (current-point)
   "Unfill the paragraph containing point; i.e. remove all newlines between
 the paragraph separator prior to point and the one after it."

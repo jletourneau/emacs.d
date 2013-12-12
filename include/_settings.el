@@ -99,11 +99,10 @@
          whitespace-display-mappings '((tab-mark 9 [8658 9])))
    (whitespace-mode 1)))
 
-(eval-after-load
-    "whitespace"
-  '(progn
-     (set-face-background 'whitespace-trailing (face-foreground 'warning))
-     (set-face-background 'whitespace-tab (face-foreground 'warning))))
+(after-load
+ 'whitespace
+ (set-face-background 'whitespace-trailing (face-foreground 'warning))
+ (set-face-background 'whitespace-tab (face-foreground 'warning)))
 
 ;; OS X settings
 (setq
