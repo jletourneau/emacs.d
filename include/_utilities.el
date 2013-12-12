@@ -2,7 +2,8 @@
 ;; Configuration pertaining to system software outside of Emacs
 
 ;; Set up load path
-(when (memq window-system '(mac ns))
+(when (and (memq window-system '(mac ns))
+           (fboundp 'exec-path-from-shell-initialize))
   (exec-path-from-shell-initialize))
 
 ;; Use GNU ls if available for dired support
