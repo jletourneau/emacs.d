@@ -104,6 +104,22 @@
  (set-face-background 'whitespace-trailing (face-foreground 'warning))
  (set-face-background 'whitespace-tab (face-foreground 'warning)))
 
+;; CoffeeScript setup
+(after-load
+  'coffee-mode
+  (setq coffee-tab-width 2)
+  ;; Without this override, you get double indents on the next line when
+  ;; hitting Return when point is at the beginning of the line.
+  (defun coffee-newline-dwim ()
+    "Insert a newline, and indent it unless point is in column 0."
+    (interactive)
+    (if (bolp)
+        (newline)
+      (coffee-newline-and-indent)))
+  (define-key
+    coffee-mode-map
+    [remap coffee-newline-and-indent] 'coffee-newline-dwim))
+
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
