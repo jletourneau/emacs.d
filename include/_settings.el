@@ -17,7 +17,7 @@
  confirm-kill-emacs 'y-or-n-p
  display-time-24hr-format t
  display-time-day-and-date t
- frame-title-format '("%f")
+ frame-title-format '(buffer-file-name "%f" ("%b"))
  hourglass-delay 2
  inhibit-default-init t
  inhibit-startup-echo-area-message user-login-name
