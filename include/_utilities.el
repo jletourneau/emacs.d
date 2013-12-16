@@ -9,7 +9,8 @@
 ;; Use GNU ls if available for dired support
 (when (executable-find "gls")
   (setq insert-directory-program "gls")
-  (setq dired-listing-switches "-Gahl --group-directories-first"))
+  (setq dired-listing-switches
+        "-l --all --group-directories-first --si"))
 
 ;; Use ag or ack in preference to grep if available
 (setq grep-command
