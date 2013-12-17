@@ -1,8 +1,17 @@
 (defmacro after-load (mode &rest body)
-  "Simple wrapper around `eval-after-load` + `progn` pattern."
+  "Simple wrapper around `eval-after-load' + `progn' pattern."
   (declare (indent defun))
   `(eval-after-load ,mode
      '(progn ,@body)))
+
+(defun pallet-bootstrap-packages ()
+  "Install `pallet' from Emacs' package system and install packages from
+this repository's Caskfile."
+  (interactive)
+  (require 'package)
+  (package-refresh-contents)
+  (package-install 'pallet)
+  (pallet-install))
 
 (defun unfill-paragraph (current-point)
   "Unfill the paragraph containing point; i.e. remove all newlines between
@@ -22,7 +31,7 @@ in which case move point to the first non-whitespace character on the line."
     (beginning-of-line)))
 
 (defun dired-system-open ()
-  "Use the built-in `open` command in OS X to open the selected file(s) in
+  "Use the built-in `open' command in OS X to open the selected file(s) in
 a Dired buffer in the associated system application(s)."
   (interactive)
   (save-window-excursion

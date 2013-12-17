@@ -5,8 +5,7 @@ My [old Emacs config](https://code.google.com/p/letouj-emacs-cfg/) was starting 
 ## Installation
 
   1. Clone this repo to `~/.emacs.d`.
-  2. Install [Cask](http://cask.github.io/).
-  3. Launch Emacs.
-  4. M-x `list-packages`; install `pallet`.
-  5. M-x `pallet-install`.
-  6. All necessary packages should now be installed.
+  2. Install [Cask](http://cask.github.io/) if necessary.
+  3. Launch Emacs and run `M-x pallet-bootstrap-packages`.
+
+All necessary packages should now be installed.
