@@ -102,7 +102,7 @@
 (after-load
  'whitespace
  (set-face-background 'whitespace-trailing (face-foreground 'warning))
- (set-face-background 'whitespace-tab (face-foreground 'warning)))
+ (set-face-background 'whitespace-tab 'unspecified))
 
 ;; CoffeeScript setup
 (after-load
