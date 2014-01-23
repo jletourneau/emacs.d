@@ -3,3 +3,4 @@
 (add-to-list 'default-frame-alist '(height . 50))
 
 (set-face-foreground 'font-lock-comment-face "gray50")
+(set-face-background 'cursor "orange")

@@ -76,6 +76,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (tooltip-mode -1)
+(blink-cursor-mode -1)
 
 ;; Set up uniquify for buffer names
 (require 'uniquify)
