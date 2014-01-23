@@ -25,7 +25,7 @@
  kill-whole-line t
  magic-mode-alist '()
  mouse-yank-at-point t
- ring-bell-function (lambda () nil)
+ ring-bell-function 'ignore
  save-abbrevs nil
  use-dialog-box nil
  woman-use-own-frame nil)
