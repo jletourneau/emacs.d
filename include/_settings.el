@@ -92,6 +92,9 @@
          indicate-buffer-boundaries 'left
          truncate-lines t)))
 
+(add-hook 'text-mode-hook 'typo-mode)
+(add-hook 'org-mode-hook 'typo-mode)
+
 ;; Whitespace setup; also only for buffers with actual files
 (add-hook
  'find-file-hook

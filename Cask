@@ -16,4 +16,5 @@
 (depends-on "s")
 (depends-on "sass-mode")
 (depends-on "slim-mode")
+(depends-on "typo")
 (depends-on "yaml-mode")

@@ -2,6 +2,7 @@
 (define-key global-map (kbd "C-a") 'beginning-of-line-dwim)
 (define-key global-map (kbd "C-z") 'undo)
 (define-key global-map (kbd "C-c r") 'replace-string)
+(define-key global-map (kbd "C-c t") 'typo-mode)
 (define-key global-map (kbd "C-c w") 'delete-trailing-whitespace)
 (define-key global-map (kbd "C-c \\") 'toggle-truncate-lines)
 (define-key global-map (kbd "C-c M-r") 'replace-regexp)
