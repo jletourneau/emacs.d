@@ -95,6 +95,18 @@
 (add-hook 'text-mode-hook 'typo-mode)
 (add-hook 'org-mode-hook 'typo-mode)
 
+;; Rather than using ` and ' as left and right single quotes respectively,
+;; keep ` literal (e.g. for Markdown/ReST) and use ' for both ‘ and ’.
+(after-load
+  'typo
+  (define-typo-cycle typo-cycle-single-quotation-mark
+    "Cycle through right and left single quotes and typewriter apostrophe."
+    ("’" "‘" "'"))
+  (define-key typo-mode-map (kbd "'") 'typo-cycle-single-quotation-mark)
+  (define-key typo-global-mode-map (kbd "'") 'typo-cycle-single-quotation-mark)
+  (define-key typo-mode-map (kbd "`") nil)
+  (define-key typo-global-mode-map (kbd "`") nil))
+
 ;; Whitespace setup; also only for buffers with actual files
 (add-hook
  'find-file-hook
