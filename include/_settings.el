@@ -5,8 +5,8 @@
  backup-directory-alist '(("." . "~/.backups")))
 
 ;; Buffer contents options
+(setq-default fill-column 79)
 (setq
- fill-column 79
  tab-width 8
  sentence-end-double-space nil
  require-final-newline t)
