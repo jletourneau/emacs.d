@@ -78,6 +78,12 @@
 (tooltip-mode -1)
 (blink-cursor-mode -1)
 
+;; Smart tab completion
+(require 'smart-tab)
+(global-smart-tab-mode 1)
+(setq
+ smart-tab-using-hippie-expand t)
+
 ;; Set up uniquify for buffer names
 (require 'uniquify)
 (setq

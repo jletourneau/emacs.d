@@ -1,4 +1,3 @@
-(define-key global-map (kbd "<backtab>") 'hippie-expand)
 (define-key global-map (kbd "C-a") 'beginning-of-line-dwim)
 (define-key global-map (kbd "C-z") 'undo)
 (define-key global-map (kbd "C-c r") 'replace-string)
