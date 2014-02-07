@@ -142,12 +142,6 @@
     coffee-mode-map
     [remap coffee-newline-and-indent] 'coffee-newline-dwim))
 
-;; Ruby setup
-(add-hook
- 'ruby-mode-hook
- (lambda ()
-   (electric-indent-mode 1)))
-
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
