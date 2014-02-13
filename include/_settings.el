@@ -118,7 +118,7 @@
  'find-file-hook
  (lambda ()
    (setq whitespace-style '(face trailing tabs tab-mark)
-         whitespace-display-mappings '((tab-mark 9 [8658 9])))
+         whitespace-display-mappings '((tab-mark 9 [8594 9])))
    (whitespace-mode 1)))
 
 (after-load
