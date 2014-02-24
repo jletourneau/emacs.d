@@ -1,3 +1,7 @@
+;; Since smart-tab is doing DWIM complete-or-indent on <tab>, I'm adding this
+;; keybinding to serve as a plain old indenter (the old <tab> keybinding).
+(define-key global-map (kbd "C-j") 'indent-for-tab-command)
+
 (define-key global-map (kbd "C-a") 'beginning-of-line-dwim)
 (define-key global-map (kbd "C-z") 'undo)
 (define-key global-map (kbd "C-c r") 'replace-string)
