@@ -79,16 +79,16 @@
 (blink-cursor-mode -1)
 
 ;; Smart tab completion
-(require 'smart-tab)
-(global-smart-tab-mode 1)
-(setq
- smart-tab-using-hippie-expand t)
+(when (require 'smart-tab nil t)
+  (global-smart-tab-mode 1)
+  (setq
+   smart-tab-using-hippie-expand t))
 
 ;; Set up uniquify for buffer names
-(require 'uniquify)
-(setq
- uniquify-buffer-name-style 'forward
- uniquify-strip-common-suffix t)
+(when (require 'uniquify nil t)
+  (setq
+   uniquify-buffer-name-style 'forward
+   uniquify-strip-common-suffix t))
 
 ;; Setup for buffers that represent actual files
 (add-hook

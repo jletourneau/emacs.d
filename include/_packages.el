@@ -1,9 +1,8 @@
-(when (locate-library "package")
-  (require 'package)
+(when (require 'package nil t)
   (package-initialize)
   (add-to-list
    'package-archives
    '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
-(require 'cask (expand-file-name "~/.cask/cask"))
-(cask-initialize)
+(when (require 'cask (expand-file-name "~/.cask/cask") t)
+  (cask-initialize))
