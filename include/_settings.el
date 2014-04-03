@@ -8,8 +8,7 @@
 (setq-default fill-column 79)
 (setq
  tab-width 8
- sentence-end-double-space nil
- require-final-newline t)
+ sentence-end-double-space nil)
 
 ;; Emacs UI options
 (setq
