@@ -15,6 +15,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "pallet")
+(depends-on "rvm")
 (depends-on "s")
 (depends-on "sass-mode")
 (depends-on "slim-mode")

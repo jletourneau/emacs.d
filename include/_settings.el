@@ -141,6 +141,13 @@
     coffee-mode-map
     [remap coffee-newline-and-indent] 'coffee-newline-dwim))
 
+;; Ruby setup
+(after-load
+  'ruby-mode
+  (setq ruby-deep-indent-paren nil)
+  (when (require 'rvm nil t)
+    (rvm-autodetect-ruby)))
+
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
