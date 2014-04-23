@@ -69,7 +69,8 @@
 (column-number-mode t)
 (show-paren-mode t)
 (ido-mode t)
-(global-flycheck-mode 1)
+(when (require 'flycheck nil t)
+  (global-flycheck-mode 1))
 
 ;; Minor modes we don't want
 (menu-bar-mode -1)
