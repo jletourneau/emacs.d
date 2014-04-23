@@ -149,6 +149,11 @@
   (when (require 'rvm nil t)
     (rvm-autodetect-ruby)))
 
+;; Sass/SCSS setup
+(after-load
+  'scss-mode
+  (setq css-indent-offset 2))
+
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t

@@ -21,6 +21,7 @@
 (depends-on "rvm")
 (depends-on "s")
 (depends-on "sass-mode")
+(depends-on "scss-mode")
 (depends-on "shut-up")
 (depends-on "slim-mode")
 (depends-on "smart-tab")
