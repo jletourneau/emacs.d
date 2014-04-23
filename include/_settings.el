@@ -69,8 +69,6 @@
 (column-number-mode t)
 (show-paren-mode t)
 (ido-mode t)
-(when (require 'flycheck nil t)
-  (global-flycheck-mode 1))
 
 ;; Minor modes we don't want
 (menu-bar-mode -1)
@@ -152,8 +150,12 @@
 
 ;; Sass/SCSS setup
 (after-load
-  'scss-mode
+  'css-mode
   (setq css-indent-offset 2))
+
+(after-load
+  'scss-mode
+  (setq scss-compile-at-save nil))
 
 ;; OS X settings
 (setq

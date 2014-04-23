@@ -8,7 +8,6 @@
 (depends-on "epl")
 (depends-on "exec-path-from-shell")
 (depends-on "f")
-(depends-on "flycheck")
 (depends-on "git")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
