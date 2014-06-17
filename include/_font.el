@@ -134,6 +134,7 @@
 ;; (set-fontset-font "fontset-standard" '(#x19e0 . #x19ff) "") ;; Khmer Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1a00 . #x1a1f) "") ;; Buginese
 ;; (set-fontset-font "fontset-standard" '(#x1a20 . #x1aaf) "") ;; Tai Tham
+;; (set-fontset-font "fontset-standard" '(#x1ab0 . #x1aff) "") ;; Combining Diacritical Marks Extended
 ;; (set-fontset-font "fontset-standard" '(#x1b00 . #x1b7f) "") ;; Balinese
 ;; (set-fontset-font "fontset-standard" '(#x1b80 . #x1bbf) "") ;; Sundanese
 ;; (set-fontset-font "fontset-standard" '(#x1bc0 . #x1bff) "") ;; Batak
@@ -392,11 +393,13 @@
 ;; (set-fontset-font "fontset-standard" '(#xa930 . #xa95f) "") ;; Rejang
 ;; (set-fontset-font "fontset-standard" '(#xa960 . #xa97f) "") ;; Hangul Jamo Extended-A
 ;; (set-fontset-font "fontset-standard" '(#xa980 . #xa9df) "") ;; Javanese
+;; (set-fontset-font "fontset-standard" '(#xa9e0 . #xa9ff) "") ;; Myanmar Extended-B
 ;; (set-fontset-font "fontset-standard" '(#xaa00 . #xaa5f) "") ;; Cham
 ;; (set-fontset-font "fontset-standard" '(#xaa60 . #xaa7f) "") ;; Myanmar Extended-A
 ;; (set-fontset-font "fontset-standard" '(#xaa80 . #xaadf) "") ;; Tai Viet
 ;; (set-fontset-font "fontset-standard" '(#xaae0 . #xaaff) "") ;; Meetei Mayek Extensions
 ;; (set-fontset-font "fontset-standard" '(#xab00 . #xab2f) "") ;; Ethiopic Extended-A
+;; (set-fontset-font "fontset-standard" '(#xab30 . #xab6f) "") ;; Latin Extended-E
 ;; (set-fontset-font "fontset-standard" '(#xabc0 . #xabff) "") ;; Meetei Mayek
 ;; (set-fontset-font "fontset-standard" '(#xac00 . #xd7af) "") ;; Hangul Syllables
 ;; (set-fontset-font "fontset-standard" '(#xd7b0 . #xd7ff) "") ;; Hangul Jamo Extended-B
@@ -423,44 +426,70 @@
 ;; (set-fontset-font "fontset-standard" '(#x101d0 . #x101ff) "") ;; Phaistos Disc
 ;; (set-fontset-font "fontset-standard" '(#x10280 . #x1029f) "") ;; Lycian
 ;; (set-fontset-font "fontset-standard" '(#x102a0 . #x102df) "") ;; Carian
+;; (set-fontset-font "fontset-standard" '(#x102e0 . #x102ff) "") ;; Coptic Epact Numbers
 ;; (set-fontset-font "fontset-standard" '(#x10300 . #x1032f) "") ;; Old Italic
 ;; (set-fontset-font "fontset-standard" '(#x10330 . #x1034f) "") ;; Gothic
+;; (set-fontset-font "fontset-standard" '(#x10350 . #x1037f) "") ;; Old Permic
 ;; (set-fontset-font "fontset-standard" '(#x10380 . #x1039f) "") ;; Ugaritic
 ;; (set-fontset-font "fontset-standard" '(#x103a0 . #x103df) "") ;; Old Persian
 ;; (set-fontset-font "fontset-standard" '(#x10400 . #x1044f) "") ;; Deseret
 ;; (set-fontset-font "fontset-standard" '(#x10450 . #x1047f) "") ;; Shavian
 ;; (set-fontset-font "fontset-standard" '(#x10480 . #x104af) "") ;; Osmanya
+;; (set-fontset-font "fontset-standard" '(#x10500 . #x1052f) "") ;; Elbasan
+;; (set-fontset-font "fontset-standard" '(#x10530 . #x1056f) "") ;; Caucasian Albanian
+;; (set-fontset-font "fontset-standard" '(#x10600 . #x1077f) "") ;; Linear A
 ;; (set-fontset-font "fontset-standard" '(#x10800 . #x1083f) "") ;; Cypriot Syllabary
 ;; (set-fontset-font "fontset-standard" '(#x10840 . #x1085f) "") ;; Imperial Aramaic
+;; (set-fontset-font "fontset-standard" '(#x10860 . #x1087f) "") ;; Palmyrene
+;; (set-fontset-font "fontset-standard" '(#x10880 . #x108af) "") ;; Nabataean
 ;; (set-fontset-font "fontset-standard" '(#x10900 . #x1091f) "") ;; Phoenician
 ;; (set-fontset-font "fontset-standard" '(#x10920 . #x1093f) "") ;; Lydian
 ;; (set-fontset-font "fontset-standard" '(#x10980 . #x1099f) "") ;; Meroitic Hieroglyphs
 ;; (set-fontset-font "fontset-standard" '(#x109a0 . #x109ff) "") ;; Meroitic Cursive
 ;; (set-fontset-font "fontset-standard" '(#x10a00 . #x10a5f) "") ;; Kharoshthi
 ;; (set-fontset-font "fontset-standard" '(#x10a60 . #x10a7f) "") ;; Old South Arabian
+;; (set-fontset-font "fontset-standard" '(#x10a80 . #x10a9f) "") ;; Old North Arabian
+;; (set-fontset-font "fontset-standard" '(#x10ac0 . #x10aff) "") ;; Manichaean
 ;; (set-fontset-font "fontset-standard" '(#x10b00 . #x10b3f) "") ;; Avestan
 ;; (set-fontset-font "fontset-standard" '(#x10b40 . #x10b5f) "") ;; Inscriptional Parthian
 ;; (set-fontset-font "fontset-standard" '(#x10b60 . #x10b7f) "") ;; Inscriptional Pahlavi
+;; (set-fontset-font "fontset-standard" '(#x10b80 . #x10baf) "") ;; Psalter Pahlavi
 ;; (set-fontset-font "fontset-standard" '(#x10c00 . #x10c4f) "") ;; Old Turkic
 ;; (set-fontset-font "fontset-standard" '(#x10e60 . #x10e7f) "") ;; Rumi Numeral Symbols
 ;; (set-fontset-font "fontset-standard" '(#x11000 . #x1107f) "") ;; Brahmi
 ;; (set-fontset-font "fontset-standard" '(#x11080 . #x110cf) "") ;; Kaithi
 ;; (set-fontset-font "fontset-standard" '(#x110d0 . #x110ff) "") ;; Sora Sompeng
 ;; (set-fontset-font "fontset-standard" '(#x11100 . #x1114f) "") ;; Chakma
+;; (set-fontset-font "fontset-standard" '(#x11150 . #x1117f) "") ;; Mahajani
 ;; (set-fontset-font "fontset-standard" '(#x11180 . #x111df) "") ;; Sharada
+;; (set-fontset-font "fontset-standard" '(#x111e0 . #x111ff) "") ;; Sinhala Archaic Numbers
 ;; (set-fontset-font "fontset-standard" '(#x11680 . #x116cf) "") ;; Takri
+;; (set-fontset-font "fontset-standard" '(#x11200 . #x1124f) "") ;; Khojki
+;; (set-fontset-font "fontset-standard" '(#x112b0 . #x112ff) "") ;; Khudawadi
+;; (set-fontset-font "fontset-standard" '(#x11300 . #x1137f) "") ;; Grantha
+;; (set-fontset-font "fontset-standard" '(#x11480 . #x114df) "") ;; Tirhuta
+;; (set-fontset-font "fontset-standard" '(#x11580 . #x115ff) "") ;; Siddham
+;; (set-fontset-font "fontset-standard" '(#x11600 . #x1165f) "") ;; Modi
+;; (set-fontset-font "fontset-standard" '(#x118a0 . #x118ff) "") ;; Warang Citi
+;; (set-fontset-font "fontset-standard" '(#x11ac0 . #x11aff) "") ;; Pau Cin Hau
 ;; (set-fontset-font "fontset-standard" '(#x12000 . #x123ff) "") ;; Cuneiform
 ;; (set-fontset-font "fontset-standard" '(#x12400 . #x1247f) "") ;; Cuneiform Numbers and Punctuation
 ;; (set-fontset-font "fontset-standard" '(#x13000 . #x1342f) "") ;; Egyptian Hieroglyphs
 ;; (set-fontset-font "fontset-standard" '(#x16800 . #x16a3f) "") ;; Bamum Supplement
+;; (set-fontset-font "fontset-standard" '(#x16a40 . #x16a6f) "") ;; Mro
+;; (set-fontset-font "fontset-standard" '(#x16ad0 . #x16aff) "") ;; Bassa Vah
+;; (set-fontset-font "fontset-standard" '(#x16b00 . #x16b8f) "") ;; Pahawh Hmong
 ;; (set-fontset-font "fontset-standard" '(#x16f00 . #x16f9f) "") ;; Miao
 ;; (set-fontset-font "fontset-standard" '(#x1b000 . #x1b0ff) "") ;; Kana Supplement
+;; (set-fontset-font "fontset-standard" '(#x1bc00 . #x1bc9f) "") ;; Duployan
+;; (set-fontset-font "fontset-standard" '(#x1bca0 . #x1bcaf) "") ;; Shorthand Format Controls
 ;; (set-fontset-font "fontset-standard" '(#x1d000 . #x1d0ff) "") ;; Byzantine Musical Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1d100 . #x1d1ff) "") ;; Musical Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1d200 . #x1d24f) "") ;; Ancient Greek Musical Notation
 ;; (set-fontset-font "fontset-standard" '(#x1d300 . #x1d35f) "") ;; Tai Xuan Jing Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1d360 . #x1d37f) "") ;; Counting Rod Numerals
 ;; (set-fontset-font "fontset-standard" '(#x1d400 . #x1d7ff) "") ;; Mathematical Alphanumeric Symbols
+;; (set-fontset-font "fontset-standard" '(#x1e800 . #x1e8df) "") ;; Mende Kikakui
 ;; (set-fontset-font "fontset-standard" '(#x1ee00 . #x1eeff) "") ;; Arabic Mathematical Alphabetic Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1f000 . #x1f02f) "") ;; Mahjong Tiles
 ;; (set-fontset-font "fontset-standard" '(#x1f030 . #x1f09f) "") ;; Domino Tiles
@@ -469,8 +498,11 @@
 ;; (set-fontset-font "fontset-standard" '(#x1f200 . #x1f2ff) "") ;; Enclosed Ideographic Supplement
 ;; (set-fontset-font "fontset-standard" '(#x1f300 . #x1f5ff) "") ;; Miscellaneous Symbols And Pictographs
 ;; (set-fontset-font "fontset-standard" '(#x1f600 . #x1f64f) "") ;; Emoticons
+;; (set-fontset-font "fontset-standard" '(#x1f650 . #x1f67f) "") ;; Ornamental Dingbats
 ;; (set-fontset-font "fontset-standard" '(#x1f680 . #x1f6ff) "") ;; Transport And Map Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) "") ;; Alchemical Symbols
+;; (set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
+;; (set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
 ;; (set-fontset-font "fontset-standard" '(#x20000 . #x2a6df) "") ;; CJK Unified Ideographs Extension B
 ;; (set-fontset-font "fontset-standard" '(#x2a700 . #x2b73f) "") ;; CJK Unified Ideographs Extension C
 ;; (set-fontset-font "fontset-standard" '(#x2b740 . #x2b81f) "") ;; CJK Unified Ideographs Extension D
