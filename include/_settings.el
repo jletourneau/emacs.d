@@ -144,7 +144,8 @@
 ;; Ruby setup
 (after-load
   'ruby-mode
-  (setq ruby-deep-indent-paren nil)
+  (setq ruby-deep-indent-paren nil
+        ruby-insert-encoding-magic-comment nil)
   (when (require 'rvm nil t)
     (rvm-autodetect-ruby)))
 
