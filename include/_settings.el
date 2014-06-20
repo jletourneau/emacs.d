@@ -127,6 +127,11 @@
  (set-face-background 'whitespace-trailing (face-foreground 'warning))
  (set-face-background 'whitespace-tab 'unspecified))
 
+;; JavaScript setup
+(after-load
+  'js
+  (setq js-indent-level 2))
+
 ;; CoffeeScript setup
 (after-load
   'coffee-mode
