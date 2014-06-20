@@ -52,7 +52,9 @@
  calendar-longitude -73.69
  calendar-location-name "Troy, NY"
  mark-holidays-in-calendar t
- calendar-holiday-marker 'warning)
+ calendar-holiday-marker 'warning
+ holiday-bahai-holidays nil
+ holiday-oriental-holidays nil)
 
 ;; Unicode/i18n stuff
 (setq default-input-method "latin-1-postfix")
