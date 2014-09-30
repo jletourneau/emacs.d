@@ -66,6 +66,9 @@
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; Function aliases for fatfingering etc.
+(defalias 'grpe 'grep)
+
 ;; Minor modes we do want
 (delete-selection-mode t)
 (column-number-mode t)
