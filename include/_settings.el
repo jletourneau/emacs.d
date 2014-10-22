@@ -77,6 +77,7 @@
 (column-number-mode t)
 (show-paren-mode t)
 (ido-mode t)
+(electric-pair-mode t)
 
 ;; Minor modes we don't want
 (menu-bar-mode -1)
