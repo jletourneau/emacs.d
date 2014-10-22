@@ -91,10 +91,9 @@
    smart-tab-using-hippie-expand t))
 
 ;; Set up uniquify for buffer names
-(when (require 'uniquify nil t)
-  (setq
-   uniquify-buffer-name-style 'forward
-   uniquify-strip-common-suffix t))
+(setq
+ uniquify-buffer-name-style 'forward
+ uniquify-strip-common-suffix t)
 
 ;; Setup for buffers that represent actual files
 (add-hook
