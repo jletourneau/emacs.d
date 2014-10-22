@@ -54,6 +54,8 @@
  mark-holidays-in-calendar t
  calendar-holiday-marker 'warning
  holiday-bahai-holidays nil
+ holiday-hebrew-holidays nil
+ holiday-islamic-holidays nil
  holiday-oriental-holidays nil)
 
 ;; Unicode/i18n stuff
