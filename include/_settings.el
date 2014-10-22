@@ -82,6 +82,7 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (blink-cursor-mode -1)
+(electric-indent-mode -1)
 
 ;; Smart tab completion
 (when (require 'smart-tab nil t)
