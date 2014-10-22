@@ -19,6 +19,9 @@
 (define-key global-map (kbd "M-g") 'goto-line)
 (define-key global-map (kbd "M-Q") 'unfill-paragraph)
 
+(when (functionp 'cycle-spacing)
+  (define-key global-map (kbd "M-SPC") 'cycle-spacing))
+
 ;; Keybindings for commands in add-on packages
 (define-key global-map (kbd "C-c m") 'magit-status)
 
