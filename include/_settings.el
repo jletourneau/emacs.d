@@ -158,10 +158,14 @@
 ;; Ruby setup
 (after-load
   'ruby-mode
-  (setq ruby-deep-indent-paren nil
-        ruby-insert-encoding-magic-comment nil)
+  (setq ruby-insert-encoding-magic-comment nil)
   (when (require 'rvm nil t)
     (rvm-autodetect-ruby)))
+
+;; Electric indent mode actually works pretty nicely in Ruby mode
+(add-hook
+ 'ruby-mode-hook
+ (lambda () (electric-indent-local-mode t)))
 
 ;; Sass/SCSS setup
 (after-load
