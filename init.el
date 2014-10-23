@@ -10,8 +10,9 @@
    (load "_packages" t)
    (load "_settings" t)
    (load "_utilities" t)
-   (load "_font" t)
    (load "_keybindings" t)
    (if (display-graphic-p)
-       (load "_gui" t)
+       (progn
+         (load "_font" t)
+         (load "_gui" t))
      (load "_terminal" t))))
