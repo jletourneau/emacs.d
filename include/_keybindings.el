@@ -14,7 +14,7 @@
 (define-key global-map (kbd "C-c C-x C-f") 'find-file-at-point)
 (define-key global-map (kbd "M-#") 'calc)
 (define-key global-map (kbd "M-'") 'expand-abbrev)
-(define-key global-map (kbd "M-+") 'count-lines-region)
+(define-key global-map (kbd "M-+") 'count-words-region)
 (define-key global-map (kbd "M-=") 'align-regexp)
 (define-key global-map (kbd "M-g") 'goto-line)
 (define-key global-map (kbd "M-Q") 'unfill-paragraph)
