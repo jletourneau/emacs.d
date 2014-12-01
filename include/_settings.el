@@ -98,6 +98,13 @@
  uniquify-buffer-name-style 'forward
  uniquify-strip-common-suffix t)
 
+;; Autoload zap-up-to-char (to be bound to M-z in place of zap-to-char)
+(autoload 'zap-up-to-char "misc"
+  "Kill up to, but not including ARGth occurrence of CHAR.
+
+\(fn arg char)"
+  'interactive)
+
 ;; Setup for buffers that represent actual files
 (add-hook
  'find-file-hook

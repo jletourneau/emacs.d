@@ -17,6 +17,7 @@
 (define-key global-map (kbd "M-+") 'count-words-region)
 (define-key global-map (kbd "M-=") 'align-regexp)
 (define-key global-map (kbd "M-g") 'goto-line)
+(define-key global-map (kbd "M-z") 'zap-up-to-char)
 (define-key global-map (kbd "M-Q") 'unfill-paragraph)
 
 (when (functionp 'cycle-spacing)
