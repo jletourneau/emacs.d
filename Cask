@@ -10,6 +10,7 @@
 (depends-on "f")
 (depends-on "git")
 (depends-on "git-commit-mode")
+(depends-on "git-gutter")
 (depends-on "git-rebase-mode")
 (depends-on "haml-mode")
 (depends-on "magit")

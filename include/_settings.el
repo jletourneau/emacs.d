@@ -116,6 +116,29 @@
 (add-hook 'text-mode-hook 'typo-mode)
 (add-hook 'org-mode-hook 'typo-mode)
 
+;; Git gutter mode
+(setq
+ git-gutter:added-sign "+"
+ git-gutter:deleted-sign "×"
+ git-gutter:modified-sign "~"
+ git-gutter:diff-option "--minimal"
+ git-gutter:lighter ""
+ git-gutter:hide-gutter t
+ git-gutter:verbosity 0)
+
+(after-load
+  'git-gutter
+  (set-face-foreground 'git-gutter:added "green")
+  (set-face-foreground 'git-gutter:deleted "red")
+  (set-face-foreground 'git-gutter:modified "blue"))
+
+(add-hook
+ 'find-file-hook
+ (lambda ()
+   (when (and (functionp 'git-gutter-mode)
+              (vc-backend (buffer-file-name)))
+     (git-gutter-mode 1))))
+
 ;; Rather than using ` and ' as left and right single quotes respectively,
 ;; keep ` literal (e.g. for Markdown/ReST) and use ' for both ‘ and ’.
 (after-load
