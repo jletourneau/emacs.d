@@ -19,8 +19,8 @@
  frame-title-format '(buffer-file-name "%f" ("%b"))
  hourglass-delay 2
  inhibit-default-init t
+ inhibit-splash-screen t
  inhibit-startup-echo-area-message user-login-name
- inhibit-startup-screen t
  kill-whole-line t
  magic-mode-alist '()
  mouse-yank-at-point t
