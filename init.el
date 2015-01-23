@@ -15,4 +15,5 @@
        (progn
          (load "_font" t)
          (load "_gui" t))
-     (load "_terminal" t))))
+     (load "_terminal" t))
+   (load "_local" t)))
