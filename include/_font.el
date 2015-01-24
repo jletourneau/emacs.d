@@ -10,12 +10,14 @@
 
 ;; Unicode ranges: http://www.alanwood.net/unicode/unicode_samples.html
 
+(defvar fontset-default-size 12)
+
 (setq
- fs-consolas (font-spec :family "Consolas")
- fs-symbola  (font-spec :family "Symbola")
- fs-menlo    (font-spec :family "Menlo")
- fs-courier  (font-spec :family "Courier")
- fs-arial    (font-spec :family "Arial Unicode MS"))
+ fs-consolas (font-spec :family "Consolas" :size fontset-default-size)
+ fs-symbola  (font-spec :family "Symbola" :size fontset-default-size)
+ fs-menlo    (font-spec :family "Menlo" :size fontset-default-size)
+ fs-courier  (font-spec :family "Courier" :size fontset-default-size)
+ fs-arial    (font-spec :family "Arial Unicode MS" :size fontset-default-size))
 
 ;; Basic Latin
 (set-fontset-font "fontset-standard" '(#x0000 . #x007f) fs-consolas)

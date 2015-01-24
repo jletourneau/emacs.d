@@ -6,6 +6,7 @@
  'after-init-hook
  (lambda ()
    (add-to-list 'load-path (expand-file-name "~/.emacs.d/include"))
+   (load "_local_pre_init" t)
    (load "_defuns" t)
    (load "_packages" t)
    (load "_settings" t)
@@ -16,4 +17,4 @@
          (load "_font" t)
          (load "_gui" t))
      (load "_terminal" t))
-   (load "_local" t)))
+   (load "_local_post_init" t)))
