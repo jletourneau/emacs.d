@@ -19,6 +19,9 @@
  fs-courier  (font-spec :family "Courier" :size fontset-default-size)
  fs-arial    (font-spec :family "Arial Unicode MS" :size fontset-default-size))
 
+;;=============================================================================
+;; BASIC MULTILINGUAL PLANE (0000-FFFF)
+
 ;; Basic Latin
 (set-fontset-font "fontset-standard" '(#x0000 . #x007f) fs-consolas)
   ;   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ?
@@ -420,6 +423,10 @@
 (set-fontset-font "fontset-standard" '(#xfe70 . #xfeff) fs-arial) ;; Arabic Presentation Forms-B
 (set-fontset-font "fontset-standard" '(#xff00 . #xffef) fs-arial) ;; Halfwidth and Fullwidth Forms
 (set-fontset-font "fontset-standard" '(#xfff0 . #xffff) fs-arial) ;; Specials
+
+;;=============================================================================
+;; SUPPLEMENTARY MULTILINGUAL PLANE (10000-1ffff)
+
 ;; (set-fontset-font "fontset-standard" '(#x10000 . #x1007f) "") ;; Linear B Syllabary
 ;; (set-fontset-font "fontset-standard" '(#x10080 . #x100ff) "") ;; Linear B Ideograms
 ;; (set-fontset-font "fontset-standard" '(#x10100 . #x1013f) "") ;; Aegean Numbers
@@ -505,13 +512,26 @@
 ;; (set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) "") ;; Alchemical Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
 ;; (set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
+
+;;=============================================================================
+;; SUPPLEMENTARY IDEOGRAPHIC PLANE (20000-2ffff)
+
 ;; (set-fontset-font "fontset-standard" '(#x20000 . #x2a6df) "") ;; CJK Unified Ideographs Extension B
 ;; (set-fontset-font "fontset-standard" '(#x2a700 . #x2b73f) "") ;; CJK Unified Ideographs Extension C
 ;; (set-fontset-font "fontset-standard" '(#x2b740 . #x2b81f) "") ;; CJK Unified Ideographs Extension D
 ;; (set-fontset-font "fontset-standard" '(#x2f800 . #x2fa1f) "") ;; CJK Compatibility Ideographs Supplement
+
+;;=============================================================================
+;; SUPPLEMENTARY SPECIAL-PURPOSE PLANE (e0000-effff)
+
 ;; (set-fontset-font "fontset-standard" '(#xe0000 . #xe007f) "") ;; Tags
 ;; (set-fontset-font "fontset-standard" '(#xe0100 . #xe01ef) "") ;; Variation Selectors Supplement
-;; (set-fontset-font "fontset-standard" '(#xf0000 . #xfffff) "") ;; Supplementary Private Use Area-A
+
+;;=============================================================================
+;; SUPPLEMENTARY PRIVATE USE AREA (f0000-10ffff)
+
+;; (set-fontset-font "fontset-standard" '(#xf0000  . #xfffff)  "") ;; Supplementary Private Use Area-A
+;; (set-fontset-font "fontset-standard" '(#x100000 . #x10ffff) "") ;; Supplementary Private Use Area-B
 
 ;; A few non-adjacent symbols also available in Consolas via MacRoman charset
 (set-fontset-font "fontset-standard" 'mac-roman fs-consolas)
