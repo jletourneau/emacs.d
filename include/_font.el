@@ -10,6 +10,9 @@
 
 ;; Unicode ranges: http://www.alanwood.net/unicode/unicode_samples.html
 
+(set-face-attribute 'fixed-pitch nil :family "Consolas")
+(set-face-attribute 'variable-pitch nil :family "Lucida Grande")
+
 (defvar fontset-default-size 12)
 
 (setq
