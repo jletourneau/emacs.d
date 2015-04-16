@@ -202,6 +202,7 @@
  trash-directory (expand-file-name "~/.Trash")
  ns-pop-up-frames nil
  ns-control-modifier 'control
+ ns-right-alternate-modifier 'control
  ns-alternate-modifier 'meta
  ns-command-modifier 'meta
  ns-function-modifier 'super)
