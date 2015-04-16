@@ -34,7 +34,8 @@
  mouse-wheel-progressive-speed t
  mouse-wheel-scroll-amount '(1)
  scroll-conservatively 20
- scroll-margin 8)
+ scroll-margin 8
+ scroll-preserve-screen-position t)
 
 ;; ido-mode settings
 (setq
