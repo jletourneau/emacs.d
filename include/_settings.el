@@ -201,7 +201,7 @@
  delete-by-moving-to-trash t
  trash-directory (expand-file-name "~/.Trash")
  ns-pop-up-frames nil
- mac-control-modifier 'control
- mac-option-modifier 'meta
- mac-command-modifier 'meta
- mac-function-modifier 'super)
+ ns-control-modifier 'control
+ ns-alternate-modifier 'meta
+ ns-command-modifier 'meta
+ ns-function-modifier 'super)
