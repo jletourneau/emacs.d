@@ -47,6 +47,12 @@
  ido-record-commands nil
  ido-show-dot-for-dired t)
 
+;; Shim basic error/warning/success faces for Emacs < 24.1
+;; (these are no-ops if the faces are already defined)
+(defface error   '((t :foreground "red"))    "Error.")
+(defface warning '((t :foreground "orange")) "Warning.")
+(defface success '((t :foreground "green"))  "Success.")
+
 ;; Calendar-related settings
 (setq
  calendar-latitude 42.73
@@ -78,7 +84,8 @@
 (column-number-mode t)
 (show-paren-mode t)
 (ido-mode t)
-(electric-pair-mode t)
+(when (fboundp 'electric-pair-mode)
+  (electric-pair-mode t))
 
 ;; Minor modes we don't want
 (menu-bar-mode -1)
@@ -86,7 +93,8 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (blink-cursor-mode -1)
-(electric-indent-mode -1)
+(when (fboundp 'electric-indent-mode)
+  (electric-indent-mode -1))
 
 ;; Smart tab completion
 (when (require 'smart-tab nil t)
