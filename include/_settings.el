@@ -125,6 +125,10 @@
 (add-hook 'text-mode-hook 'typo-mode)
 (add-hook 'org-mode-hook 'typo-mode)
 
+;; Magit setup
+(setq
+ magit-last-seen-setup-instructions "1.4.0")
+
 ;; Git gutter mode
 (setq
  git-gutter:added-sign "+"
