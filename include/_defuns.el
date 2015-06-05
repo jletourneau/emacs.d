@@ -38,3 +38,11 @@ a Dired buffer in the associated system application(s)."
     (dired-do-shell-command
      "open" current-prefix-arg
      (dired-get-marked-files t current-prefix-arg))))
+
+;; http://emacs-fu.blogspot.co.uk/2009/11/copying-lines-without-selecting-them.html
+(defadvice kill-region (before slick-cut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
