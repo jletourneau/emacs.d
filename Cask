@@ -27,3 +27,4 @@
 (depends-on "smart-tab")
 (depends-on "typo")
 (depends-on "yaml-mode")
+(depends-on "zenburn-theme")

@@ -15,6 +15,7 @@
    (load "_keybindings" t)
    (if (display-graphic-p)
        (progn
+         (load "_theme" t)
          (load "_font" t)
          (load "_gui" t))
      (load "_terminal" t))
