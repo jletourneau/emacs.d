@@ -144,12 +144,6 @@
  git-gutter:hide-gutter t
  git-gutter:verbosity 0)
 
-(after-load
-  'git-gutter
-  (set-face-foreground 'git-gutter:added "green")
-  (set-face-foreground 'git-gutter:deleted "red")
-  (set-face-foreground 'git-gutter:modified "blue"))
-
 (add-hook
  'find-file-hook
  (lambda ()
