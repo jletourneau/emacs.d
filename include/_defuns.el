@@ -48,3 +48,14 @@ a Dired buffer in the associated system application(s)."
    (if mark-active (list (region-beginning) (region-end))
      (list (line-beginning-position)
            (line-beginning-position 2)))))
+
+;; Helper function for highlighting CoffeeScript blocks in Haml
+(defun haml-fontify-region-as-coffeescript (beg end)
+  "Fontify CoffeeScript region from BEG to END."
+  (if (boundp 'coffee-font-lock-keywords)
+    (haml-fontify-region
+     beg end
+     coffee-font-lock-keywords
+     nil nil
+     (when (fboundp 'coffee-syntax-propertize-function)
+       #'coffee-syntax-propertize-function))))

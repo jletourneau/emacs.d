@@ -207,6 +207,14 @@
   'scss-mode
   (setq scss-compile-at-save nil))
 
+;; Haml setup
+(after-load
+  'haml-mode
+  (require 'coffee-mode nil t)
+  (add-to-list
+   'haml-fontify-filter-functions-alist
+   '("coffeescript" . haml-fontify-region-as-coffeescript)))
+
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
