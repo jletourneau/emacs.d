@@ -11,6 +11,8 @@ this repository's Caskfile."
   (require 'package)
   (package-refresh-contents)
   (package-install 'pallet)
+  ;; FIXME: need to (require 'pallet) to make this function def available,
+  ;; but dropping it in here doesn't seem to work (function hangs). Fix TBD.
   (pallet-install))
 
 (defun unfill-paragraph (current-point)
