@@ -83,10 +83,14 @@
 ;; Minor modes we do want
 (delete-selection-mode t)
 (column-number-mode t)
-(show-paren-mode t)
 (ido-mode t)
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode t))
+
+;; Paren/bracket matching config
+(when (fboundp 'show-paren-mode)
+  (show-paren-mode t)
+  (setq show-paren-style 'parenthesis))
 
 ;; Minor modes we don't want
 (menu-bar-mode -1)
