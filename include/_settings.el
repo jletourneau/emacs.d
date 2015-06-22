@@ -14,6 +14,7 @@
 (setq
  completion-ignore-case t
  confirm-kill-emacs 'y-or-n-p
+ custom-file "~/.emacs.d/include/_local_custom.el"
  display-time-24hr-format t
  display-time-day-and-date t
  frame-title-format '(buffer-file-name "%f" ("%b"))
