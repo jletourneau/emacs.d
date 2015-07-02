@@ -20,7 +20,11 @@
  fs-symbola  (font-spec :family "Symbola" :size fontset-default-size)
  fs-menlo    (font-spec :family "Menlo" :size fontset-default-size)
  fs-courier  (font-spec :family "Courier" :size fontset-default-size)
- fs-arial    (font-spec :family "Arial Unicode MS" :size fontset-default-size))
+ fs-arial    (font-spec :family "Arial Unicode MS" :size fontset-default-size)
+ fs-apple-symbols
+ (font-spec :family "Apple Symbols" :size fontset-default-size)
+ fs-apple-emoji
+ (font-spec :family "Apple Color Emoji" :size fontset-default-size))
 
 ;;=============================================================================
 ;; BASIC MULTILINGUAL PLANE (0000-FFFF)
@@ -209,7 +213,7 @@
   ; ₠ ₡ ₢ ₣ ₤ ₥ ₦ ₧ ₨ ₩ ₪ ₫ € ₭ ₮ ₯ ₰ ₱ ₲ ₳ ₴ ₵ ₶ ₷ ₸ ₹ ₺
 
 ;; Combining Diacritical Marks for Symbols
-(set-fontset-font "fontset-standard" '(#x20d0 . #x20ff) fs-symbola)
+(set-fontset-font "fontset-standard" '(#x20d0 . #x20ff) fs-apple-symbols)
   ; ⃐ ⃑ ⃒ ⃓ ⃔ ⃕ ⃖ ⃗ ⃘ ⃙ ⃚ ⃛ ⃜ ⃝ ⃞ ⃟ ⃠ ⃡ ⃢ ⃣ ⃤ ⃥ ⃦ ⃧ ⃨ ⃩ ⃪ ⃫ ⃬ ⃭ ⃮ ⃯ ⃰
 
 ;; Letterlike Symbols
@@ -226,7 +230,7 @@
 ;; Arrows
 (set-fontset-font "fontset-standard" '(#x2190 . #x2195) fs-consolas)
   ; ← ↑ → ↓ ↔ ↕
-(set-fontset-font "fontset-standard" '(#x2196 . #x21ff) fs-menlo)
+(set-fontset-font "fontset-standard" '(#x2196 . #x21ff) fs-symbola)
   ; ↖ ↗ ↘ ↙ ↚ ↛ ↜ ↝ ↞ ↟ ↠ ↡ ↢ ↣ ↤ ↥ ↦ ↧ ↨ ↩ ↪ ↫ ↬ ↭ ↮ ↯
   ; ↰ ↱ ↲ ↳ ↴ ↵ ↶ ↷ ↸ ↹ ↺ ↻ ↼ ↽ ↾ ↿ ⇀ ⇁ ⇂ ⇃ ⇄ ⇅ ⇆ ⇇ ⇈ ⇉ ⇊ ⇋ ⇌ ⇍ ⇎ ⇏
   ; ⇐ ⇑ ⇒ ⇓ ⇔ ⇕ ⇖ ⇗ ⇘ ⇙ ⇚ ⇛ ⇜ ⇝ ⇞ ⇟ ⇠ ⇡ ⇢ ⇣ ⇤ ⇥ ⇦ ⇧ ⇨ ⇩ ⇪ ⇫ ⇬ ⇭ ⇮ ⇯
@@ -264,7 +268,7 @@
   ; ⑀ ⑁ ⑂ ⑃ ⑄ ⑅ ⑆ ⑇ ⑈ ⑉ ⑊
 
 ;; Enclosed Alphanumerics
-(set-fontset-font "fontset-standard" '(#x2460 . #x24ff) fs-arial)
+(set-fontset-font "fontset-standard" '(#x2460 . #x24ff) fs-symbola)
   ; ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿
   ; ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟
   ; ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ
@@ -283,7 +287,7 @@
   ; ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▐ ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞
 
 ;; Geometric Shapes
-(set-fontset-font "fontset-standard" '(#x25a0 . #x25ff) fs-menlo)
+(set-fontset-font "fontset-standard" '(#x25a0 . #x25ff) fs-symbola)
   ; ■ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ► ▻ ▼ ▽ ▾ ▿
   ; ◀ ◁ ◂ ◃ ◄ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◘ ◙ ◚ ◛ ◜ ◝ ◞ ◟
   ; ◠ ◡ ◢ ◣ ◤ ◥ ◦ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶ ◷ ◸ ◹ ◺ ◻ ◼ ◽ ◾
@@ -370,7 +374,7 @@
 ;; (set-fontset-font "fontset-standard" '(#x2e80 . #x2eff) "") ;; CJK Radicals Supplement
 ;; (set-fontset-font "fontset-standard" '(#x2f00 . #x2fdf) "") ;; Kangxi Radicals
 ;; (set-fontset-font "fontset-standard" '(#x2ff0 . #x2fff) "") ;; Ideographic Description Characters
-(set-fontset-font "fontset-standard" '(#x3000 . #x303f) fs-arial) ;; CJK Symbols and Punctuation
+(set-fontset-font "fontset-standard" '(#x3000 . #x303f) fs-symbola) ;; CJK Symbols and Punctuation
 (set-fontset-font "fontset-standard" '(#x3040 . #x309f) fs-arial) ;; Hiragana
 (set-fontset-font "fontset-standard" '(#x30a0 . #x30ff) fs-arial) ;; Katakana
 (set-fontset-font "fontset-standard" '(#x3100 . #x312f) fs-arial) ;; Bopomofo
@@ -379,7 +383,7 @@
 (set-fontset-font "fontset-standard" '(#x31a0 . #x31bf) fs-arial) ;; Bopomofo Extended
 (set-fontset-font "fontset-standard" '(#x31c0 . #x31ef) fs-arial) ;; CJK Strokes
 (set-fontset-font "fontset-standard" '(#x31f0 . #x31ff) fs-arial) ;; Katakana Phonetic Extensions
-(set-fontset-font "fontset-standard" '(#x3200 . #x32ff) fs-arial) ;; Enclosed CJK Letters and Months
+(set-fontset-font "fontset-standard" '(#x3200 . #x32ff) fs-symbola) ;; Enclosed CJK Letters and Months
 (set-fontset-font "fontset-standard" '(#x3300 . #x33ff) fs-arial) ;; CJK Compatibility
 ;; (set-fontset-font "fontset-standard" '(#x3400 . #x4dbf) "") ;; CJK Unified Ideographs Extension A
 ;; (set-fontset-font "fontset-standard" '(#x4dc0 . #x4dff) "") ;; Yijing Hexagram Symbols
@@ -511,19 +515,19 @@
 ;; (set-fontset-font "fontset-standard" '(#x1d800 . #x1daaf) "") ;; Sutton SignWriting
 ;; (set-fontset-font "fontset-standard" '(#x1e800 . #x1e8df) "") ;; Mende Kikakui
 ;; (set-fontset-font "fontset-standard" '(#x1ee00 . #x1eeff) "") ;; Arabic Mathematical Alphabetic Symbols
-;; (set-fontset-font "fontset-standard" '(#x1f000 . #x1f02f) "") ;; Mahjong Tiles
-;; (set-fontset-font "fontset-standard" '(#x1f030 . #x1f09f) "") ;; Domino Tiles
-;; (set-fontset-font "fontset-standard" '(#x1f0a0 . #x1f0ff) "") ;; Playing Cards
-;; (set-fontset-font "fontset-standard" '(#x1f100 . #x1f1ff) "") ;; Enclosed Alphanumeric Supplement
-;; (set-fontset-font "fontset-standard" '(#x1f200 . #x1f2ff) "") ;; Enclosed Ideographic Supplement
-;; (set-fontset-font "fontset-standard" '(#x1f300 . #x1f5ff) "") ;; Miscellaneous Symbols And Pictographs
-;; (set-fontset-font "fontset-standard" '(#x1f600 . #x1f64f) "") ;; Emoticons
-;; (set-fontset-font "fontset-standard" '(#x1f650 . #x1f67f) "") ;; Ornamental Dingbats
-;; (set-fontset-font "fontset-standard" '(#x1f680 . #x1f6ff) "") ;; Transport And Map Symbols
-;; (set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) "") ;; Alchemical Symbols
-;; (set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
-;; (set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
-;; (set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) "") ;; Supplemental Symbols and Pictographs
+(set-fontset-font "fontset-standard" '(#x1f000 . #x1f02f) fs-apple-emoji) ;; Mahjong Tiles
+(set-fontset-font "fontset-standard" '(#x1f030 . #x1f09f) fs-apple-emoji) ;; Domino Tiles
+(set-fontset-font "fontset-standard" '(#x1f0a0 . #x1f0ff) fs-apple-emoji) ;; Playing Cards
+(set-fontset-font "fontset-standard" '(#x1f100 . #x1f1ff) fs-apple-emoji) ;; Enclosed Alphanumeric Supplement
+(set-fontset-font "fontset-standard" '(#x1f200 . #x1f2ff) fs-apple-emoji) ;; Enclosed Ideographic Supplement
+(set-fontset-font "fontset-standard" '(#x1f300 . #x1f5ff) fs-apple-emoji) ;; Miscellaneous Symbols And Pictographs
+(set-fontset-font "fontset-standard" '(#x1f600 . #x1f64f) fs-apple-emoji) ;; Emoticons
+(set-fontset-font "fontset-standard" '(#x1f650 . #x1f67f) fs-apple-emoji) ;; Ornamental Dingbats
+(set-fontset-font "fontset-standard" '(#x1f680 . #x1f6ff) fs-apple-emoji) ;; Transport And Map Symbols
+(set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) fs-symbola) ;; Alchemical Symbols
+(set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) fs-symbola) ;; Geometric Shapes Extended
+(set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) fs-symbola) ;; Supplemental Arrows-C
+(set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) fs-symbola) ;; Supplemental Symbols and Pictographs
 
 ;;=============================================================================
 ;; SUPPLEMENTARY IDEOGRAPHIC PLANE (20000-2ffff)
