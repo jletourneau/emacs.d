@@ -35,6 +35,10 @@
   ; @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
   ; ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 
+;; For everything outside 7-bit ASCII, use Symbola by default unless overridden
+;; by a later range declaration.
+(set-fontset-font "fontset-standard" '(#x0080 . #x10ffff) fs-symbola)
+
 ;; Latin-1 Supplement
 (set-fontset-font "fontset-standard" '(#x0080 . #x00ff) fs-consolas)
   ;  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
@@ -97,7 +101,7 @@
   ; Ӡ ӡ Ӣ ӣ Ӥ ӥ Ӧ ӧ Ө ө Ӫ ӫ Ӭ ӭ Ӯ ӯ Ӱ ӱ Ӳ ӳ Ӵ ӵ Ӷ ӷ Ӹ ӹ Ӻ ӻ Ӽ ӽ Ӿ
 
 ;; Cyrillic Supplement
-(set-fontset-font "fontset-standard" '(#x0500 . #x052f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x0500 . #x052f) "")
   ; Ԁ ԁ Ԃ ԃ Ԅ ԅ Ԇ ԇ Ԉ ԉ Ԋ ԋ Ԍ ԍ Ԏ ԏ Ԑ ԑ Ԓ ԓ Ԕ ԕ Ԗ ԗ Ԙ ԙ Ԛ ԛ Ԝ ԝ Ԟ ԟ
   ; Ԡ ԡ Ԣ ԣ Ԥ ԥ Ԧ ԧ
 
@@ -204,7 +208,7 @@
   ; ⁠ ⁡ ⁢ ⁣ ⁤
 
 ;; Superscripts and Subscripts
-(set-fontset-font "fontset-standard" '(#x2070 . #x209f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2070 . #x209f) "")
   ; ⁰ ⁱ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎
   ; ₐ ₑ ₒ ₓ ₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
 
@@ -217,27 +221,27 @@
   ; ⃐ ⃑ ⃒ ⃓ ⃔ ⃕ ⃖ ⃗ ⃘ ⃙ ⃚ ⃛ ⃜ ⃝ ⃞ ⃟ ⃠ ⃡ ⃢ ⃣ ⃤ ⃥ ⃦ ⃧ ⃨ ⃩ ⃪ ⃫ ⃬ ⃭ ⃮ ⃯ ⃰
 
 ;; Letterlike Symbols
-(set-fontset-font "fontset-standard" '(#x2100 . #x214f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2100 . #x214f) "")
   ; ℀ ℁ ℂ ℃ ℄ ℅ ℆ ℇ ℈ ℉ ℊ ℋ ℌ ℍ ℎ ℏ ℐ ℑ ℒ ℓ ℔ ℕ № ℗ ℘ ℙ ℚ ℛ ℜ ℝ ℞ ℟
   ; ℠ ℡ ™ ℣ ℤ ℥ Ω ℧ ℨ ℩ K Å ℬ ℭ ℮ ℯ ℰ ℱ Ⅎ ℳ ℴ ℵ ℶ ℷ ℸ ℹ ℺ ℻ ℼ ℽ ℾ ℿ
   ; ⅀ ⅁ ⅂ ⅃ ⅄ ⅅ ⅆ ⅇ ⅈ ⅉ ⅊ ⅋ ⅌ ⅍ ⅎ
 
 ;; Number Forms
-(set-fontset-font "fontset-standard" '(#x2150 . #x218f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2150 . #x218f) "")
   ; ⅐ ⅑ ⅒ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ ⅟ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ
   ; ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ ↀ ↁ ↂ Ↄ ↄ ↅ ↆ ↇ ↈ ↉
 
 ;; Arrows
 (set-fontset-font "fontset-standard" '(#x2190 . #x2195) fs-consolas)
   ; ← ↑ → ↓ ↔ ↕
-(set-fontset-font "fontset-standard" '(#x2196 . #x21ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2196 . #x21ff) "")
   ; ↖ ↗ ↘ ↙ ↚ ↛ ↜ ↝ ↞ ↟ ↠ ↡ ↢ ↣ ↤ ↥ ↦ ↧ ↨ ↩ ↪ ↫ ↬ ↭ ↮ ↯
   ; ↰ ↱ ↲ ↳ ↴ ↵ ↶ ↷ ↸ ↹ ↺ ↻ ↼ ↽ ↾ ↿ ⇀ ⇁ ⇂ ⇃ ⇄ ⇅ ⇆ ⇇ ⇈ ⇉ ⇊ ⇋ ⇌ ⇍ ⇎ ⇏
   ; ⇐ ⇑ ⇒ ⇓ ⇔ ⇕ ⇖ ⇗ ⇘ ⇙ ⇚ ⇛ ⇜ ⇝ ⇞ ⇟ ⇠ ⇡ ⇢ ⇣ ⇤ ⇥ ⇦ ⇧ ⇨ ⇩ ⇪ ⇫ ⇬ ⇭ ⇮ ⇯
   ; ⇰ ⇱ ⇲ ⇳ ⇴ ⇵ ⇶ ⇷ ⇸ ⇹ ⇺ ⇻ ⇼ ⇽ ⇾
 
 ;; Mathematical Operators
-(set-fontset-font "fontset-standard" '(#x2200 . #x22ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2200 . #x22ff) "")
   ; ∀ ∁ ∂ ∃ ∄ ∅ ∆ ∇ ∈ ∉ ∊ ∋ ∌ ∍ ∎ ∏ ∐ ∑ − ∓ ∔ ∕ ∖ ∗ ∘ ∙ √ ∛ ∜ ∝ ∞ ∟
   ; ∠ ∡ ∢ ∣ ∤ ∥ ∦ ∧ ∨ ∩ ∪ ∫ ∬ ∭ ∮ ∯ ∰ ∱ ∲ ∳ ∴ ∵ ∶ ∷ ∸ ∹ ∺ ∻ ∼ ∽ ∾ ∿
   ; ≀ ≁ ≂ ≃ ≄ ≅ ≆ ≇ ≈ ≉ ≊ ≋ ≌ ≍ ≎ ≏ ≐ ≑ ≒ ≓ ≔ ≕ ≖ ≗ ≘ ≙ ≚ ≛ ≜ ≝ ≞ ≟
@@ -248,7 +252,7 @@
   ; ⋠ ⋡ ⋢ ⋣ ⋤ ⋥ ⋦ ⋧ ⋨ ⋩ ⋪ ⋫ ⋬ ⋭ ⋮ ⋯ ⋰ ⋱ ⋲ ⋳ ⋴ ⋵ ⋶ ⋷ ⋸ ⋹ ⋺ ⋻ ⋼ ⋽ ⋾
 
 ;; Miscellaneous Technical
-(set-fontset-font "fontset-standard" '(#x2300 . #x23ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2300 . #x23ff) "")
   ; ⌀ ⌁ ⌂ ⌃ ⌄ ⌅ ⌆ ⌇ ⌈ ⌉ ⌊ ⌋ ⌌ ⌍ ⌎ ⌏ ⌐ ⌑ ⌒ ⌓ ⌔ ⌕ ⌖ ⌗ ⌘ ⌙ ⌚ ⌛ ⌜ ⌝ ⌞ ⌟
   ; ⌠ ⌡ ⌢ ⌣ ⌤ ⌥ ⌦ ⌧ ⌨ 〈 〉 ⌫ ⌬ ⌭ ⌮ ⌯ ⌰ ⌱ ⌲ ⌳ ⌴ ⌵ ⌶ ⌷ ⌸ ⌹ ⌺ ⌻ ⌼ ⌽ ⌾ ⌿
   ; ⍀ ⍁ ⍂ ⍃ ⍄ ⍅ ⍆ ⍇ ⍈ ⍉ ⍊ ⍋ ⍌ ⍍ ⍎ ⍏ ⍐ ⍑ ⍒ ⍓ ⍔ ⍕ ⍖ ⍗ ⍘ ⍙ ⍚ ⍛ ⍜ ⍝ ⍞ ⍟
@@ -259,16 +263,16 @@
   ; ⏠ ⏡ ⏢ ⏣ ⏤ ⏥ ⏦ ⏧ ⏨ ⏩ ⏪ ⏫ ⏬ ⏭ ⏮ ⏯ ⏰ ⏱ ⏲ ⏳
 
 ;; Control Pictures
-(set-fontset-font "fontset-standard" '(#x2400 . #x243f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2400 . #x243f) "")
   ; ␀ ␁ ␂ ␃ ␄ ␅ ␆ ␇ ␈ ␉ ␊ ␋ ␌ ␍ ␎ ␏ ␐ ␑ ␒ ␓ ␔ ␕ ␖ ␗ ␘ ␙ ␚ ␛ ␜ ␝ ␞ ␟
   ; ␠ ␡ ␢ ␣ ␤ ␥ ␦
 
 ;; Optical Character Recognition
-(set-fontset-font "fontset-standard" '(#x2440 . #x245f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2440 . #x245f) "")
   ; ⑀ ⑁ ⑂ ⑃ ⑄ ⑅ ⑆ ⑇ ⑈ ⑉ ⑊
 
 ;; Enclosed Alphanumerics
-(set-fontset-font "fontset-standard" '(#x2460 . #x24ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2460 . #x24ff) "")
   ; ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿
   ; ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟
   ; ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ
@@ -287,13 +291,13 @@
   ; ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▐ ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞
 
 ;; Geometric Shapes
-(set-fontset-font "fontset-standard" '(#x25a0 . #x25ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x25a0 . #x25ff) "")
   ; ■ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ► ▻ ▼ ▽ ▾ ▿
   ; ◀ ◁ ◂ ◃ ◄ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◘ ◙ ◚ ◛ ◜ ◝ ◞ ◟
   ; ◠ ◡ ◢ ◣ ◤ ◥ ◦ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶ ◷ ◸ ◹ ◺ ◻ ◼ ◽ ◾
 
 ;; Miscellaneous Symbols
-(set-fontset-font "fontset-standard" '(#x2600 . #x26ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2600 . #x26ff) "")
   ; ☀ ☁ ☂ ☃ ☄ ★ ☆ ☇ ☈ ☉ ☊ ☋ ☌ ☍ ☎ ☏ ☐ ☑ ☒ ☓ ☔ ☕ ☖ ☗ ☘ ☙ ☚ ☛ ☜ ☝ ☞ ☟
   ; ☠ ☡ ☢ ☣ ☤ ☥ ☦ ☧ ☨ ☩ ☪ ☫ ☬ ☭ ☮ ☯ ☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷ ☸ ☹ ☺ ☻ ☼ ☽ ☾ ☿
   ; ♀ ♁ ♂ ♃ ♄ ♅ ♆ ♇ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟
@@ -304,7 +308,7 @@
   ; ⛠ ⛡ ⛢ ⛣ ⛤ ⛥ ⛦ ⛧ ⛨ ⛩ ⛪ ⛫ ⛬ ⛭ ⛮ ⛯ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛶ ⛷ ⛸ ⛹ ⛺ ⛻ ⛼ ⛽ ⛾
 
 ;; Dingbats
-(set-fontset-font "fontset-standard" '(#x2700 . #x27bf) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2700 . #x27bf) "")
   ; ✁ ✂ ✃ ✄ ✅ ✆ ✇ ✈ ✉ ✊ ✋ ✌ ✍ ✎ ✏ ✐ ✑ ✒ ✓ ✔ ✕ ✖ ✗ ✘ ✙ ✚ ✛ ✜ ✝ ✞ ✟
   ; ✠ ✡ ✢ ✣ ✤ ✥ ✦ ✧ ✨ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✱ ✲ ✳ ✴ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿
   ; ❀ ❁ ❂ ❃ ❄ ❅ ❆ ❇ ❈ ❉ ❊ ❋ ❌ ❍ ❎ ❏ ❐ ❑ ❒ ❓ ❔ ❕ ❖ ❗ ❘ ❙ ❚ ❛ ❜ ❝ ❞ ❟
@@ -313,16 +317,16 @@
   ; ➠ ➡ ➢ ➣ ➤ ➥ ➦ ➧ ➨ ➩ ➪ ➫ ➬ ➭ ➮ ➯ ➰ ➱ ➲ ➳ ➴ ➵ ➶ ➷ ➸ ➹ ➺ ➻ ➼ ➽ ➾
 
 ;; Miscellaneous Mathematical Symbols-A
-(set-fontset-font "fontset-standard" '(#x27c0 . #x27ef) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x27c0 . #x27ef) "")
   ; ⟀ ⟁ ⟂ ⟃ ⟄ ⟅ ⟆ ⟇ ⟈ ⟉ ⟊ ⟋ ⟌ ⟍ ⟎ ⟏ ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ⟛ ⟜ ⟝ ⟞ ⟟
   ; ⟠ ⟡ ⟢ ⟣ ⟤ ⟥ ⟦ ⟧ ⟨ ⟩ ⟪ ⟫ ⟬ ⟭ ⟮
 
 ;; Supplemental Arrows-A
-(set-fontset-font "fontset-standard" '(#x27f0 . #x27ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x27f0 . #x27ff) "")
   ; ⟰ ⟱ ⟲ ⟳ ⟴ ⟵ ⟶ ⟷ ⟸ ⟹ ⟺ ⟻ ⟼ ⟽ ⟾
 
 ;; Braille Patterns
-(set-fontset-font "fontset-standard" '(#x2800 . #x28ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2800 . #x28ff) "")
   ; ⠀ ⠁ ⠂ ⠃ ⠄ ⠅ ⠆ ⠇ ⠈ ⠉ ⠊ ⠋ ⠌ ⠍ ⠎ ⠏ ⠐ ⠑ ⠒ ⠓ ⠔ ⠕ ⠖ ⠗ ⠘ ⠙ ⠚ ⠛ ⠜ ⠝ ⠞ ⠟
   ; ⠠ ⠡ ⠢ ⠣ ⠤ ⠥ ⠦ ⠧ ⠨ ⠩ ⠪ ⠫ ⠬ ⠭ ⠮ ⠯ ⠰ ⠱ ⠲ ⠳ ⠴ ⠵ ⠶ ⠷ ⠸ ⠹ ⠺ ⠻ ⠼ ⠽ ⠾ ⠿
   ; ⡀ ⡁ ⡂ ⡃ ⡄ ⡅ ⡆ ⡇ ⡈ ⡉ ⡊ ⡋ ⡌ ⡍ ⡎ ⡏ ⡐ ⡑ ⡒ ⡓ ⡔ ⡕ ⡖ ⡗ ⡘ ⡙ ⡚ ⡛ ⡜ ⡝ ⡞ ⡟
@@ -333,21 +337,21 @@
   ; ⣠ ⣡ ⣢ ⣣ ⣤ ⣥ ⣦ ⣧ ⣨ ⣩ ⣪ ⣫ ⣬ ⣭ ⣮ ⣯ ⣰ ⣱ ⣲ ⣳ ⣴ ⣵ ⣶ ⣷ ⣸ ⣹ ⣺ ⣻ ⣼ ⣽ ⣾
 
 ;; Supplemental Arrows-B
-(set-fontset-font "fontset-standard" '(#x2900 . #x297f) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2900 . #x297f) "")
   ; ⤀ ⤁ ⤂ ⤃ ⤄ ⤅ ⤆ ⤇ ⤈ ⤉ ⤊ ⤋ ⤌ ⤍ ⤎ ⤏ ⤐ ⤑ ⤒ ⤓ ⤔ ⤕ ⤖ ⤗ ⤘ ⤙ ⤚ ⤛ ⤜ ⤝ ⤞ ⤟
   ; ⤠ ⤡ ⤢ ⤣ ⤤ ⤥ ⤦ ⤧ ⤨ ⤩ ⤪ ⤫ ⤬ ⤭ ⤮ ⤯ ⤰ ⤱ ⤲ ⤳ ⤴ ⤵ ⤶ ⤷ ⤸ ⤹ ⤺ ⤻ ⤼ ⤽ ⤾ ⤿
   ; ⥀ ⥁ ⥂ ⥃ ⥄ ⥅ ⥆ ⥇ ⥈ ⥉ ⥊ ⥋ ⥌ ⥍ ⥎ ⥏ ⥐ ⥑ ⥒ ⥓ ⥔ ⥕ ⥖ ⥗ ⥘ ⥙ ⥚ ⥛ ⥜ ⥝ ⥞ ⥟
   ; ⥠ ⥡ ⥢ ⥣ ⥤ ⥥ ⥦ ⥧ ⥨ ⥩ ⥪ ⥫ ⥬ ⥭ ⥮ ⥯ ⥰ ⥱ ⥲ ⥳ ⥴ ⥵ ⥶ ⥷ ⥸ ⥹ ⥺ ⥻ ⥼ ⥽ ⥾
 
 ;; Miscellaneous Mathematical Symbols-B
-(set-fontset-font "fontset-standard" '(#x2980 . #x29ff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2980 . #x29ff) "")
   ; ⦀ ⦁ ⦂ ⦃ ⦄ ⦅ ⦆ ⦇ ⦈ ⦉ ⦊ ⦋ ⦌ ⦍ ⦎ ⦏ ⦐ ⦑ ⦒ ⦓ ⦔ ⦕ ⦖ ⦗ ⦘ ⦙ ⦚ ⦛ ⦜ ⦝ ⦞ ⦟
   ; ⦠ ⦡ ⦢ ⦣ ⦤ ⦥ ⦦ ⦧ ⦨ ⦩ ⦪ ⦫ ⦬ ⦭ ⦮ ⦯ ⦰ ⦱ ⦲ ⦳ ⦴ ⦵ ⦶ ⦷ ⦸ ⦹ ⦺ ⦻ ⦼ ⦽ ⦾ ⦿
   ; ⧀ ⧁ ⧂ ⧃ ⧄ ⧅ ⧆ ⧇ ⧈ ⧉ ⧊ ⧋ ⧌ ⧍ ⧎ ⧏ ⧐ ⧑ ⧒ ⧓ ⧔ ⧕ ⧖ ⧗ ⧘ ⧙ ⧚ ⧛ ⧜ ⧝ ⧞ ⧟
   ; ⧠ ⧡ ⧢ ⧣ ⧤ ⧥ ⧦ ⧧ ⧨ ⧩ ⧪ ⧫ ⧬ ⧭ ⧮ ⧯ ⧰ ⧱ ⧲ ⧳ ⧴ ⧵ ⧶ ⧷ ⧸ ⧹ ⧺ ⧻ ⧼ ⧽ ⧾
 
 ;; Supplemental Mathematical Operators
-(set-fontset-font "fontset-standard" '(#x2a00 . #x2aff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2a00 . #x2aff) "")
   ; ⨀ ⨁ ⨂ ⨃ ⨄ ⨅ ⨆ ⨇ ⨈ ⨉ ⨊ ⨋ ⨌ ⨍ ⨎ ⨏ ⨐ ⨑ ⨒ ⨓ ⨔ ⨕ ⨖ ⨗ ⨘ ⨙ ⨚ ⨛ ⨜ ⨝ ⨞ ⨟
   ; ⨠ ⨡ ⨢ ⨣ ⨤ ⨥ ⨦ ⨧ ⨨ ⨩ ⨪ ⨫ ⨬ ⨭ ⨮ ⨯ ⨰ ⨱ ⨲ ⨳ ⨴ ⨵ ⨶ ⨷ ⨸ ⨹ ⨺ ⨻ ⨼ ⨽ ⨾ ⨿
   ; ⩀ ⩁ ⩂ ⩃ ⩄ ⩅ ⩆ ⩇ ⩈ ⩉ ⩊ ⩋ ⩌ ⩍ ⩎ ⩏ ⩐ ⩑ ⩒ ⩓ ⩔ ⩕ ⩖ ⩗ ⩘ ⩙ ⩚ ⩛ ⩜ ⩝ ⩞ ⩟
@@ -358,7 +362,7 @@
   ; ⫠ ⫡ ⫢ ⫣ ⫤ ⫥ ⫦ ⫧ ⫨ ⫩ ⫪ ⫫ ⫬ ⫭ ⫮ ⫯ ⫰ ⫱ ⫲ ⫳ ⫴ ⫵ ⫶ ⫷ ⫸ ⫹ ⫺ ⫻ ⫼ ⫽ ⫾
 
 ;; Miscellaneous Symbols and Arrows
-(set-fontset-font "fontset-standard" '(#x2b00 . #x2bff) fs-symbola)
+;; (set-fontset-font "fontset-standard" '(#x2b00 . #x2bff) "")
   ; ⬀ ⬁ ⬂ ⬃ ⬄ ⬅ ⬆ ⬇ ⬈ ⬉ ⬊ ⬋ ⬌ ⬍ ⬎ ⬏ ⬐ ⬑ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ⬙ ⬚ ⬛ ⬜ ⬝ ⬞ ⬟
   ; ⬠ ⬡ ⬢ ⬣ ⬤ ⬥ ⬦ ⬧ ⬨ ⬩ ⬪ ⬫ ⬬ ⬭ ⬮ ⬯ ⬰ ⬱ ⬲ ⬳ ⬴ ⬵ ⬶ ⬷ ⬸ ⬹ ⬺ ⬻ ⬼ ⬽ ⬾ ⬿
   ; ⭀ ⭁ ⭂ ⭃ ⭄ ⭅ ⭆ ⭇ ⭈ ⭉ ⭊ ⭋ ⭌ ⭐ ⭑ ⭒ ⭓ ⭔ ⭕ ⭖ ⭗ ⭘ ⭙
@@ -374,7 +378,7 @@
 ;; (set-fontset-font "fontset-standard" '(#x2e80 . #x2eff) "") ;; CJK Radicals Supplement
 ;; (set-fontset-font "fontset-standard" '(#x2f00 . #x2fdf) "") ;; Kangxi Radicals
 ;; (set-fontset-font "fontset-standard" '(#x2ff0 . #x2fff) "") ;; Ideographic Description Characters
-(set-fontset-font "fontset-standard" '(#x3000 . #x303f) fs-symbola) ;; CJK Symbols and Punctuation
+;; (set-fontset-font "fontset-standard" '(#x3000 . #x303f) "") ;; CJK Symbols and Punctuation
 (set-fontset-font "fontset-standard" '(#x3040 . #x309f) fs-arial) ;; Hiragana
 (set-fontset-font "fontset-standard" '(#x30a0 . #x30ff) fs-arial) ;; Katakana
 (set-fontset-font "fontset-standard" '(#x3100 . #x312f) fs-arial) ;; Bopomofo
@@ -383,7 +387,7 @@
 (set-fontset-font "fontset-standard" '(#x31a0 . #x31bf) fs-arial) ;; Bopomofo Extended
 (set-fontset-font "fontset-standard" '(#x31c0 . #x31ef) fs-arial) ;; CJK Strokes
 (set-fontset-font "fontset-standard" '(#x31f0 . #x31ff) fs-arial) ;; Katakana Phonetic Extensions
-(set-fontset-font "fontset-standard" '(#x3200 . #x32ff) fs-symbola) ;; Enclosed CJK Letters and Months
+;; (set-fontset-font "fontset-standard" '(#x3200 . #x32ff) "") ;; Enclosed CJK Letters and Months
 (set-fontset-font "fontset-standard" '(#x3300 . #x33ff) fs-arial) ;; CJK Compatibility
 ;; (set-fontset-font "fontset-standard" '(#x3400 . #x4dbf) "") ;; CJK Unified Ideographs Extension A
 ;; (set-fontset-font "fontset-standard" '(#x4dc0 . #x4dff) "") ;; Yijing Hexagram Symbols
@@ -424,8 +428,8 @@
 (set-fontset-font "fontset-standard" '(#xfb00 . #xfb4f) fs-arial) ;; Alphabetic Presentation Forms
 (set-fontset-font "fontset-standard" '(#xfb50 . #xfdff) fs-arial) ;; Arabic Presentation Forms-A
 (set-fontset-font "fontset-standard" '(#xfe00 . #xfe0f) fs-arial) ;; Variation Selectors
-(set-fontset-font "fontset-standard" '(#xfe10 . #xfe1f) fs-symbola) ;; Vertical Forms
-(set-fontset-font "fontset-standard" '(#xfe20 . #xfe2f) fs-symbola) ;; Combining Half Marks
+;; (set-fontset-font "fontset-standard" '(#xfe10 . #xfe1f) "") ;; Vertical Forms
+;; (set-fontset-font "fontset-standard" '(#xfe20 . #xfe2f) "") ;; Combining Half Marks
 (set-fontset-font "fontset-standard" '(#xfe30 . #xfe4f) fs-arial) ;; CJK Compatibility Forms
 (set-fontset-font "fontset-standard" '(#xfe50 . #xfe6f) fs-arial) ;; Small Form Variants
 (set-fontset-font "fontset-standard" '(#xfe70 . #xfeff) fs-arial) ;; Arabic Presentation Forms-B
@@ -524,10 +528,10 @@
 (set-fontset-font "fontset-standard" '(#x1f600 . #x1f64f) fs-apple-emoji) ;; Emoticons
 (set-fontset-font "fontset-standard" '(#x1f650 . #x1f67f) fs-apple-emoji) ;; Ornamental Dingbats
 (set-fontset-font "fontset-standard" '(#x1f680 . #x1f6ff) fs-apple-emoji) ;; Transport And Map Symbols
-(set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) fs-symbola) ;; Alchemical Symbols
-(set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) fs-symbola) ;; Geometric Shapes Extended
-(set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) fs-symbola) ;; Supplemental Arrows-C
-(set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) fs-symbola) ;; Supplemental Symbols and Pictographs
+;; (set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) "") ;; Alchemical Symbols
+;; (set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
+;; (set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
+;; (set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) "") ;; Supplemental Symbols and Pictographs
 
 ;;=============================================================================
 ;; SUPPLEMENTARY IDEOGRAPHIC PLANE (20000-2ffff)
