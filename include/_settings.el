@@ -132,9 +132,7 @@
 
 ;; Magit setup
 (setq
- magit-revert-buffers 'silent
- magit-last-seen-setup-instructions "1.4.0")
-
+ magit-revert-buffers 'silent)
 ;; Git gutter mode
 (setq
  git-gutter:added-sign "+"
