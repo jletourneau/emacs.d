@@ -132,6 +132,7 @@
 
 ;; Magit setup
 (setq
+ magit-revert-buffers 'silent
  magit-last-seen-setup-instructions "1.4.0")
 
 ;; Git gutter mode
