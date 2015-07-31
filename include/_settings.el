@@ -154,7 +154,7 @@
 ;; keep ` literal (e.g. for Markdown/ReST) and use ' for both ‘ and ’.
 (after-load
   'typo
-  (setq typo-language "English")
+  (setq-default typo-language "English")
   (define-typo-cycle typo-cycle-single-quotation-mark
     "Cycle through right and left single quotes and typewriter apostrophe."
     ("’" "‘" "'"))
