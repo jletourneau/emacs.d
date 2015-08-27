@@ -59,3 +59,29 @@ a Dired buffer in the associated system application(s)."
      nil nil
      (when (fboundp 'coffee-syntax-propertize-function)
        #'coffee-syntax-propertize-function))))
+
+(define-minor-mode shifted-numbers-mode
+  "Toggle shifted numbers mode. When enabled, the number keys will output their
+corresponding symbols when pressed on their own, and will output digits when
+pressed along with Shift."
+  nil " shifted"
+  '(("1" . (lambda () (interactive) (insert-char ?!)))
+    ("2" . (lambda () (interactive) (insert-char ?@)))
+    ("3" . (lambda () (interactive) (insert-char ?#)))
+    ("4" . (lambda () (interactive) (insert-char ?$)))
+    ("5" . (lambda () (interactive) (insert-char ?%)))
+    ("6" . (lambda () (interactive) (insert-char ?^)))
+    ("7" . (lambda () (interactive) (insert-char ?&)))
+    ("8" . (lambda () (interactive) (insert-char ?*)))
+    ("9" . (lambda () (interactive) (insert-char ?\()))
+    ("0" . (lambda () (interactive) (insert-char ?\))))
+    ("!" . (lambda () (interactive) (insert-char ?1)))
+    ("@" . (lambda () (interactive) (insert-char ?2)))
+    ("#" . (lambda () (interactive) (insert-char ?3)))
+    ("$" . (lambda () (interactive) (insert-char ?4)))
+    ("%" . (lambda () (interactive) (insert-char ?5)))
+    ("^" . (lambda () (interactive) (insert-char ?6)))
+    ("&" . (lambda () (interactive) (insert-char ?7)))
+    ("*" . (lambda () (interactive) (insert-char ?8)))
+    ("(" . (lambda () (interactive) (insert-char ?9)))
+    (")" . (lambda () (interactive) (insert-char ?0)))))
