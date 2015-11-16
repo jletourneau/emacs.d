@@ -531,7 +531,7 @@
 ;; (set-fontset-font "fontset-standard" '(#x1f700 . #x1f77f) "") ;; Alchemical Symbols
 ;; (set-fontset-font "fontset-standard" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
 ;; (set-fontset-font "fontset-standard" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
-;; (set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) "") ;; Supplemental Symbols and Pictographs
+(set-fontset-font "fontset-standard" '(#x1f900 . #x1f9ff) fs-apple-emoji) ;; Supplemental Symbols and Pictographs
 
 ;;=============================================================================
 ;; SUPPLEMENTARY IDEOGRAPHIC PLANE (20000-2ffff)
