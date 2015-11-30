@@ -19,7 +19,7 @@
 (define-key global-map (kbd "M-=") 'align-regexp)
 (define-key global-map (kbd "M-g") 'goto-line)
 (define-key global-map (kbd "M-z") 'zap-up-to-char)
-(define-key global-map (kbd "M-Q") 'unfill-paragraph)
+(define-key global-map (kbd "M-Q") 'unfill-region)
 
 (when (functionp 'cycle-spacing)
   (define-key global-map (kbd "M-SPC") 'cycle-spacing))

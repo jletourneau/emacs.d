@@ -15,14 +15,14 @@ this repository's Caskfile."
   ;; but dropping it in here doesn't seem to work (function hangs). Fix TBD.
   (pallet-install))
 
-(defun unfill-paragraph (current-point)
-  "Unfill the paragraph containing point; i.e. remove all newlines between
-the paragraph separator prior to point and the one after it."
-  (interactive "d")
+(defun unfill-region (start end)
+  "Unfill the current region; i.e. remove all newlines within paragraphs.
+If an active region is not present, unfill the entire buffer."
+  (interactive "r")
   (let ((fill-column (point-max)))
-    (mark-paragraph)
-    (fill-region (point) (mark))
-    (goto-char current-point)))
+    (if (use-region-p)
+        (fill-region start end)
+      (fill-region (point-min) (point-max)))))
 
 (defun beginning-of-line-dwim ()
   "Move point to the beginning of the line, unless it is already there,
