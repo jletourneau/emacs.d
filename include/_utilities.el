@@ -4,6 +4,7 @@
 ;; Set up load path
 (when (and (memq window-system '(mac ns))
            (fboundp 'exec-path-from-shell-initialize))
+  (setq exec-path-from-shell-arguments (list "-l"))
   (exec-path-from-shell-initialize))
 
 ;; Use GNU ls if available for dired support
