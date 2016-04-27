@@ -198,6 +198,12 @@
  'ruby-mode-hook
  (lambda () (electric-indent-local-mode t)))
 
+;; Python setup
+(when (fboundp 'flycheck-mode)
+  (add-hook
+   'python-mode-hook
+   (lambda () (flycheck-mode 1))))
+
 ;; Sass/SCSS setup
 (after-load
   'css-mode
