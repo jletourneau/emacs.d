@@ -216,6 +216,7 @@
 ;; Haml setup
 (after-load
   'haml-mode
+  (define-key haml-mode-map (kbd "C-c C-SPC") 'haml-mark-block)
   (require 'coffee-mode nil t)
   (add-to-list
    'haml-fontify-filter-functions-alist

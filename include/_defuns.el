@@ -59,3 +59,16 @@ a Dired buffer in the associated system application(s)."
      nil nil
      (when (fboundp 'coffee-syntax-propertize-function)
        #'coffee-syntax-propertize-function))))
+
+;; Modified version of haml-mark-sexp-but-not-next-line in haml-mode.el
+(defun haml-mark-block ()
+  (interactive)
+  (beginning-of-line)
+  (haml-mark-sexp)
+  (set-mark
+   (save-excursion
+     (goto-char (mark))
+     (unless (eobp)
+       (forward-line -1)
+       (end-of-line))
+     (point))))
