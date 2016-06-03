@@ -21,6 +21,8 @@
 (define-key global-map (kbd "M-z") 'zap-up-to-char)
 (define-key global-map (kbd "M-Q") 'unfill-region)
 
+(global-set-key [remap fill-paragraph] #'fill-or-unfill-dwim)
+
 (when (functionp 'cycle-spacing)
   (define-key global-map (kbd "M-SPC") 'cycle-spacing))
 

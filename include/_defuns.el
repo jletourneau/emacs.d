@@ -24,6 +24,17 @@ If an active region is not present, unfill the entire buffer."
         (fill-region start end)
       (fill-region (point-min) (point-max)))))
 
+;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+(defun fill-or-unfill-dwim ()
+  "Like `fill-paragraph', but unfill if used twice consecutively."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command 'fill-or-unfill-dwim)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
+
 (defun beginning-of-line-dwim ()
   "Move point to the beginning of the line, unless it is already there,
 in which case move point to the first non-whitespace character on the line."
