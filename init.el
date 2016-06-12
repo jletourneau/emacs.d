@@ -5,7 +5,9 @@
 (add-hook
  'after-init-hook
  (lambda ()
-   (add-to-list 'load-path (expand-file-name "~/.emacs.d/include"))
+   (add-to-list
+    'load-path
+    (concat (file-name-as-directory user-emacs-directory) "include"))
    (load "_local_custom" t)
    (load "_local_pre_init" t)
    (load "_defuns" t)
