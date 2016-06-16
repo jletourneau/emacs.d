@@ -25,6 +25,7 @@
  kill-whole-line t
  magic-mode-alist '()
  mouse-yank-at-point t
+ require-final-newline t
  ring-bell-function 'ignore
  save-abbrevs nil
  use-dialog-box nil
