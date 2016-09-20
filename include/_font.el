@@ -10,15 +10,19 @@
 
 ;; Unicode ranges: http://www.alanwood.net/unicode/unicode_samples.html
 
-(set-default-font "Menlo 12")
-(set-face-attribute 'fixed-pitch nil :family "Menlo")
-(set-face-attribute 'variable-pitch nil :family "Lucida Grande")
+(defvar default-fixed-pitch-family "SF Mono")
+(defvar default-variable-pitch-family "Lucida Grande")
+
+(set-face-attribute 'fixed-pitch nil :family default-fixed-pitch-family)
+(set-face-attribute 'variable-pitch nil :family default-variable-pitch-family)
 
 (create-fontset-from-fontset-spec
- "-*-Menlo-normal-normal-normal-*-12-*-*-*-m-0-fontset-custom")
+ (concat "-*-"
+         default-fixed-pitch-family
+         "-normal-normal-normal-*-12-*-*-*-m-0-fontset-custom"))
 
 (setq
- fs-menlo         (font-spec :family "Menlo")
+ fs-default       (font-spec :family default-fixed-pitch-family)
  fs-symbola       (font-spec :family "Symbola")
  fs-courier       (font-spec :family "Courier")
  fs-arial         (font-spec :family "Arial Unicode MS")
@@ -29,7 +33,7 @@
 ;; BASIC MULTILINGUAL PLANE (0000-FFFF)
 
 ;; Basic Latin
-(set-fontset-font "fontset-custom" '(#x0000 . #x007f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0000 . #x007f) fs-default)
   ;   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ?
   ; @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
   ; ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
@@ -39,20 +43,20 @@
 (set-fontset-font "fontset-custom" '(#x0080 . #x10ffff) fs-symbola)
 
 ;; Latin-1 Supplement
-(set-fontset-font "fontset-custom" '(#x0080 . #x00ff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0080 . #x00ff) fs-default)
   ;  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
   ; À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
   ; à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ
 
 ;; Latin Extended-A
-(set-fontset-font "fontset-custom" '(#x0100 . #x017f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0100 . #x017f) fs-default)
   ; Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď Đ đ Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ
   ; Ġ ġ Ģ ģ Ĥ ĥ Ħ ħ Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ ĸ Ĺ ĺ Ļ ļ Ľ ľ Ŀ
   ; ŀ Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ŝ ŝ Ş ş
   ; Š š Ţ ţ Ť ť Ŧ ŧ Ũ ũ Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž
 
 ;; Latin Extended-B
-(set-fontset-font "fontset-custom" '(#x0180 . #x024f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0180 . #x024f) fs-default)
   ; ƀ Ɓ Ƃ ƃ Ƅ ƅ Ɔ Ƈ ƈ Ɖ Ɗ Ƌ ƌ ƍ Ǝ Ə Ɛ Ƒ ƒ Ɠ Ɣ ƕ Ɩ Ɨ Ƙ ƙ ƚ ƛ Ɯ Ɲ ƞ Ɵ
   ; Ơ ơ Ƣ ƣ Ƥ ƥ Ʀ Ƨ ƨ Ʃ ƪ ƫ Ƭ ƭ Ʈ Ư ư Ʊ Ʋ Ƴ ƴ Ƶ ƶ Ʒ Ƹ ƹ ƺ ƻ Ƽ ƽ ƾ ƿ
   ; ǀ ǁ ǂ ǃ Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ Ǎ ǎ Ǐ ǐ Ǒ ǒ Ǔ ǔ Ǖ ǖ Ǘ ǘ Ǚ ǚ Ǜ ǜ ǝ Ǟ ǟ
@@ -62,26 +66,26 @@
   ; ɀ Ɂ ɂ Ƀ Ʉ Ʌ Ɇ ɇ Ɉ ɉ Ɋ ɋ Ɍ ɍ Ɏ
 
 ;; IPA Extensions
-(set-fontset-font "fontset-custom" '(#x0250 . #x02af) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0250 . #x02af) fs-default)
   ; ɐ ɑ ɒ ɓ ɔ ɕ ɖ ɗ ɘ ə ɚ ɛ ɜ ɝ ɞ ɟ ɠ ɡ ɢ ɣ ɤ ɥ ɦ ɧ ɨ ɩ ɪ ɫ ɬ ɭ ɮ ɯ
   ; ɰ ɱ ɲ ɳ ɴ ɵ ɶ ɷ ɸ ɹ ɺ ɻ ɼ ɽ ɾ ɿ ʀ ʁ ʂ ʃ ʄ ʅ ʆ ʇ ʈ ʉ ʊ ʋ ʌ ʍ ʎ ʏ
   ; ʐ ʑ ʒ ʓ ʔ ʕ ʖ ʗ ʘ ʙ ʚ ʛ ʜ ʝ ʞ ʟ ʠ ʡ ʢ ʣ ʤ ʥ ʦ ʧ ʨ ʩ ʪ ʫ ʬ ʭ ʮ
 
 ;; Spacing Modifier Letters
-(set-fontset-font "fontset-custom" '(#x02b0 . #x02ff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x02b0 . #x02ff) fs-default)
   ; ʰ ʱ ʲ ʳ ʴ ʵ ʶ ʷ ʸ ʹ ʺ ʻ ʼ ʽ ʾ ʿ ˀ ˁ ˂ ˃ ˄ ˅ ˆ ˇ ˈ ˉ ˊ ˋ ˌ ˍ ˎ ˏ
   ; ː ˑ ˒ ˓ ˔ ˕ ˖ ˗ ˘ ˙ ˚ ˛ ˜ ˝ ˞ ˟ ˠ ˡ ˢ ˣ ˤ ˥ ˦ ˧ ˨ ˩ ˪ ˫ ˬ ˭ ˮ ˯
   ; ˰ ˱ ˲ ˳ ˴ ˵ ˶ ˷ ˸ ˹ ˺ ˻ ˼ ˽ ˾
 
 ;; Combining Diacritical Marks
-(set-fontset-font "fontset-custom" '(#x0300 . #x036f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0300 . #x036f) fs-default)
   ; ̀ ́ ̂ ̃ ̄ ̅ ̆ ̇ ̈ ̉ ̊ ̋ ̌ ̍ ̎ ̏ ̐ ̑ ̒ ̓ ̔ ̕ ̖ ̗ ̘ ̙ ̚ ̛ ̜ ̝ ̞ ̟
   ; ̠ ̡ ̢ ̣ ̤ ̥ ̦ ̧ ̨ ̩ ̪ ̫ ̬ ̭ ̮ ̯ ̰ ̱ ̲ ̳ ̴ ̵ ̶ ̷ ̸ ̹ ̺ ̻ ̼ ̽ ̾ ̿
   ; ̀ ́ ͂ ̓ ̈́ ͅ ͆ ͇ ͈ ͉ ͊ ͋ ͌ ͍ ͎ ͏ ͐ ͑ ͒ ͓ ͔ ͕ ͖ ͗ ͘ ͙ ͚ ͛ ͜ ͝ ͞ ͟
   ; ͠ ͡ ͢ ͣ ͤ ͥ ͦ ͧ ͨ ͩ ͪ ͫ ͬ ͭ ͮ
 
 ;; Greek and Coptic
-(set-fontset-font "fontset-custom" '(#x0370 . #x03ff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0370 . #x03ff) fs-default)
   ; Ͱ ͱ Ͳ ͳ ʹ ͵ Ͷ ͷ ͺ ͻ ͼ ͽ ; Ϳ ΄ ΅ Ά · Έ Ή Ί Ό Ύ Ώ
   ; ΐ Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω Ϊ Ϋ ά έ ή ί
   ; ΰ α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ ς σ τ υ φ χ ψ ω ϊ ϋ ό ύ ώ Ϗ
@@ -89,7 +93,7 @@
   ; ϰ ϱ ϲ ϳ ϴ ϵ ϶ Ϸ ϸ Ϲ Ϻ ϻ ϼ Ͻ Ͼ
 
 ;; Cyrillic
-(set-fontset-font "fontset-custom" '(#x0400 . #x04ff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x0400 . #x04ff) fs-default)
   ; Ѐ Ё Ђ Ѓ Є Ѕ І Ї Ј Љ Њ Ћ Ќ Ѝ Ў Џ А Б В Г Д Е Ж З И Й К Л М Н О П
   ; Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я а б в г д е ж з и й к л м н о п
   ; р с т у ф х ц ч ш щ ъ ы ь э ю я ѐ ё ђ ѓ є ѕ і ї ј љ њ ћ ќ ѝ ў џ
@@ -159,24 +163,24 @@
 ;; (set-fontset-font "fontset-custom" '(#x1cd0 . #x1cff) "") ;; Vedic Extensions
 
 ;; Phonetic Extensions
-(set-fontset-font "fontset-custom" '(#x1d00 . #x1d7f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x1d00 . #x1d7f) fs-default)
   ; ᴀ ᴁ ᴂ ᴃ ᴄ ᴅ ᴆ ᴇ ᴈ ᴉ ᴊ ᴋ ᴌ ᴍ ᴎ ᴏ ᴐ ᴑ ᴒ ᴓ ᴔ ᴕ ᴖ ᴗ ᴘ ᴙ ᴚ ᴛ ᴜ ᴝ ᴞ ᴟ
   ; ᴠ ᴡ ᴢ ᴣ ᴤ ᴥ ᴦ ᴧ ᴨ ᴩ ᴪ ᴫ ᴬ ᴭ ᴮ ᴯ ᴰ ᴱ ᴲ ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴻ ᴼ ᴽ ᴾ ᴿ
   ; ᵀ ᵁ ᵂ ᵃ ᵄ ᵅ ᵆ ᵇ ᵈ ᵉ ᵊ ᵋ ᵌ ᵍ ᵎ ᵏ ᵐ ᵑ ᵒ ᵓ ᵔ ᵕ ᵖ ᵗ ᵘ ᵙ ᵚ ᵛ ᵜ ᵝ ᵞ ᵟ
   ; ᵠ ᵡ ᵢ ᵣ ᵤ ᵥ ᵦ ᵧ ᵨ ᵩ ᵪ ᵫ ᵬ ᵭ ᵮ ᵯ ᵰ ᵱ ᵲ ᵳ ᵴ ᵵ ᵶ ᵷ ᵸ ᵹ ᵺ ᵻ ᵼ ᵽ ᵾ
 
 ;; Phonetic Extensions Supplement
-(set-fontset-font "fontset-custom" '(#x1d80 . #x1dbf) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x1d80 . #x1dbf) fs-default)
   ; ᶀ ᶁ ᶂ ᶃ ᶄ ᶅ ᶆ ᶇ ᶈ ᶉ ᶊ ᶋ ᶌ ᶍ ᶎ ᶏ ᶐ ᶑ ᶒ ᶓ ᶔ ᶕ ᶖ ᶗ ᶘ ᶙ ᶚ ᶛ ᶜ ᶝ ᶞ ᶟ
   ; ᶠ ᶡ ᶢ ᶣ ᶤ ᶥ ᶦ ᶧ ᶨ ᶩ ᶪ ᶫ ᶬ ᶭ ᶮ ᶯ ᶰ ᶱ ᶲ ᶳ ᶴ ᶵ ᶶ ᶷ ᶸ ᶹ ᶺ ᶻ ᶼ ᶽ ᶾ
 
 ;; Combining Diacritical Marks Supplement
-(set-fontset-font "fontset-custom" '(#x1dc0 . #x1dff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x1dc0 . #x1dff) fs-default)
   ; ᷀ ᷁ ᷂ ᷃ ᷄ ᷅ ᷆ ᷇ ᷈ ᷉ ᷊ ᷋ ᷌ ᷍ ᷎ ᷏ ᷐ ᷑ ᷒ ᷓ ᷔ ᷕ ᷖ ᷗ ᷘ ᷙ ᷚ ᷛ ᷜ ᷝ ᷞ ᷟ
   ; ᷠ ᷡ ᷢ ᷣ ᷤ ᷥ ᷦ ᷼ ᷽ ᷾
 
 ;; Latin Extended Additional
-(set-fontset-font "fontset-custom" '(#x1e00 . #x1eff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x1e00 . #x1eff) fs-default)
   ; Ḁ ḁ Ḃ ḃ Ḅ ḅ Ḇ ḇ Ḉ ḉ Ḋ ḋ Ḍ ḍ Ḏ ḏ Ḑ ḑ Ḓ ḓ Ḕ ḕ Ḗ ḗ Ḙ ḙ Ḛ ḛ Ḝ ḝ Ḟ ḟ
   ; Ḡ ḡ Ḣ ḣ Ḥ ḥ Ḧ ḧ Ḩ ḩ Ḫ ḫ Ḭ ḭ Ḯ ḯ Ḱ ḱ Ḳ ḳ Ḵ ḵ Ḷ ḷ Ḹ ḹ Ḻ ḻ Ḽ ḽ Ḿ ḿ
   ; Ṁ ṁ Ṃ ṃ Ṅ ṅ Ṇ ṇ Ṉ ṉ Ṋ ṋ Ṍ ṍ Ṏ ṏ Ṑ ṑ Ṓ ṓ Ṕ ṕ Ṗ ṗ Ṙ ṙ Ṛ ṛ Ṝ ṝ Ṟ ṟ
@@ -187,7 +191,7 @@
   ; Ỡ ỡ Ợ ợ Ụ ụ Ủ ủ Ứ ứ Ừ ừ Ử ử Ữ ữ Ự ự Ỳ ỳ Ỵ ỵ Ỷ ỷ Ỹ ỹ Ỻ ỻ Ỽ ỽ Ỿ
 
 ;; Greek Extended
-(set-fontset-font "fontset-custom" '(#x1f00 . #x1fff) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x1f00 . #x1fff) fs-default)
   ; ἀ ἁ ἂ ἃ ἄ ἅ ἆ ἇ Ἀ Ἁ Ἂ Ἃ Ἄ Ἅ Ἆ Ἇ ἐ ἑ ἒ ἓ ἔ ἕ Ἐ Ἑ Ἒ Ἓ Ἔ Ἕ
   ; ἠ ἡ ἢ ἣ ἤ ἥ ἦ ἧ Ἠ Ἡ Ἢ Ἣ Ἤ Ἥ Ἦ Ἧ ἰ ἱ ἲ ἳ ἴ ἵ ἶ ἷ Ἰ Ἱ Ἲ Ἳ Ἴ Ἵ Ἶ Ἷ
   ; ὀ ὁ ὂ ὃ ὄ ὅ Ὀ Ὁ Ὂ Ὃ Ὄ Ὅ ὐ ὑ ὒ ὓ ὔ ὕ ὖ ὗ Ὑ Ὓ Ὕ Ὗ
@@ -198,7 +202,7 @@
   ; ῠ ῡ ῢ ΰ ῤ ῥ ῦ ῧ Ῠ Ῡ Ὺ Ύ Ῥ ῭ ΅ ` ῲ ῳ ῴ ῶ ῷ Ὸ Ό Ὼ Ώ ῼ ´ ῾
 
 ;; General Punctuation
-(set-fontset-font "fontset-custom" '(#x2000 . #x2022) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x2000 . #x2022) fs-default)
   ;            ​ ‌ ‍ ‎ ‏ ‐ ‑ ‒ – — ― ‖ ‗ ‘ ’ ‚ ‛ “ ” „ ‟
   ; † ‡ •
 (set-fontset-font "fontset-custom" '(#x2023 . #x206f) fs-courier)
@@ -212,7 +216,7 @@
   ; ₐ ₑ ₒ ₓ ₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
 
 ;; Currency Symbols
-(set-fontset-font "fontset-custom" '(#x20a0 . #x20cf) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x20a0 . #x20cf) fs-default)
   ; ₠ ₡ ₢ ₣ ₤ ₥ ₦ ₧ ₨ ₩ ₪ ₫ € ₭ ₮ ₯ ₰ ₱ ₲ ₳ ₴ ₵ ₶ ₷ ₸ ₹ ₺
 
 ;; Combining Diacritical Marks for Symbols
@@ -231,7 +235,7 @@
   ; ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ ↀ ↁ ↂ Ↄ ↄ ↅ ↆ ↇ ↈ ↉
 
 ;; Arrows
-(set-fontset-font "fontset-custom" '(#x2190 . #x2195) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x2190 . #x2195) fs-default)
   ; ← ↑ → ↓ ↔ ↕
 ;; (set-fontset-font "fontset-custom" '(#x2196 . #x21ff) "")
   ; ↖ ↗ ↘ ↙ ↚ ↛ ↜ ↝ ↞ ↟ ↠ ↡ ↢ ↣ ↤ ↥ ↦ ↧ ↨ ↩ ↪ ↫ ↬ ↭ ↮ ↯
@@ -279,14 +283,14 @@
   ; ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾
 
 ;; Box Drawing
-(set-fontset-font "fontset-custom" '(#x2500 . #x257f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x2500 . #x257f) fs-default)
   ; ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
   ; ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯ ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿
   ; ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟
   ; ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾
 
 ;; Block Elements
-(set-fontset-font "fontset-custom" '(#x2580 . #x259f) fs-menlo)
+(set-fontset-font "fontset-custom" '(#x2580 . #x259f) fs-default)
   ; ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▐ ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞
 
 ;; Geometric Shapes
@@ -554,4 +558,4 @@
 ;; (set-fontset-font "fontset-custom" '(#x100000 . #x10ffff) "") ;; Supplementary Private Use Area-B
 
 ;; Catchall for some non-adjacent codepoints in MacRoman charset
-(set-fontset-font "fontset-custom" 'mac-roman fs-menlo)
+(set-fontset-font "fontset-custom" 'mac-roman fs-default)
