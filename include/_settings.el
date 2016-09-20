@@ -94,13 +94,16 @@
   (setq show-paren-style 'parenthesis))
 
 ;; Minor modes we don't want
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
-(blink-cursor-mode -1)
-(when (fboundp 'electric-indent-mode)
-  (electric-indent-mode -1))
+(let ((unwanted-minor-modes
+      '(menu-bar-mode
+        scroll-bar-mode
+        tooltip-mode
+        blink-cursor-mode
+        tool-bar-mode
+        electric-indent-mode)))
+  (dolist (minor-mode unwanted-minor-modes)
+    (when (fboundp minor-mode)
+      (funcall minor-mode -1))))
 
 ;; Smart tab completion
 (when (require 'smart-tab nil t)
