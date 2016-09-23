@@ -2,6 +2,7 @@
 ;; Fontset config
 
 ;; Sources:
+;;   - SF Mono: included in newer versions of XCode
 ;;   - Consolas: https://aur.archlinux.org/packages/ttf-microsoft-consolas/
 ;;   - Symbola: http://users.teilar.gr/~g1951d/
 ;;   - Menlo: packaged with OS X
@@ -13,8 +14,15 @@
 (defvar default-fixed-pitch-family "SF Mono")
 (defvar default-variable-pitch-family "Lucida Grande")
 
-(set-face-attribute 'fixed-pitch nil :family default-fixed-pitch-family)
-(set-face-attribute 'variable-pitch nil :family default-variable-pitch-family)
+(set-face-attribute 'fixed-pitch nil
+                    :family default-fixed-pitch-family)
+(set-face-attribute 'variable-pitch nil
+                    :family default-variable-pitch-family)
+
+(set-face-attribute 'font-lock-comment-face nil
+                    :slant 'italic)
+(set-face-attribute 'font-lock-comment-delimiter-face nil
+                    :slant 'italic)
 
 (create-fontset-from-fontset-spec
  (concat "-*-"
