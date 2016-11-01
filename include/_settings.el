@@ -1,8 +1,9 @@
 ;; Autosave/backup options
 (setq
+ emacs-conf-dir (file-name-as-directory user-emacs-directory)
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
- auto-save-list-file-prefix "~/.autosave/save-"
- backup-directory-alist '(("." . "~/.backups")))
+ auto-save-list-file-prefix (concat emacs-conf-dir ".autosave/save-")
+ backup-directory-alist `(("." . ,(concat emacs-conf-dir ".backup"))))
 
 ;; Buffer contents options
 (setq-default fill-column 79)
