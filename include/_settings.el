@@ -2,8 +2,8 @@
 (setq
  emacs-conf-dir (file-name-as-directory user-emacs-directory)
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
- auto-save-list-file-prefix (concat emacs-conf-dir ".autosave/save-")
- backup-directory-alist `(("." . ,(concat emacs-conf-dir ".backup"))))
+ auto-save-list-file-prefix (dir-join emacs-conf-dir ".autosave/save-")
+ backup-directory-alist `(("." . ,(dir-join emacs-conf-dir ".backup"))))
 
 ;; Buffer contents options
 (setq-default fill-column 79)
@@ -15,7 +15,7 @@
 (setq
  completion-ignore-case t
  confirm-kill-emacs 'y-or-n-p
- custom-file "~/.emacs.d/include/_local_custom.el"
+ custom-file (dir-join user-emacs-directory "include" "_local_custom.el")
  display-time-24hr-format t
  display-time-day-and-date t
  frame-title-format '(buffer-file-name "%f" ("%b"))
@@ -230,7 +230,7 @@
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
- trash-directory (expand-file-name "~/.Trash")
+ trash-directory (dir-join "~" ".Trash")
  ns-pop-up-frames nil
  ns-control-modifier 'control
  ns-right-alternate-modifier 'control

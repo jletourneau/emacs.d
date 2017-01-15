@@ -1,3 +1,12 @@
+(defun dir-join (root &rest dirs)
+  "Joins a series of path components together.
+  (dir-join \"/tmp\" \"a\" \"b\" \"c\") => \"/tmp/a/b/c\""
+  (if (not dirs)
+      root
+    (apply 'dir-join
+           (expand-file-name (car dirs) root)
+           (cdr dirs))))
+
 (defmacro after-load (mode &rest body)
   "Simple wrapper around `eval-after-load' + `progn' pattern."
   (declare (indent defun))
