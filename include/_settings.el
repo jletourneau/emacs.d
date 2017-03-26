@@ -204,6 +204,10 @@
  (lambda () (electric-indent-local-mode t)))
 
 ;; Python setup
+(after-load
+  'python-mode
+  (setq python-indent-offset 2))
+
 (when (fboundp 'flycheck-mode)
   (add-hook
    'python-mode-hook
