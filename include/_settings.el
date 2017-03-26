@@ -182,6 +182,7 @@
  (set-face-background 'whitespace-tab 'unspecified))
 
 ;; JavaScript setup
+(add-to-list 'auto-mode-alist '("\\.es[56]\\'" . js-mode) t)
 (after-load
   'js
   (setq js-indent-level 2))
