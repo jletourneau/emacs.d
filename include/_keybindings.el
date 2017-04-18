@@ -10,6 +10,7 @@
 (define-key global-map (kbd "C-c \\") 'toggle-truncate-lines)
 (define-key global-map (kbd "C-c M-r") 'replace-regexp)
 (define-key global-map (kbd "C-c RET") 'execute-extended-command)
+(define-key global-map (kbd "C-c -") 'cleanup-windows)
 (define-key global-map (kbd "<C-tab>") 'other-window)
 (define-key global-map (kbd "<C-S-tab>") 'other-frame)
 (define-key global-map (kbd "C-c C-x C-f") 'find-file-at-point)

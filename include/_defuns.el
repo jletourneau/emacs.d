@@ -92,3 +92,16 @@ a Dired buffer in the associated system application(s)."
        (forward-line -1)
        (end-of-line))
      (point))))
+
+(defun cleanup-windows (&optional arg)
+  "Clean up after a buffer that splits a frame into two windows, by switching
+to the next window, killing its buffer, then killing its window, leaving the
+original window and buffer in place. When called with ARG, do the reverse, i.e.
+kill the buffer and window currently in focus, and leave the next buffer and
+window in place."
+  (interactive "P")
+  (if (null arg)
+      (other-window 1))
+  (kill-this-buffer)
+  (if (not (one-window-p))
+      (delete-window)))
