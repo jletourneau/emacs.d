@@ -138,15 +138,27 @@
 ;; Magit setup
 (setq
  magit-revert-buffers 'silent)
+
 ;; Git gutter mode
 (setq
  git-gutter:added-sign "+"
  git-gutter:deleted-sign "×"
  git-gutter:modified-sign "~"
- git-gutter:diff-option "--minimal"
  git-gutter:lighter ""
  git-gutter:hide-gutter t
  git-gutter:verbosity 0)
+
+(after-load
+  'git-gutter
+  (set-face-attribute
+   'git-gutter:added nil
+   :inverse-video nil :foreground "green3")
+  (set-face-attribute
+   'git-gutter:deleted nil
+   :inverse-video nil :foreground "tomato1")
+  (set-face-attribute
+   'git-gutter:modified nil
+   :inverse-video nil :foreground "SkyBlue2"))
 
 (add-hook
  'find-file-hook

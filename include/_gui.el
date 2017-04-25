@@ -4,6 +4,7 @@
 (add-to-list 'default-frame-alist '(height . 50))
 
 (setq
+ preferred-theme 'zenburn
  mac-control-modifier 'control
  mac-option-modifier 'meta
  mac-command-modifier 'meta)
