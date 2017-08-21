@@ -204,6 +204,11 @@
   'coffee-mode
   (setq coffee-tab-width 2))
 
+;; TypeScript setup
+(after-load
+  'typescript-mode
+  (setq typescript-indent-level 2))
+
 ;; Ruby setup
 (after-load
   'ruby-mode
