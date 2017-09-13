@@ -29,6 +29,7 @@
  require-final-newline t
  ring-bell-function 'ignore
  save-abbrevs nil
+ standard-indent 2
  use-dialog-box nil
  woman-use-own-frame nil)
 
@@ -248,6 +249,15 @@
   (add-to-list
    'haml-fontify-filter-functions-alist
    '("coffeescript" . haml-fontify-region-as-coffeescript)))
+
+;; Web-mode setup
+(setq
+ web-mode-script-padding 2
+ web-mode-style-padding 2
+ web-mode-block-padding 2)
+
+(when (fboundp 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode) t))
 
 ;; OS X settings
 (setq
