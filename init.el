@@ -21,10 +21,8 @@
    (load "_settings" t)
    (load "_utilities" t)
    (load "_keybindings" t)
-   (if (display-graphic-p)
-       (progn
-         (load "_font" t)
-         (load "_gui" t))
-     (load "_terminal" t))
+   (load (if (display-graphic-p) "_gui" "_terminal") t)
    (load "_theme" t)
+   ;; Load font prefs config after theme to enable overriding faces etc.
+   (when (display-graphic-p) (load "_font" t))
    (load "_local_post_init" t)))
