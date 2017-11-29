@@ -30,6 +30,7 @@
 (depends-on "smart-tab")
 (depends-on "typescript-mode")
 (depends-on "typo")
+(depends-on "web-mode")
 (depends-on "with-editor")
 (depends-on "yaml-mode")
 (depends-on "zenburn-theme")
