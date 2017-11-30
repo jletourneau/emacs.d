@@ -1,10 +1,11 @@
-(add-to-list 'default-frame-alist '(font . "fontset-custom"))
+(load "_font" t)
+
 (add-to-list 'default-frame-alist '(line-spacing . 2))
-(add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 95))
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(right-fringe . 0))
 
 (setq
- preferred-theme 'zenburn
  mac-control-modifier 'control
  mac-option-modifier 'meta
  mac-command-modifier 'meta)

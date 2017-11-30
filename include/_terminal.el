@@ -1,1 +1,0 @@
-(setq preferred-theme 'wombat)
