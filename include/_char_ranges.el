@@ -430,6 +430,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x10400 . #x1044f) "") ;; Deseret
 ;; (set-fontset-font "fontset-custom" '(#x10450 . #x1047f) "") ;; Shavian
 ;; (set-fontset-font "fontset-custom" '(#x10480 . #x104af) "") ;; Osmanya
+;; (set-fontset-font "fontset-custom" '(#x104b0 . #x104ff) "") ;; Osage
 ;; (set-fontset-font "fontset-custom" '(#x10500 . #x1052f) "") ;; Elbasan
 ;; (set-fontset-font "fontset-custom" '(#x10530 . #x1056f) "") ;; Caucasian Albanian
 ;; (set-fontset-font "fontset-custom" '(#x10600 . #x1077f) "") ;; Linear A
@@ -460,17 +461,24 @@
 ;; (set-fontset-font "fontset-custom" '(#x11150 . #x1117f) "") ;; Mahajani
 ;; (set-fontset-font "fontset-custom" '(#x11180 . #x111df) "") ;; Sharada
 ;; (set-fontset-font "fontset-custom" '(#x111e0 . #x111ff) "") ;; Sinhala Archaic Numbers
-;; (set-fontset-font "fontset-custom" '(#x11680 . #x116cf) "") ;; Takri
 ;; (set-fontset-font "fontset-custom" '(#x11200 . #x1124f) "") ;; Khojki
 ;; (set-fontset-font "fontset-custom" '(#x11280 . #x112af) "") ;; Multani
 ;; (set-fontset-font "fontset-custom" '(#x112b0 . #x112ff) "") ;; Khudawadi
 ;; (set-fontset-font "fontset-custom" '(#x11300 . #x1137f) "") ;; Grantha
+;; (set-fontset-font "fontset-custom" '(#x11400 . #x1147f) "") ;; Newa
 ;; (set-fontset-font "fontset-custom" '(#x11480 . #x114df) "") ;; Tirhuta
 ;; (set-fontset-font "fontset-custom" '(#x11580 . #x115ff) "") ;; Siddham
 ;; (set-fontset-font "fontset-custom" '(#x11600 . #x1165f) "") ;; Modi
+;; (set-fontset-font "fontset-custom" '(#x11660 . #x1167f) "") ;; Mongolian Supplement
+;; (set-fontset-font "fontset-custom" '(#x11680 . #x116cf) "") ;; Takri
 ;; (set-fontset-font "fontset-custom" '(#x11700 . #x1173f) "") ;; Ahom
 ;; (set-fontset-font "fontset-custom" '(#x118a0 . #x118ff) "") ;; Warang Citi
+;; (set-fontset-font "fontset-custom" '(#x11a00 . #x11a4f) "") ;; Zanabazar Square
+;; (set-fontset-font "fontset-custom" '(#x11a50 . #x11aaf) "") ;; Soyombo
 ;; (set-fontset-font "fontset-custom" '(#x11ac0 . #x11aff) "") ;; Pau Cin Hau
+;; (set-fontset-font "fontset-custom" '(#x11c00 . #x11c6f) "") ;; Bhaiksuki
+;; (set-fontset-font "fontset-custom" '(#x11c70 . #x11cbf) "") ;; Marchen
+;; (set-fontset-font "fontset-custom" '(#x11d00 . #x11d5f) "") ;; Masaram Gondi
 ;; (set-fontset-font "fontset-custom" '(#x12000 . #x123ff) "") ;; Cuneiform
 ;; (set-fontset-font "fontset-custom" '(#x12400 . #x1247f) "") ;; Cuneiform Numbers and Punctuation
 ;; (set-fontset-font "fontset-custom" '(#x12480 . #x1254f) "") ;; Early Dynastic Cuneiform
@@ -481,7 +489,12 @@
 ;; (set-fontset-font "fontset-custom" '(#x16ad0 . #x16aff) "") ;; Bassa Vah
 ;; (set-fontset-font "fontset-custom" '(#x16b00 . #x16b8f) "") ;; Pahawh Hmong
 ;; (set-fontset-font "fontset-custom" '(#x16f00 . #x16f9f) "") ;; Miao
+;; (set-fontset-font "fontset-custom" '(#x16fe0 . #x16fff) "") ;; Ideographic Symbols and Punctuation
+;; (set-fontset-font "fontset-custom" '(#x17000 . #x187ff) "") ;; Tangut
+;; (set-fontset-font "fontset-custom" '(#x18800 . #x18aff) "") ;; Tangut Components
 ;; (set-fontset-font "fontset-custom" '(#x1b000 . #x1b0ff) "") ;; Kana Supplement
+;; (set-fontset-font "fontset-custom" '(#x1b100 . #x1b12f) "") ;; Kana Extended-A
+;; (set-fontset-font "fontset-custom" '(#x1b170 . #x1b2ff) "") ;; Nushu
 ;; (set-fontset-font "fontset-custom" '(#x1bc00 . #x1bc9f) "") ;; Duployan
 ;; (set-fontset-font "fontset-custom" '(#x1bca0 . #x1bcaf) "") ;; Shorthand Format Controls
 ;; (set-fontset-font "fontset-custom" '(#x1d000 . #x1d0ff) "") ;; Byzantine Musical Symbols
@@ -491,7 +504,9 @@
 ;; (set-fontset-font "fontset-custom" '(#x1d360 . #x1d37f) "") ;; Counting Rod Numerals
 ;; (set-fontset-font "fontset-custom" '(#x1d400 . #x1d7ff) "") ;; Mathematical Alphanumeric Symbols
 ;; (set-fontset-font "fontset-custom" '(#x1d800 . #x1daaf) "") ;; Sutton SignWriting
+;; (set-fontset-font "fontset-custom" '(#x1e000 . #x1e02f) "") ;; Glagolitic Supplement
 ;; (set-fontset-font "fontset-custom" '(#x1e800 . #x1e8df) "") ;; Mende Kikakui
+;; (set-fontset-font "fontset-custom" '(#x1e900 . #x1e95f) "") ;; Adlam
 ;; (set-fontset-font "fontset-custom" '(#x1ee00 . #x1eeff) "") ;; Arabic Mathematical Alphabetic Symbols
 (set-fontset-font "fontset-custom" '(#x1f000 . #x1f02f) fs-apple-emoji) ;; Mahjong Tiles
 (set-fontset-font "fontset-custom" '(#x1f030 . #x1f09f) fs-apple-emoji) ;; Domino Tiles
@@ -514,6 +529,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x2a700 . #x2b73f) "") ;; CJK Unified Ideographs Extension C
 ;; (set-fontset-font "fontset-custom" '(#x2b740 . #x2b81f) "") ;; CJK Unified Ideographs Extension D
 ;; (set-fontset-font "fontset-custom" '(#x2b820 . #x2ceaf) "") ;; CJK Unified Ideographs Extension E
+;; (set-fontset-font "fontset-custom" '(#x2ceb0 . #x2ebef) "") ;; CJK Unified Ideographs Extension F
 ;; (set-fontset-font "fontset-custom" '(#x2f800 . #x2fa1f) "") ;; CJK Compatibility Ideographs Supplement
 
 ;;=============================================================================
