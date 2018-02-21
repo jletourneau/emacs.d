@@ -17,8 +17,8 @@
 (setq grep-command
       (cond
        ((executable-find "ag")
-        "ag --silent --nogroup --nocolor --smart-case ")
+        "ag --filename --silent --nogroup --nocolor --smart-case ")
        ((executable-find "ack")
-        "ack -s --nogroup --nocolor --smart-case ")
+        "ack -Hs --nogroup --nocolor --smart-case ")
        (t
-        "grep -s --line-number --recursive --ignore-case ")))
+        "grep -Hs --line-number --recursive --ignore-case ")))

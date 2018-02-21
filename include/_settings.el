@@ -23,6 +23,7 @@
  inhibit-default-init t
  inhibit-splash-screen t
  inhibit-startup-echo-area-message user-login-name
+ grep-use-null-device nil
  kill-whole-line t
  magic-mode-alist '()
  mouse-yank-at-point t
