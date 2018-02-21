@@ -65,14 +65,15 @@ a Dired buffer in the associated system application(s)."
 (defadvice kill-region (before slick-cut activate compile)
   "When called interactively with no active region, kill a single line instead."
   (interactive
-   (if mark-active (list (region-beginning) (region-end))
+   (if mark-active
+       (list (region-beginning) (region-end))
      (list (line-beginning-position)
            (line-beginning-position 2)))))
 
 ;; Helper function for highlighting CoffeeScript blocks in Haml
 (defun haml-fontify-region-as-coffeescript (beg end)
   "Fontify CoffeeScript region from BEG to END."
-  (if (boundp 'coffee-font-lock-keywords)
+  (when (boundp 'coffee-font-lock-keywords)
     (haml-fontify-region
      beg end
      coffee-font-lock-keywords
@@ -100,8 +101,8 @@ original window and buffer in place. When called with ARG, do the reverse, i.e.
 kill the buffer and window currently in focus, and leave the next buffer and
 window in place."
   (interactive "P")
-  (if (null arg)
-      (other-window 1))
+  (when (null arg)
+    (other-window 1))
   (kill-this-buffer)
-  (if (not (one-window-p))
-      (delete-window)))
+  (when (not (one-window-p))
+    (delete-window)))
