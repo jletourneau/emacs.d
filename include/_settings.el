@@ -224,16 +224,16 @@
  (lambda () (electric-indent-local-mode t)))
 
 ;; Python setup
-(after-load
-  'python-mode
-  (setq python-indent-offset 2))
-
 (when (fboundp 'flycheck-mode)
   (add-hook
    'python-mode-hook
    (lambda ()
      (setq flycheck-python-pycompile-executable "python3")
      (flycheck-mode 1))))
+
+;; Can't set default indent offset in after-load or else it won't take effect
+;; in new empty buffers (python-mode's indent-guessing runs first).
+(setq python-indent-offset 2)
 
 ;; Sass/SCSS setup
 (after-load
