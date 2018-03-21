@@ -231,7 +231,9 @@
 (when (fboundp 'flycheck-mode)
   (add-hook
    'python-mode-hook
-   (lambda () (flycheck-mode 1))))
+   (lambda ()
+     (setq flycheck-python-pycompile-executable "python3")
+     (flycheck-mode 1))))
 
 ;; Sass/SCSS setup
 (after-load
