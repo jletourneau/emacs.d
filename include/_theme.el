@@ -1,7 +1,7 @@
 (let ((preferred-theme
        (if (display-graphic-p) 'zenburn 'wombat)))
   (when (member preferred-theme (custom-available-themes))
-    (load-theme preferred-theme)))
+    (load-theme preferred-theme t)))
 
 ;; UI settings that are either applied to both terminal and GUI Emacs (e.g.
 ;; italic comments) or that are irrelevant to one or the other and so can be
