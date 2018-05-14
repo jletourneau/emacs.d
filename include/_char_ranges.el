@@ -130,6 +130,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x1bc0 . #x1bff) "") ;; Batak
 ;; (set-fontset-font "fontset-custom" '(#x1c00 . #x1c4f) "") ;; Lepcha
 ;; (set-fontset-font "fontset-custom" '(#x1c50 . #x1c7f) "") ;; Ol Chiki
+;; (set-fontset-font "fontset-custom" '(#x1c90 . #x1cbf) "") ;; Georgian Extended
 ;; (set-fontset-font "fontset-custom" '(#x1cc0 . #x1ccf) "") ;; Sundanese Supplement
 ;; (set-fontset-font "fontset-custom" '(#x1cd0 . #x1cff) "") ;; Vedic Extensions
 
@@ -453,7 +454,10 @@
 ;; (set-fontset-font "fontset-custom" '(#x10b80 . #x10baf) "") ;; Psalter Pahlavi
 ;; (set-fontset-font "fontset-custom" '(#x10c00 . #x10c4f) "") ;; Old Turkic
 ;; (set-fontset-font "fontset-custom" '(#x10c80 . #x10cff) "") ;; Old Hungarian
+;; (set-fontset-font "fontset-custom" '(#x10d00 . #x10d3f) "") ;; Hanifi Rohingya
 ;; (set-fontset-font "fontset-custom" '(#x10e60 . #x10e7f) "") ;; Rumi Numeral Symbols
+;; (set-fontset-font "fontset-custom" '(#x10f00 . #x10f2f) "") ;; Old Sogdian
+;; (set-fontset-font "fontset-custom" '(#x10f30 . #x10f6f) "") ;; Sogdian
 ;; (set-fontset-font "fontset-custom" '(#x11000 . #x1107f) "") ;; Brahmi
 ;; (set-fontset-font "fontset-custom" '(#x11080 . #x110cf) "") ;; Kaithi
 ;; (set-fontset-font "fontset-custom" '(#x110d0 . #x110ff) "") ;; Sora Sompeng
@@ -472,6 +476,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x11660 . #x1167f) "") ;; Mongolian Supplement
 ;; (set-fontset-font "fontset-custom" '(#x11680 . #x116cf) "") ;; Takri
 ;; (set-fontset-font "fontset-custom" '(#x11700 . #x1173f) "") ;; Ahom
+;; (set-fontset-font "fontset-custom" '(#x11800 . #x1184f) "") ;; Dogra
 ;; (set-fontset-font "fontset-custom" '(#x118a0 . #x118ff) "") ;; Warang Citi
 ;; (set-fontset-font "fontset-custom" '(#x11a00 . #x11a4f) "") ;; Zanabazar Square
 ;; (set-fontset-font "fontset-custom" '(#x11a50 . #x11aaf) "") ;; Soyombo
@@ -479,6 +484,8 @@
 ;; (set-fontset-font "fontset-custom" '(#x11c00 . #x11c6f) "") ;; Bhaiksuki
 ;; (set-fontset-font "fontset-custom" '(#x11c70 . #x11cbf) "") ;; Marchen
 ;; (set-fontset-font "fontset-custom" '(#x11d00 . #x11d5f) "") ;; Masaram Gondi
+;; (set-fontset-font "fontset-custom" '(#x11d60 . #x11daf) "") ;; Gunjala Gondi
+;; (set-fontset-font "fontset-custom" '(#x11ee0 . #x11eff) "") ;; Makasar
 ;; (set-fontset-font "fontset-custom" '(#x12000 . #x123ff) "") ;; Cuneiform
 ;; (set-fontset-font "fontset-custom" '(#x12400 . #x1247f) "") ;; Cuneiform Numbers and Punctuation
 ;; (set-fontset-font "fontset-custom" '(#x12480 . #x1254f) "") ;; Early Dynastic Cuneiform
@@ -488,6 +495,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x16a40 . #x16a6f) "") ;; Mro
 ;; (set-fontset-font "fontset-custom" '(#x16ad0 . #x16aff) "") ;; Bassa Vah
 ;; (set-fontset-font "fontset-custom" '(#x16b00 . #x16b8f) "") ;; Pahawh Hmong
+;; (set-fontset-font "fontset-custom" '(#x16e40 . #x16e9f) "") ;; Medefaidrin
 ;; (set-fontset-font "fontset-custom" '(#x16f00 . #x16f9f) "") ;; Miao
 ;; (set-fontset-font "fontset-custom" '(#x16fe0 . #x16fff) "") ;; Ideographic Symbols and Punctuation
 ;; (set-fontset-font "fontset-custom" '(#x17000 . #x187ff) "") ;; Tangut
@@ -500,6 +508,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x1d000 . #x1d0ff) "") ;; Byzantine Musical Symbols
 ;; (set-fontset-font "fontset-custom" '(#x1d100 . #x1d1ff) "") ;; Musical Symbols
 ;; (set-fontset-font "fontset-custom" '(#x1d200 . #x1d24f) "") ;; Ancient Greek Musical Notation
+;; (set-fontset-font "fontset-custom" '(#x1d2e0 . #x1d2ff) "") ;; Mayan Numerals
 ;; (set-fontset-font "fontset-custom" '(#x1d300 . #x1d35f) "") ;; Tai Xuan Jing Symbols
 ;; (set-fontset-font "fontset-custom" '(#x1d360 . #x1d37f) "") ;; Counting Rod Numerals
 ;; (set-fontset-font "fontset-custom" '(#x1d400 . #x1d7ff) "") ;; Mathematical Alphanumeric Symbols
@@ -507,6 +516,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x1e000 . #x1e02f) "") ;; Glagolitic Supplement
 ;; (set-fontset-font "fontset-custom" '(#x1e800 . #x1e8df) "") ;; Mende Kikakui
 ;; (set-fontset-font "fontset-custom" '(#x1e900 . #x1e95f) "") ;; Adlam
+;; (set-fontset-font "fontset-custom" '(#x1ec70 . #x1ecbf) "") ;; Indic Siyaq Numbers
 ;; (set-fontset-font "fontset-custom" '(#x1ee00 . #x1eeff) "") ;; Arabic Mathematical Alphabetic Symbols
 (set-fontset-font "fontset-custom" '(#x1f000 . #x1f02f) fs-apple-emoji) ;; Mahjong Tiles
 (set-fontset-font "fontset-custom" '(#x1f030 . #x1f09f) fs-apple-emoji) ;; Domino Tiles
@@ -521,6 +531,7 @@
 ;; (set-fontset-font "fontset-custom" '(#x1f780 . #x1f7ff) "") ;; Geometric Shapes Extended
 ;; (set-fontset-font "fontset-custom" '(#x1f800 . #x1f8ff) "") ;; Supplemental Arrows-C
 (set-fontset-font "fontset-custom" '(#x1f900 . #x1f9ff) fs-apple-emoji) ;; Supplemental Symbols and Pictographs
+;; (set-fontset-font "fontset-custom" '(#x1fa00 . #x1fa6f) "") ;; Chess Symbols
 
 ;;=============================================================================
 ;; SUPPLEMENTARY IDEOGRAPHIC PLANE (20000-2ffff)
