@@ -257,7 +257,9 @@
 (setq
  web-mode-script-padding 2
  web-mode-style-padding 2
- web-mode-block-padding 2)
+ web-mode-block-padding 2
+ ;; Redundant with electric pair mode (enabled above)
+ web-mode-enable-auto-pairing nil)
 
 (when (fboundp 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode) t))
