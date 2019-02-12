@@ -4,6 +4,7 @@
 
 (define-key global-map (kbd "C-a") 'beginning-of-line-dwim)
 (define-key global-map (kbd "C-z") 'undo)
+(define-key global-map (kbd "C-c b") 'browse-at-remote)
 (define-key global-map (kbd "C-c r") 'replace-string)
 (define-key global-map (kbd "C-c t") 'typo-mode)
 (define-key global-map (kbd "C-c w") 'delete-trailing-whitespace)
