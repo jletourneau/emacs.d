@@ -11,7 +11,7 @@
 (when (executable-find "gls")
   (setq insert-directory-program "gls")
   (setq dired-listing-switches
-        "-l --all --group-directories-first --si"))
+        "-l --all --no-group --group-directories-first --si"))
 
 ;; Use ag or ack in preference to grep if available
 (setq grep-command
