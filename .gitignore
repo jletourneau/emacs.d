@@ -4,6 +4,7 @@
 .schema
 .transient
 elpa
+transient
 url
 var
 _local_*.el
