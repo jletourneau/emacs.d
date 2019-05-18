@@ -138,6 +138,11 @@
 (add-hook 'text-mode-hook 'typo-mode)
 (add-hook 'org-mode-hook 'typo-mode)
 
+;; Org-mode config
+(setq
+ org-startup-folded nil
+ org-startup-indented t)
+
 ;; Magit setup
 (setq
  magit-revert-buffers 'silent)
