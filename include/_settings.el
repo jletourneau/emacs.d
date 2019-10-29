@@ -270,6 +270,13 @@
 (when (fboundp 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode) t))
 
+;; Auto-insert setup
+(auto-insert-mode)
+(setq
+ auto-insert-directory (dir-join emacs-conf-dir "auto-insert/")
+ auto-insert-query nil)
+(define-auto-insert "\\.vue\\'" "template.vue")
+
 ;; OS X settings
 (setq
  delete-by-moving-to-trash t
