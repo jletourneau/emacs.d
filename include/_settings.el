@@ -136,7 +136,9 @@
          truncate-lines t)))
 
 (add-hook 'text-mode-hook 'typo-mode)
+(add-hook 'text-mode-hook 'visual-line-mode)
 (add-hook 'org-mode-hook 'typo-mode)
+(add-hook 'org-mode-hook 'visual-line-mode)
 
 ;; Org-mode config
 (setq
