@@ -276,6 +276,7 @@
  auto-insert-directory (dir-join emacs-conf-dir "auto-insert/")
  auto-insert-query nil)
 (define-auto-insert "\\.vue\\'" "template.vue")
+(define-auto-insert "\\.html\\'" "template.html")
 
 ;; OS X settings
 (setq
