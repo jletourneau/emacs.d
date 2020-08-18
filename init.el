@@ -311,7 +311,10 @@
   :commands magit-status
   :bind (("C-c m" . magit-status))
   :init
-  (setq magit-save-repository-buffers nil))
+  (setq
+   magit-save-repository-buffers nil
+   magit-revert-buffers 'silent
+   magit-branch-prefer-remote-upstream t))
 
 (use-package git-gutter
   :commands git-gutter-mode
