@@ -1,10 +1,8 @@
 .autosave
 .backup
 .cask
-.schema
-.transient
 elpa
+include/_local_custom.el
 transient
-url
-var
-_local_*.el
+ac-comphist.dat
+projectile-bookmarks.eld

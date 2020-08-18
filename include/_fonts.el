@@ -34,17 +34,7 @@
 (create-fontset-from-fontset-spec
  (concat "-*-"
          fixed-pitch-family
-         "-normal-normal-normal-*-*-*-*-*-m-0-fontset-custom"))
+         "-normal-normal-normal-*-14-*-*-*-m-0-fontset-custom"))
 
 ;; Setting the :font frame parameter resets the font size to the default 12
 (set-frame-font "fontset-custom" nil t)
-
-(setq
- fs-default       (font-spec :family fixed-pitch-family)
- fs-symbola       (font-spec :family "Symbola")
- fs-courier       (font-spec :family "Courier")
- fs-arial         (font-spec :family "Arial Unicode MS")
- fs-apple-symbols (font-spec :family "Apple Symbols")
- fs-apple-emoji   (font-spec :family "Apple Color Emoji"))
-
-(load "_char_ranges" t)
