@@ -268,7 +268,11 @@
   (key-chord-define-global "hj" 'keyboard-quit)
   (key-chord-define-global "jk" 'indent-for-tab-command)
   (key-chord-define-global "1`" 'other-window)
-  (key-chord-define-global "qw" 'delete-other-windows))
+  (key-chord-define-global "qw" 'delete-other-windows)
+  (key-chord-define-global "qp" 'kill-this-buffer))
+
+(use-package use-package-chords
+  :ensure t)
 
 (use-package typo
   :hook ((text-mode org-mode) . typo-mode)
@@ -310,6 +314,7 @@
 (use-package magit
   :commands magit-status
   :bind (("C-c m" . magit-status))
+  :chords ((",." . magit-status))
   :init
   (setq
    magit-save-repository-buffers nil
