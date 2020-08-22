@@ -208,7 +208,12 @@
 (use-package dired
   :ensure nil
   :defer t
-  :bind (("C-c C-f" . find-name-dired))
+  :bind (("C-c C-f" . find-name-dired)
+         :map dired-mode-map
+         ("z" . (lambda ()
+                  (interactive)
+                  (let ((fn (dired-get-file-for-visit)))
+                    (start-process "default-app" nil "open" fn)))))
   :config
   (put 'dired-find-alternate-file 'disabled nil)
   (when (executable-find "gls")
