@@ -154,6 +154,7 @@
          ("C-c RET" . execute-extended-command)
          ("M-+" . count-words-region)
          ("M-g" . goto-line)
+         ("M-z" . undo)
          ("M-SPC" . cycle-spacing))
   :hook ((text-mode org-mode) . visual-line-mode)
   :init
@@ -262,7 +263,7 @@
 
 (use-package misc
   :ensure nil
-  :bind (("M-z" . zap-up-to-char)))
+  :bind (("C-M-z" . zap-up-to-char)))
 
 (use-package key-chord
   :config
