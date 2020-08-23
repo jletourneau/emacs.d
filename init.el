@@ -277,8 +277,7 @@
   (key-chord-define-global "qw" 'delete-other-windows)
   (key-chord-define-global "qp" 'kill-this-buffer))
 
-(use-package use-package-chords
-  :ensure t)
+(use-package use-package-chords)
 
 (use-package typo
   :hook ((text-mode org-mode) . typo-mode)
@@ -301,7 +300,6 @@
   (org-startup-indented t))
 
 (use-package projectile
-  :ensure t
   :init
   (setq
    projectile-indexing-method 'hybrid
