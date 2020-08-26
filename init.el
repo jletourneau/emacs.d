@@ -395,6 +395,12 @@
   (setq
    flycheck-python-pycompile-executable "python3"))
 
+(use-package python
+  :commands python-mode
+  :init
+  (setq
+   python-indent-offset 2))
+
 (use-package css-mode
   :mode (("\\.css\\'" . css-mode)
          ("\\.scss\\'" . css-mode))
