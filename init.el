@@ -73,7 +73,8 @@
  fill-column 79
  tab-width 8
  indent-tabs-mode nil
- indicate-buffer-boundaries 'left)
+ indicate-buffer-boundaries 'left
+ truncate-lines t)
 
 (add-to-list 'default-frame-alist '(line-spacing . 2))
 (add-to-list 'default-frame-alist '(width . 95))
