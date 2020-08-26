@@ -131,10 +131,8 @@
      ns-pop-up-frames nil))
   (load "_fonts"))
 
-(when (not (display-graphic-p))
-  (use-package custom
-    :config
-    (load-theme 'wombat t)))
+(unless (display-graphic-p)
+  (load-theme 'wombat t))
 
 (use-package files
   :ensure nil
