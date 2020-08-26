@@ -33,6 +33,11 @@
            (expand-file-name (car dirs) root)
            (cdr dirs))))
 
+(defun kill-current-buffer ()
+  "Safe version (without menu-bar-related checks) of `kill-this-buffer'."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables not part of specific provided packages
 
@@ -90,6 +95,7 @@
 
 (global-set-key (kbd "C-j") 'indent-for-tab-command)
 (global-set-key (kbd "<C-tab>") 'other-window)
+(global-set-key (kbd "<f15>") 'kill-current-buffer)
 
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -275,7 +281,7 @@
   (key-chord-define-global "jk" 'indent-for-tab-command)
   (key-chord-define-global "1`" 'other-window)
   (key-chord-define-global "qw" 'delete-other-windows)
-  (key-chord-define-global "qp" 'kill-this-buffer))
+  (key-chord-define-global "qp" 'kill-current-buffer))
 
 (use-package use-package-chords)
 
