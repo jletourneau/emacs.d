@@ -103,37 +103,50 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'tooltip-mode) (tooltip-mode -1))
 
+(if (display-graphic-p)
+    (load "_fonts"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Per-package configs
 
-(when (display-graphic-p)
-  (use-package zenburn-theme
-    :config
-    (load-theme 'zenburn t))
-  (use-package hl-line
-    :ensure nil
-    :config
-    (hl-line-mode 1))
-  (use-package mouse
-    :ensure nil
-    :init
-    (setq
-     mouse-yank-at-point t))
-  (use-package mwheel
-    :ensure nil
-    :init
-    (setq
-     mouse-wheel-progressive-speed t
-     mouse-wheel-scroll-amount '(1)))
-  (use-package ns-win
-    :ensure nil
-    :init
-    (setq
-     ns-pop-up-frames nil))
-  (load "_fonts"))
-
-(unless (display-graphic-p)
+(use-package custom
+  :unless (display-graphic-p)
+  :ensure nil
+  :config
   (load-theme 'wombat t))
+
+(use-package zenburn-theme
+  :if (display-graphic-p)
+  :config
+  (load-theme 'zenburn t))
+
+(use-package hl-line
+  :if (display-graphic-p)
+  :ensure nil
+  :config
+  (hl-line-mode 1))
+
+(use-package mouse
+  :if (display-graphic-p)
+  :ensure nil
+  :init
+  (setq
+   mouse-yank-at-point t))
+
+(use-package mwheel
+  :if (display-graphic-p)
+  :ensure nil
+  :init
+  (setq
+   mouse-wheel-progressive-speed t
+   mouse-wheel-scroll-amount '(1)))
+
+(use-package ns-win
+  :if (display-graphic-p)
+  :ensure nil
+  :init
+  (setq
+   ns-pop-up-frames nil))
 
 (use-package files
   :ensure nil
