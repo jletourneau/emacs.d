@@ -111,6 +111,7 @@
     :config
     (load-theme 'zenburn t))
   (use-package hl-line
+    :ensure nil
     :config
     (hl-line-mode 1))
   (use-package mouse
@@ -196,14 +197,13 @@
 
 (use-package solar
   :ensure nil
-  :defer t
   :custom
   (calendar-latitude 42.73)
   (calendar-longitude -73.69)
   (calendar-location-name "Troy, NY"))
 
 (use-package calendar
-  :defer t
+  :ensure nil
   :commands calendar
   :custom
   (holiday-bahai-holidays nil)
@@ -213,7 +213,6 @@
 
 (use-package dired
   :ensure nil
-  :defer t
   :bind (("C-c C-f" . find-name-dired)
          :map dired-mode-map
          ("z" . (lambda ()
@@ -228,14 +227,17 @@
      dired-listing-switches "-Gal --group-directories-first --si")))
 
 (use-package delsel
+  :ensure nil
   :config
   (delete-selection-mode 1))
 
 (use-package elec-pair
+  :ensure nil
   :config
   (electric-pair-mode 1))
 
 (use-package paren
+  :ensure nil
   :init
   (setq
    show-paren-style 'parenthesis)
@@ -249,6 +251,7 @@
   (blink-cursor-mode -1))
 
 (use-package electric
+  :ensure nil
   :hook (ruby-mode . electric-indent-local-mode)
   :config
   (electric-indent-mode -1))
@@ -352,12 +355,14 @@
   (git-gutter:verbosity 0))
 
 (use-package whitespace
+  :ensure nil
   :hook (find-file . whitespace-mode)
   :init
   (setq whitespace-style '(face trailing tabs tab-mark)
         whitespace-display-mappings '((tab-mark 9 [8594 9]))))
 
 (use-package js
+  :ensure nil
   :mode (("\\.js\\'" . js-mode)
          ("\\.es[56]\\'" . js-mode))
   :init
@@ -379,6 +384,7 @@
    typescript-indent-level 2))
 
 (use-package ruby-mode
+  :ensure nil
   :mode "\\.rb\\'"
   :commands ruby-mode
   :init
@@ -394,12 +400,14 @@
    flycheck-python-pycompile-executable "python3"))
 
 (use-package python
+  :ensure nil
   :commands python-mode
   :init
   (setq
    python-indent-offset 2))
 
 (use-package css-mode
+  :ensure nil
   :mode (("\\.css\\'" . css-mode)
          ("\\.scss\\'" . css-mode))
   :commands (css-mode scss-mode)
@@ -425,6 +433,7 @@
   (define-key emmet-mode-keymap (kbd "C-j") nil))
 
 (use-package autoinsert
+  :ensure nil
   :hook (find-file . auto-insert-mode)
   :init
   (setq
@@ -450,7 +459,7 @@
   (add-hook 'web-mode-hook #'add-node-modules-path))
 
 (use-package grep
-  :defer t
+  :ensure nil
   :commands grep
   :init
   (setq grep-command
@@ -468,9 +477,11 @@
          ("C-c M-r" . replace-regexp)))
 
 (use-package ffap
+  :ensure nil
   :bind (("C-c C-x C-f" . find-file-at-point)))
 
 (use-package calc
+  :ensure nil
   :bind (("M-#" . calc)))
 
 (use-package abbrev
@@ -478,4 +489,5 @@
   :bind (("M-'" . expand-abbrev)))
 
 (use-package align
+  :ensure nil
   :bind (("M-=" . align-regexp)))
