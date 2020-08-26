@@ -361,6 +361,12 @@
   (setq whitespace-style '(face trailing tabs tab-mark)
         whitespace-display-mappings '((tab-mark 9 [8594 9]))))
 
+(use-package display-line-numbers
+  :ensure nil
+  :hook (find-file . display-line-numbers-mode)
+  :init
+  (setq display-line-numbers-type t))
+
 (use-package js
   :ensure nil
   :mode (("\\.js\\'" . js-mode)
