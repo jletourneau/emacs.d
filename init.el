@@ -338,6 +338,12 @@
    magit-revert-buffers 'silent
    magit-branch-prefer-remote-upstream t))
 
+(use-package git-link
+  :bind (("C-c l" . git-link))
+  :init
+  (setq
+   git-link-open-in-browser t))
+
 (use-package git-gutter
   :commands git-gutter-mode
   :hook
