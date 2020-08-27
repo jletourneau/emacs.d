@@ -1,25 +1,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bootstrapping use-package system
 
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-
 (add-to-list
  'load-path
  (concat (file-name-as-directory user-emacs-directory) "include"))
+
+(load "_bootstrap")
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom defuns
@@ -111,7 +99,7 @@
 
 (use-package custom
   :unless (display-graphic-p)
-  :ensure nil
+  :straight (:type built-in)
   :config
   (load-theme 'wombat t))
 
@@ -122,20 +110,20 @@
 
 (use-package hl-line
   :if (display-graphic-p)
-  :ensure nil
+  :straight (:type built-in)
   :config
   (hl-line-mode 1))
 
 (use-package mouse
   :if (display-graphic-p)
-  :ensure nil
+  :straight (:type built-in)
   :init
   (setq
    mouse-yank-at-point t))
 
 (use-package mwheel
   :if (display-graphic-p)
-  :ensure nil
+  :straight (:type built-in)
   :init
   (setq
    mouse-wheel-progressive-speed t
@@ -143,13 +131,13 @@
 
 (use-package ns-win
   :if (display-graphic-p)
-  :ensure nil
+  :straight (:type built-in)
   :init
   (setq
    ns-pop-up-frames nil))
 
 (use-package files
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
   (backup-directory-alist `(("." . ,(dir-join emacs-conf-dir ".backup"))))
@@ -160,13 +148,13 @@
   (trash-directory (dir-join "~" ".Trash")))
 
 (use-package cus-edit
-  :ensure nil
+  :straight (:type built-in)
   :init
   (setq
    custom-file (dir-join user-emacs-directory "include" "_local_custom.el")))
 
 (use-package simple
-  :ensure nil
+  :straight (:type built-in)
   :bind (("C-z" . undo)
          ("C-c w" . delete-trailing-whitespace)
          ("C-c \\" . toggle-truncate-lines)
@@ -209,14 +197,14 @@
   (flx-ido-mode 1))
 
 (use-package solar
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (calendar-latitude 42.73)
   (calendar-longitude -73.69)
   (calendar-location-name "Troy, NY"))
 
 (use-package calendar
-  :ensure nil
+  :straight (:type built-in)
   :commands calendar
   :custom
   (holiday-bahai-holidays nil)
@@ -225,7 +213,7 @@
   (holiday-oriental-holidays nil))
 
 (use-package dired
-  :ensure nil
+  :straight (:type built-in)
   :bind (("C-c C-f" . find-name-dired)
          :map dired-mode-map
          ("z" . (lambda ()
@@ -240,17 +228,17 @@
      dired-listing-switches "-Gal --group-directories-first --si")))
 
 (use-package delsel
-  :ensure nil
+  :straight (:type built-in)
   :config
   (delete-selection-mode 1))
 
 (use-package elec-pair
-  :ensure nil
+  :straight (:type built-in)
   :config
   (electric-pair-mode 1))
 
 (use-package paren
-  :ensure nil
+  :straight (:type built-in)
   :init
   (setq
    show-paren-style 'parenthesis)
@@ -258,18 +246,22 @@
   (show-paren-mode 1))
 
 (use-package frame
-  :ensure nil
+  :straight (:type built-in)
   :bind (("<C-S-tab>" . other-frame))
   :config
   (blink-cursor-mode -1))
 
 (use-package electric
-  :ensure nil
+  :straight (:type built-in)
   :hook (ruby-mode . electric-indent-local-mode)
   :config
   (electric-indent-mode -1))
 
 (use-package smart-tab
+  :straight (smart-tab
+             :type git
+             :repo "https://git.genehack.net/genehack/smart-tab.git"
+             :branch "main")
   :init
   (setq
    smart-tab-using-hippie-expand t)
@@ -277,13 +269,13 @@
   (global-smart-tab-mode 1))
 
 (use-package uniquify
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (uniquify-buffer-name-style 'forward)
   (uniquify-strip-common-suffix t))
 
 (use-package misc
-  :ensure nil
+  :straight (:type built-in)
   :bind (("C-M-z" . zap-up-to-char)))
 
 (use-package key-chord
@@ -368,20 +360,20 @@
   (git-gutter:verbosity 0))
 
 (use-package whitespace
-  :ensure nil
+  :straight (:type built-in)
   :hook (find-file . whitespace-mode)
   :init
   (setq whitespace-style '(face trailing tabs tab-mark)
         whitespace-display-mappings '((tab-mark 9 [8594 9]))))
 
 (use-package display-line-numbers
-  :ensure nil
+  :straight (:type built-in)
   :hook (find-file . display-line-numbers-mode)
   :init
   (setq display-line-numbers-type t))
 
 (use-package js
-  :ensure nil
+  :straight (:type built-in)
   :mode (("\\.js\\'" . js-mode)
          ("\\.es[56]\\'" . js-mode))
   :init
@@ -403,7 +395,7 @@
    typescript-indent-level 2))
 
 (use-package ruby-mode
-  :ensure nil
+  :straight (:type built-in)
   :mode "\\.rb\\'"
   :commands ruby-mode
   :init
@@ -419,14 +411,14 @@
    flycheck-python-pycompile-executable "python3"))
 
 (use-package python
-  :ensure nil
+  :straight (:type built-in)
   :commands python-mode
   :init
   (setq
    python-indent-offset 2))
 
 (use-package css-mode
-  :ensure nil
+  :straight (:type built-in)
   :mode (("\\.css\\'" . css-mode)
          ("\\.scss\\'" . css-mode))
   :commands (css-mode scss-mode)
@@ -452,7 +444,7 @@
   (define-key emmet-mode-keymap (kbd "C-j") nil))
 
 (use-package autoinsert
-  :ensure nil
+  :straight (:type built-in)
   :hook (find-file . auto-insert-mode)
   :init
   (setq
@@ -478,7 +470,7 @@
   (add-hook 'web-mode-hook #'add-node-modules-path))
 
 (use-package grep
-  :ensure nil
+  :straight (:type built-in)
   :commands grep
   :init
   (setq grep-command
@@ -491,22 +483,22 @@
           "grep -Hs --line-number --recursive --ignore-case "))))
 
 (use-package replace
-  :ensure nil
+  :straight (:type built-in)
   :bind (("C-c r" . replace-string)
          ("C-c M-r" . replace-regexp)))
 
 (use-package ffap
-  :ensure nil
+  :straight (:type built-in)
   :bind (("C-c C-x C-f" . find-file-at-point)))
 
 (use-package calc
-  :ensure nil
+  :straight (:type built-in)
   :bind (("M-#" . calc)))
 
 (use-package abbrev
-  :ensure nil
+  :straight (:type built-in)
   :bind (("M-'" . expand-abbrev)))
 
 (use-package align
-  :ensure nil
+  :straight (:type built-in)
   :bind (("M-=" . align-regexp)))

@@ -1,6 +1,7 @@
 .autosave
 .backup
 .cask
+straight
 elpa
 include/_local_custom.el
 transient

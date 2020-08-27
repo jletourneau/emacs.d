@@ -10,6 +10,8 @@
 ;;   - Courier: packaged with OS X
 ;;   - Arial Unicode MS: packaged with OS X
 
+(require 'seq)
+
 (defvar fixed-pitch-families
   '("IBM Plex Mono" "SF Mono" "Consolas" "Courier")
   "List of preferred fixed-pitch font family names.")
