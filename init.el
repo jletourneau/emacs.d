@@ -316,7 +316,11 @@
   :init
   (setq
    projectile-indexing-method 'hybrid
-   projectile-use-git-grep t)
+   projectile-use-git-grep t
+   projectile-cache-file
+   (locate-user-emacs-file (convert-standard-filename ".projectile/cache"))
+   projectile-known-projects-file
+   (locate-user-emacs-file (convert-standard-filename ".projectile/bookmarks.eld")))
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
@@ -336,7 +340,16 @@
   (setq
    magit-save-repository-buffers nil
    magit-revert-buffers 'silent
-   magit-branch-prefer-remote-upstream t))
+   magit-branch-prefer-remote-upstream t
+   transient-levels-file
+   (locate-user-emacs-file
+    (convert-standard-filename ".transient/levels.el"))
+   transient-values-file
+   (locate-user-emacs-file
+    (convert-standard-filename ".transient/values.el"))
+   transient-history-file
+   (locate-user-emacs-file
+    (convert-standard-filename ".transient/history.el"))))
 
 (use-package git-link
   :bind (("C-c l" . git-link))
