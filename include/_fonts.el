@@ -40,3 +40,8 @@
 
 ;; Setting the :font frame parameter resets the font size to the default 12
 (set-frame-font "fontset-custom" nil t)
+
+;; Use macOS emoji font if available and if color emoji are supported
+(when (and (not (version< emacs-version "27.0"))
+           (first-available-font '("Apple Color Emoji")))
+  (set-fontset-font t 'symbol "Apple Color Emoji"))
