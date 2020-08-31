@@ -436,6 +436,9 @@
   (setq
    python-indent-offset 2))
 
+(use-package haml-mode)
+(use-package sass-mode)
+
 (use-package css-mode
   :straight (:type built-in)
   :mode (("\\.css\\'" . css-mode)
