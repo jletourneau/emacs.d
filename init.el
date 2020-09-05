@@ -451,19 +451,13 @@
 
 (use-package web-mode
   :mode ("\\.vue\\'" . web-mode)
+  :bind
+  (("<C-return>" . web-mode-element-insert-at-point))
   :init
   (setq web-mode-script-padding 2
         web-mode-style-padding 2
         web-mode-block-padding 2
         web-mode-enable-auto-pairing nil))
-
-(use-package emmet-mode
-  :hook ((web-mode vue-mode html-mode) . emmet-mode)
-  :init
-  (setq emmet-indentation 2
-        emmet-self-closing-tag-style " /")
-  :config
-  (define-key emmet-mode-keymap (kbd "C-j") nil))
 
 (use-package autoinsert
   :straight (:type built-in)
