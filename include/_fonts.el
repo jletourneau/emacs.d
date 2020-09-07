@@ -20,16 +20,13 @@
   '("IBM Plex Sans" "SF Pro Text" "Lucida Grande")
   "List of preferred variable-pitch font family names.")
 
-(defun first-available-font (font-list)
-  (seq-find (lambda (f) (not (null (x-list-fonts f)))) font-list))
-
 (when (setq fixed-pitch-family
-            (first-available-font fixed-pitch-families))
+            (jal/first-available-font fixed-pitch-families))
   (set-face-attribute 'fixed-pitch nil
                       :family fixed-pitch-family))
 
 (when (setq variable-pitch-family
-            (first-available-font variable-pitch-families))
+            (jal/first-available-font variable-pitch-families))
   (set-face-attribute 'variable-pitch nil
                       :family variable-pitch-family))
 
@@ -43,5 +40,5 @@
 
 ;; Use macOS emoji font if available and if color emoji are supported
 (when (and (not (version< emacs-version "27.0"))
-           (first-available-font '("Apple Color Emoji")))
+           (jal/first-available-font '("Apple Color Emoji")))
   (set-fontset-font t 'symbol "Apple Color Emoji"))

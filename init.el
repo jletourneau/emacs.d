@@ -1,37 +1,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Bootstrapping use-package system
+;; Basic tablesetting
 
-(add-to-list
- 'load-path
- (concat (file-name-as-directory user-emacs-directory) "include"))
+(add-to-list 'load-path (expand-file-name "include" user-emacs-directory))
+(load "_defuns")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Bootstrap straight and use-package
 
 (load "_bootstrap")
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Custom defuns
-
-(defun dir-join (root &rest dirs)
-  "Joins a series of path components together.
-  (dir-join \"/tmp\" \"a\" \"b\" \"c\") => \"/tmp/a/b/c\""
-  (if (not dirs)
-      root
-    (apply 'dir-join
-           (expand-file-name (car dirs) root)
-           (cdr dirs))))
-
-(defun kill-current-buffer ()
-  "Safe version (without menu-bar-related checks) of `kill-this-buffer'."
-  (interactive)
-  (kill-buffer (current-buffer)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Variables not part of specific provided packages
+;; Non-package-specific config
 
 (setq
- emacs-conf-dir (file-name-as-directory user-emacs-directory)
- auto-save-list-file-prefix (dir-join emacs-conf-dir ".autosave/save-")
+ auto-save-list-file-prefix
+ (expand-file-name ".autosave/save-" user-emacs-directory)
  completion-ignore-case t
  frame-title-format '(buffer-file-name "%f" ("%b"))
  gc-cons-threshold (* 20 1024 1024)
@@ -69,9 +54,6 @@
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(right-fringe . 0))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Various built-in invocations
-
 (prefer-coding-system 'utf-8-unix)
 (set-terminal-coding-system 'utf-8)
 
@@ -84,7 +66,7 @@
 
 (global-set-key (kbd "C-j") 'indent-for-tab-command)
 (global-set-key (kbd "<C-tab>") 'other-window)
-(global-set-key (kbd "<f15>") 'kill-current-buffer)
+(global-set-key (kbd "<f15>") 'jal/kill-current-buffer)
 
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -140,18 +122,20 @@
   :straight (:type built-in)
   :custom
   (auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-  (backup-directory-alist `(("." . ,(dir-join emacs-conf-dir ".backup"))))
+  (backup-directory-alist
+   `(("." .,(expand-file-name ".backup" user-emacs-directory))))
   (confirm-kill-emacs 'y-or-n-p)
   (magic-mode-alist '())
   (require-final-newline t)
   (save-abbrevs nil)
-  (trash-directory (dir-join "~" ".Trash")))
+  (trash-directory (expand-file-name "~/.Trash")))
 
 (use-package cus-edit
   :straight (:type built-in)
   :init
   (setq
-   custom-file (dir-join user-emacs-directory "include" "_local_custom.el")))
+   custom-file
+   (expand-file-name "include/_local_custom.el" user-emacs-directory)))
 
 (use-package simple
   :straight (:type built-in)
@@ -288,7 +272,7 @@
   (key-chord-define-global "jk" 'indent-for-tab-command)
   (key-chord-define-global "1`" 'other-window)
   (key-chord-define-global "qw" 'delete-other-windows)
-  (key-chord-define-global "qp" 'kill-current-buffer))
+  (key-chord-define-global "qp" 'jal/kill-current-buffer))
 
 (use-package use-package-chords)
 
@@ -464,7 +448,8 @@
   :hook (find-file . auto-insert-mode)
   :init
   (setq
-   auto-insert-directory (dir-join emacs-conf-dir "auto-insert/")
+   auto-insert-directory
+   (expand-file-name "auto-insert/" user-emacs-directory)
    auto-insert-query nil)
   :config
   (define-auto-insert "\\.vue\\'" "template.vue")
