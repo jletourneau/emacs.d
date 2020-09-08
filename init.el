@@ -434,14 +434,20 @@
    scss-compile-at-save nil))
 
 (use-package web-mode
-  :mode ("\\.vue\\'" . web-mode)
+  :mode
+  (("\\.html\\'" . web-mode)
+   ("\\.vue\\'" . jal/vue-web-mode))
   :bind
   (("<C-return>" . web-mode-element-insert-at-point))
   :init
+  (define-derived-mode jal/vue-web-mode web-mode "VueJS")
   (setq web-mode-script-padding 2
         web-mode-style-padding 2
         web-mode-block-padding 2
-        web-mode-enable-auto-pairing nil))
+        web-mode-enable-auto-pairing nil)
+  :hook
+  (jal/vue-web-mode . (lambda ()
+                        (message "Initializing Vue mode"))))
 
 (use-package autoinsert
   :straight (:type built-in)
