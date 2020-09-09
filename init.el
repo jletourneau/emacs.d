@@ -454,10 +454,17 @@
         web-mode-block-padding 2
         web-mode-enable-auto-pairing nil))
 
+(unless (executable-find "eslint_d")
+  (message "No eslint_d found; skipping packages with eslint_d dependency."))
+
 (use-package flycheck
   :if (executable-find "eslint_d")
   :hook
   (jal/vue-web-mode . flycheck-mode)
+  :bind
+  (("s-[" . flycheck-previous-error)
+   ("s-]" . flycheck-next-error)
+   ("s-\\" . flycheck-list-errors))
   :init
   (setq flycheck-javascript-eslint-executable "eslint_d")
   :config
