@@ -79,6 +79,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Per-package configs
 
+(use-package exec-path-from-shell
+  :init
+  (setq
+   exec-path-from-shell-arguments (list "-l"))
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+
 (use-package custom
   :unless (display-graphic-p)
   :straight (:type built-in)
@@ -444,10 +452,25 @@
   (setq web-mode-script-padding 2
         web-mode-style-padding 2
         web-mode-block-padding 2
-        web-mode-enable-auto-pairing nil)
+        web-mode-enable-auto-pairing nil))
+
+(use-package flycheck
+  :if (executable-find "eslint_d")
   :hook
-  (jal/vue-web-mode . (lambda ()
-                        (message "Initializing Vue mode"))))
+  (jal/vue-web-mode . flycheck-mode)
+  :init
+  (setq flycheck-javascript-eslint-executable "eslint_d")
+  :config
+  (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode))
+
+(use-package eslintd-fix
+  :if (executable-find "eslint_d")
+  :hook
+  (jal/vue-web-mode . eslintd-fix-mode))
+
+(use-package add-node-modules-path
+  :hook
+  (web-mode . add-node-modules-path))
 
 (use-package autoinsert
   :straight (:type built-in)
@@ -460,21 +483,6 @@
   :config
   (define-auto-insert "\\.vue\\'" "template.vue")
   (define-auto-insert "\\.html\\'" "template.html"))
-
-(use-package exec-path-from-shell
-  :init
-  (setq
-   exec-path-from-shell-arguments (list "-l"))
-  :config
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize)))
-
-(use-package add-node-modules-path
-  :disabled
-  :after
-  (web-mode)
-  :config
-  (add-hook 'web-mode-hook #'add-node-modules-path))
 
 (use-package grep
   :straight (:type built-in)
