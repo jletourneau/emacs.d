@@ -419,7 +419,9 @@
   :hook (python-mode . flycheck-mode)
   :init
   (setq
-   flycheck-python-pycompile-executable "python3"))
+   flycheck-python-pycompile-executable "python3"
+   flycheck-check-syntax-automatically '(save idle-change mode-enabled)
+   flycheck-idle-change-delay 1.0))
 
 (use-package python
   :straight (:type built-in)
