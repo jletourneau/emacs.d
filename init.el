@@ -273,7 +273,8 @@
 (use-package key-chord
   :config
   (key-chord-mode 1)
-  ;; Unused chord candidates: "fv", ",.", "jj", "kk"
+  ;; Unused chord candidates: ",.", "jj", "kk"
+  (key-chord-define-global "fv" 'ido-switch-buffer)
   (key-chord-define-global "zx" 'execute-extended-command)
   (key-chord-define-global "]\\" 'undo)
   (key-chord-define-global "hj" 'keyboard-quit)
