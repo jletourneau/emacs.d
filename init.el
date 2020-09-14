@@ -273,15 +273,15 @@
 (use-package key-chord
   :config
   (key-chord-mode 1)
-  ;; Unused chord candidates: ",.", "jj", "kk"
-  (key-chord-define-global "fv" 'ido-switch-buffer)
+  (key-chord-define-global "jj" 'ido-find-file)
+  (key-chord-define-global "kk" 'ido-switch-buffer)
+  (key-chord-define-global "qp" 'jal/kill-current-buffer)
   (key-chord-define-global "zx" 'execute-extended-command)
   (key-chord-define-global "]\\" 'undo)
   (key-chord-define-global "hj" 'keyboard-quit)
   (key-chord-define-global "jk" 'indent-for-tab-command)
   (key-chord-define-global "1`" 'other-window)
-  (key-chord-define-global "qw" 'delete-other-windows)
-  (key-chord-define-global "qp" 'jal/kill-current-buffer))
+  (key-chord-define-global "qw" 'delete-other-windows))
 
 (use-package use-package-chords)
 
