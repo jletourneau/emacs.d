@@ -527,3 +527,10 @@
 (use-package align
   :straight (:type built-in)
   :bind (("M-=" . align-regexp)))
+
+(use-package server
+  :if (display-graphic-p)
+  :straight (:type built-in)
+  :hook (emacs-startup . (lambda ()
+                           (unless (server-running-p)
+                             (server-start)))))
