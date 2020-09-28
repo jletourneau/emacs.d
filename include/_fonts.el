@@ -39,6 +39,6 @@
 (set-frame-font "fontset-custom" nil t)
 
 ;; Use macOS emoji font if available and if color emoji are supported
-(when (and (not (version< emacs-version "27.0"))
+(when (and (>= emacs-major-version 27)
            (jal/first-available-font '("Apple Color Emoji")))
   (set-fontset-font t 'symbol "Apple Color Emoji"))
