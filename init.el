@@ -502,6 +502,10 @@
          (t
           "grep -Hs --line-number --recursive --ignore-case "))))
 
+(use-package rg
+  :if (executable-find "rg")
+  :hook (after-init . rg-enable-default-bindings))
+
 (use-package replace
   :straight (:type built-in)
   :bind (("C-c r" . replace-string)
