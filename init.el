@@ -416,14 +416,6 @@
   (when (require 'rvm nil t)
     (rvm-autodetect-ruby)))
 
-(use-package flycheck
-  :hook (python-mode . flycheck-mode)
-  :init
-  (setq
-   flycheck-python-pycompile-executable "python3"
-   flycheck-check-syntax-automatically '(save idle-change mode-enabled)
-   flycheck-idle-change-delay 1.0))
-
 (use-package python
   :straight (:type built-in)
   :commands python-mode
@@ -457,19 +449,20 @@
         web-mode-block-padding 2
         web-mode-enable-auto-pairing nil))
 
-(unless (executable-find "eslint_d")
-  (message "No eslint_d found; skipping packages with eslint_d dependency."))
-
 (use-package flycheck
-  :if (executable-find "eslint_d")
-  :hook
-  (jal/vue-web-mode . flycheck-mode)
+  :hook (python-mode . flycheck-mode)
   :bind
   (("s-[" . flycheck-previous-error)
    ("s-]" . flycheck-next-error)
    ("s-\\" . flycheck-list-errors))
   :init
-  (setq flycheck-javascript-eslint-executable "eslint_d")
+  (setq
+   flycheck-python-pycompile-executable "python3"
+   flycheck-check-syntax-automatically '(save idle-change mode-enabled)
+   flycheck-idle-change-delay 1.0)
+  (when (executable-find "eslint_d")
+    (setq flycheck-javascript-eslint-executable "eslint_d")
+    (add-hook 'jal/vue-web-mode-hook 'flycheck-mode))
   :config
   (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode))
 
