@@ -495,6 +495,8 @@
   :init
   (setq grep-command
         (cond
+         ((executable-find "rg")
+          "rg --with-filename --no-heading --color never --smart-case ")
          ((executable-find "ag")
           "ag --filename --silent --nogroup --nocolor --smart-case ")
          ((executable-find "ack")
