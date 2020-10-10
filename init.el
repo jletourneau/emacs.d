@@ -75,6 +75,8 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'tooltip-mode) (tooltip-mode -1))
 
+(add-hook 'kill-buffer-query-functions 'jal/kill-buffer-query)
+
 (when IS-GUI
   (load "_fonts"))
 

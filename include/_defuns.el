@@ -3,5 +3,12 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
+(defun jal/kill-buffer-query ()
+  "Bury *scratch* and *Messages* buffers rather than letting them be killed."
+  (if (or (eq (current-buffer) (get-buffer "*scratch*"))
+          (eq (current-buffer) (get-buffer "*Messages*")))
+      (progn (bury-buffer) nil)
+    t))
+
 (defun jal/first-available-font (font-list)
   (seq-find (lambda (f) (not (null (x-list-fonts f)))) font-list))
