@@ -107,8 +107,7 @@
 (use-package hl-line
   :if IS-GUI
   :straight (:type built-in)
-  :config
-  (hl-line-mode 1))
+  :hook (find-file . hl-line-mode))
 
 (use-package mouse
   :if IS-GUI
