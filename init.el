@@ -21,7 +21,6 @@
  (expand-file-name ".autosave/save-" user-emacs-directory)
  completion-ignore-case t
  frame-title-format '(buffer-file-name "%f" ("%b"))
- gc-cons-threshold (* 20 1024 1024)
  hourglass-delay 2
  inhibit-default-init t
  inhibit-splash-screen t
