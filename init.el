@@ -284,8 +284,6 @@
   (key-chord-define-global "qp" 'jal/kill-current-buffer)
   (key-chord-define-global "zx" 'execute-extended-command)
   (key-chord-define-global "]\\" 'undo)
-  (key-chord-define-global "hj" 'keyboard-quit)
-  (key-chord-define-global "jk" 'indent-for-tab-command)
   (key-chord-define-global "1`" 'other-window)
   (key-chord-define-global "qw" 'delete-other-windows))
 
