@@ -15,6 +15,7 @@
 ;; Non-package-specific config
 
 (defconst IS-GUI (display-graphic-p))
+(defconst IS-MAC (string= system-type "darwin"))
 
 (setq
  auto-save-list-file-prefix
@@ -34,14 +35,17 @@
  scroll-preserve-screen-position t
  default-directory "~/"
  default-input-method "latin-1-postfix"
- delete-by-moving-to-trash t
- ns-control-modifier 'control
- ns-right-control-modifier 'control
- ns-alternate-modifier 'meta
- ns-right-alternate-modifier 'meta
- ns-command-modifier 'meta
- ns-right-command-modifier 'meta
- ns-function-modifier 'super)
+ delete-by-moving-to-trash t)
+
+(when IS-MAC
+  (setq
+   ns-control-modifier 'control
+   ns-right-control-modifier 'control
+   ns-alternate-modifier 'meta
+   ns-right-alternate-modifier 'meta
+   ns-command-modifier 'meta
+   ns-right-command-modifier 'meta
+   ns-function-modifier 'super))
 
 (setq-default
  fill-column 79
