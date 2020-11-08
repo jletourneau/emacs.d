@@ -331,10 +331,13 @@
 
 (use-package magit
   :commands magit-status
-  :bind (("C-c m" . magit-status))
-  :chords ((",." . magit-status))
+  ;; Keybindings recommended in Magit docs:
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-dispatch)
+         ("C-c g" . magit-file-dispatch))
   :init
   (setq
+   magit-define-global-key-bindings t
    magit-save-repository-buffers nil
    magit-revert-buffers 'silent
    magit-branch-prefer-remote-upstream t
