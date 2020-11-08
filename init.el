@@ -29,7 +29,6 @@
  ring-bell-function 'ignore
  standard-indent 2
  use-dialog-box nil
- use-package-verbose t
  scroll-conservatively 20
  scroll-margin 8
  scroll-preserve-screen-position t
@@ -59,8 +58,8 @@
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(right-fringe . 0))
 
-(prefer-coding-system 'utf-8-unix)
-(set-terminal-coding-system 'utf-8)
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -428,7 +427,11 @@
   :commands python-mode
   :init
   (setq
-   python-indent-offset 2))
+   python-indent-offset 2
+   python-indent-guess-indent-offset-verbose nil
+   python-shell-interpreter (cond ((executable-find "python3") "python3")
+                                  ((executable-find "python2") "python2")
+                                  (t "python"))))
 
 (use-package haml-mode)
 (use-package sass-mode)
@@ -451,9 +454,9 @@
   (("<C-return>" . web-mode-element-insert-at-point))
   :init
   (define-derived-mode jal/vue-web-mode web-mode "VueJS")
-  (setq web-mode-script-padding 2
-        web-mode-style-padding 2
-        web-mode-block-padding 2
+  (setq web-mode-part-padding 2
+        web-mode-auto-close-style 2
+        web-mode-enable-auto-indentation nil
         web-mode-enable-auto-pairing nil))
 
 (use-package flycheck
