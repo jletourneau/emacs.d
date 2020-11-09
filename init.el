@@ -184,7 +184,9 @@
 (use-package ido-vertical-mode
   :requires ido
   :init
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (setq
+   ido-vertical-define-keys 'C-n-and-C-p-only
+   ido-vertical-indicator " »")
   :config
   (ido-vertical-mode 1))
 
