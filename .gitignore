@@ -3,6 +3,7 @@
 .cask
 .transient
 .projectile
+.recentf
 straight
 elpa
 include/_local_custom.el

@@ -310,6 +310,15 @@
   (org-startup-folded nil)
   (org-startup-indented t))
 
+(use-package recentf
+  :init
+  (setq
+   recentf-save-file (locate-user-emacs-file ".recentf")
+   recentf-max-saved-items 500
+   recentf-max-menu-items 15)
+  :config
+  (recentf-mode +1))
+
 (use-package projectile
   :init
   (setq
