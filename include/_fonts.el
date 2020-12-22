@@ -22,6 +22,9 @@
 
 (when (setq fixed-pitch-family
             (jal/first-available-font fixed-pitch-families))
+  (set-face-attribute 'default nil
+                      :family fixed-pitch-family
+                      :height 140)
   (set-face-attribute 'fixed-pitch nil
                       :family fixed-pitch-family))
 
@@ -29,14 +32,6 @@
             (jal/first-available-font variable-pitch-families))
   (set-face-attribute 'variable-pitch nil
                       :family variable-pitch-family))
-
-(create-fontset-from-fontset-spec
- (concat "-*-"
-         fixed-pitch-family
-         "-normal-normal-normal-*-14-*-*-*-m-0-fontset-custom"))
-
-;; Setting the :font frame parameter resets the font size to the default 12
-(set-frame-font "fontset-custom" nil t)
 
 ;; Use macOS emoji font if available and if color emoji are supported
 (when (and (>= emacs-major-version 27)
