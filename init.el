@@ -311,6 +311,7 @@
   (org-startup-indented t))
 
 (use-package recentf
+  :bind (("C-x M-f" . recentf-open-files))
   :init
   (setq
    recentf-save-file (locate-user-emacs-file ".recentf")
