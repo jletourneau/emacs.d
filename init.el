@@ -53,7 +53,7 @@
  indicate-buffer-boundaries 'left
  truncate-lines t)
 
-(add-to-list 'default-frame-alist '(line-spacing . 2))
+(add-to-list 'default-frame-alist '(line-spacing . 0))
 (add-to-list 'default-frame-alist '(width . 95))
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(right-fringe . 0))
