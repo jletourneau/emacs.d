@@ -256,17 +256,6 @@
   :config
   (electric-indent-mode -1))
 
-(use-package smart-tab
-  :straight (smart-tab
-             :type git
-             :repo "https://git.genehack.net/genehack/smart-tab.git"
-             :branch "main")
-  :init
-  (setq
-   smart-tab-using-hippie-expand t)
-  :config
-  (global-smart-tab-mode 1))
-
 (use-package uniquify
   :straight (:type built-in)
   :custom
