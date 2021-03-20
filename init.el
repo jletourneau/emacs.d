@@ -546,3 +546,10 @@
   :hook (emacs-startup . (lambda ()
                            (unless (server-running-p)
                              (server-start)))))
+
+(use-package time
+  :straight (:type built-in)
+  :hook
+  (after-init . (lambda ()
+                  (message
+                   (format "Emacs init time: %s" (emacs-init-time))))))
