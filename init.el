@@ -226,11 +226,7 @@
 (use-package dired
   :straight (:type built-in)
   :bind (("C-c C-f" . find-name-dired)
-         :map dired-mode-map
-         ("z" . (lambda ()
-                  (interactive)
-                  (let ((fn (dired-get-file-for-visit)))
-                    (start-process "default-app" nil "open" fn)))))
+         :map dired-mode-map ("z" . jal/macos-open))
   :config
   (put 'dired-find-alternate-file 'disabled nil)
   (when (executable-find "gls")

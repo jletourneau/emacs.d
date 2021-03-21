@@ -12,3 +12,8 @@
 
 (defun jal/first-available-font (font-list)
   (seq-find (lambda (f) (not (null (x-list-fonts f)))) font-list))
+
+(defun jal/macos-open ()
+  (interactive)
+  (let ((filename (dired-get-file-for-visit)))
+    (start-process "default-app" nil "open" filename)))
