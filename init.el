@@ -195,6 +195,18 @@
   :config
   (flx-ido-mode 1))
 
+(use-package company
+  :bind
+  (:map
+   company-mode-map
+   ("TAB" . company-indent-or-complete-common))
+  :hook (find-file . company-mode)
+  :init
+  (setq
+   company-dabbrev-downcase nil
+   company-idle-delay nil
+   company-show-numbers t))
+
 (use-package solar
   :straight (:type built-in)
   :custom
