@@ -360,7 +360,7 @@
     (convert-standard-filename ".transient/history.el"))))
 
 (use-package git-link
-  :bind (("C-c l" . git-link))
+  :bind (("C-c u" . git-link))
   :init
   (setq
    git-link-open-in-browser t))
