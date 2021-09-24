@@ -405,7 +405,8 @@
          ("\\.es[56]\\'" . js-mode))
   :init
   (setq
-   js-indent-level 2))
+   js-indent-level 2
+   js-switch-indent-offset js-indent-level))
 
 (use-package coffee-mode
   :mode "\\.coffee\\'"
