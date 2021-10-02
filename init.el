@@ -491,7 +491,8 @@
     (setq flycheck-javascript-eslint-executable "eslint_d")
     (add-hook 'jal/vue-web-mode-hook 'flycheck-mode))
   :config
-  (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode))
+  (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode)
+  (flycheck-add-mode 'css-stylelint 'jal/vue-web-mode))
 
 (use-package eslintd-fix
   :if (executable-find "eslint_d")
