@@ -288,7 +288,7 @@
 (use-package use-package-chords)
 
 (use-package typo
-  :hook ((text-mode org-mode) . typo-mode)
+  :hook ((text-mode org-mode gfm-mode) . typo-mode)
   :config
   (setq-default typo-language "English")
   (define-typo-cycle typo-cycle-single-quotation-mark
@@ -306,6 +306,13 @@
   :custom
   (org-startup-folded nil)
   (org-startup-indented t))
+
+(use-package markdown-mode
+  :commands gfm-mode
+  :mode (("\\.md\\'" . gfm-mode))
+  :init
+  (setq
+   markdown-command "markdown"))
 
 (use-package recentf
   :bind (("C-x M-f" . recentf-open-files))
