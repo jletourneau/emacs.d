@@ -330,9 +330,9 @@
    projectile-indexing-method 'hybrid
    projectile-use-git-grep t
    projectile-cache-file
-   (locate-user-emacs-file (convert-standard-filename ".projectile/cache"))
+   (locate-user-emacs-file (convert-standard-filename ".projectile.d/cache"))
    projectile-known-projects-file
-   (locate-user-emacs-file (convert-standard-filename ".projectile/bookmarks.eld")))
+   (locate-user-emacs-file (convert-standard-filename ".projectile.d/bookmarks.eld")))
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))

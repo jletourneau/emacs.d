@@ -2,7 +2,7 @@
 .backup
 .cask
 .transient
-.projectile
+.projectile.d
 .recentf
 elpa
 include/_local_custom.el
