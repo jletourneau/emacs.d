@@ -486,7 +486,8 @@
   (setq
    flycheck-python-pycompile-executable "python3"
    flycheck-check-syntax-automatically '(save idle-change mode-enabled)
-   flycheck-idle-change-delay 1.0)
+   flycheck-idle-change-delay 1.0
+   flycheck-stylelintrc '(".stylelintrc" "stylelint.config.js"))
   (when (executable-find "eslint_d")
     (setq flycheck-javascript-eslint-executable "eslint_d")
     (add-hook 'jal/vue-web-mode-hook 'flycheck-mode))
