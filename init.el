@@ -465,7 +465,11 @@
         web-mode-enable-auto-pairing nil))
 
 (use-package flycheck
-  :hook (python-mode . flycheck-mode)
+  :hook
+  (python-mode . flycheck-mode)
+  (jal/vue-web-mode . (lambda ()
+                        (setq flycheck-checker 'javascript-eslint)
+                        (flycheck-mode)))
   :bind
   (("s-[" . flycheck-previous-error)
    ("s-]" . flycheck-next-error)
@@ -477,10 +481,10 @@
    flycheck-idle-change-delay 1.0
    flycheck-stylelintrc '(".stylelintrc" "stylelint.config.js"))
   (when (executable-find "eslint_d")
-    (setq flycheck-javascript-eslint-executable "eslint_d")
-    (add-hook 'jal/vue-web-mode-hook 'flycheck-mode))
+    (setq flycheck-javascript-eslint-executable "eslint_d"))
   :config
   (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode)
+  (flycheck-add-mode 'css-stylelint 'jal/vue-web-mode)
   (flycheck-add-next-checker 'javascript-eslint 'css-stylelint))
 
 (use-package eslintd-fix
