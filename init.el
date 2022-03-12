@@ -492,6 +492,9 @@
   :hook
   (jal/vue-web-mode . eslintd-fix-mode))
 
+;; Latest add-node-modules-path depends on s.el
+(use-package s)
+
 (use-package add-node-modules-path
   :hook
   (web-mode . add-node-modules-path))
