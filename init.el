@@ -394,9 +394,23 @@
   :init
   (setq display-line-numbers-type t))
 
+(use-package lsp-mode
+  :init
+  (setq
+   lsp-keymap-prefix "C-c l"
+   ;; If `lsp-volar-take-over-mode' is set to `t' (the default) and the current
+   ;; file does not belong to a previously-identified LSP workspace (saved in
+   ;; `~/.emacs.d/.lsp-session-XX'), lsp-volar will not activate because its
+   ;; activation check (`lsp-volar--activate-p') relies on `lsp-workspace-root'
+   ;; returning a project directory. This option can be set to `t' when working
+   ;; with previously set up workspaces but not when activating new ones.
+   lsp-volar-take-over-mode t
+   read-process-output-max (* 1024 1024))
+  :commands lsp)
+
 (use-package js
   :straight (:type built-in)
-  :mode (("\\.js\\'" . js-mode)
+  :mode (("\\.[cm]?js\\'" . js-mode)
          ("\\.es[56]\\'" . js-mode))
   :init
   (setq
@@ -479,7 +493,9 @@
    flycheck-python-pycompile-executable "python3"
    flycheck-check-syntax-automatically '(save idle-change mode-enabled)
    flycheck-idle-change-delay 1.0
-   flycheck-stylelintrc '(".stylelintrc" "stylelint.config.js"))
+   flycheck-stylelintrc '(".stylelintrc"
+                          ".stylelintrc.json"
+                          "stylelint.config.js"))
   (when (executable-find "eslint_d")
     (setq flycheck-javascript-eslint-executable "eslint_d"))
   :config
@@ -491,9 +507,6 @@
   :if (executable-find "eslint_d")
   :hook
   (jal/vue-web-mode . eslintd-fix-mode))
-
-;; Latest add-node-modules-path depends on s.el
-(use-package s)
 
 (use-package add-node-modules-path
   :hook

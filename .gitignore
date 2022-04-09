@@ -1,9 +1,11 @@
 .autosave
 .backup
+.cache
 .cask
 .transient
 .projectile.d
 .recentf
+.lsp-session*
 elpa
 include/_local_custom.el
 ac-comphist.dat
