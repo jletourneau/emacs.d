@@ -398,6 +398,7 @@
   :init
   (setq
    lsp-keymap-prefix "C-c l"
+   lsp-lens-enable nil
    ;; If `lsp-volar-take-over-mode' is set to `t' (the default) and the current
    ;; file does not belong to a previously-identified LSP workspace (saved in
    ;; `~/.emacs.d/.lsp-session-XX'), lsp-volar will not activate because its
@@ -406,7 +407,17 @@
    ;; with previously set up workspaces but not when activating new ones.
    lsp-volar-take-over-mode t
    read-process-output-max (* 1024 1024))
-  :commands lsp)
+  :commands lsp
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :after (lsp-mode))
+
+(use-package which-key
+  :config
+  (which-key-mode))
 
 (use-package js
   :straight (:type built-in)
