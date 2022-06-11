@@ -93,16 +93,11 @@
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize)))
 
-(use-package custom
-  :unless IS-GUI
-  :straight (:type built-in)
-  :config
-  (load-theme 'wombat t))
-
 (use-package zenburn-theme
-  :if IS-GUI
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'zenburn t)
+  (unless IS-GUI
+    (set-face-background 'default "unspecified-bg")))
 
 (use-package hl-line
   :if IS-GUI
