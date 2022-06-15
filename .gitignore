@@ -7,6 +7,7 @@
 .recentf
 .lsp-session*
 elpa
+org-persist
 include/_local_custom.el
 ac-comphist.dat
 straight/*

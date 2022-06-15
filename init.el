@@ -286,6 +286,8 @@
 
 (use-package org
   :commands org-mode
+  :init
+  (setq org-element-cache-persist nil)
   :custom
   (org-startup-folded nil)
   (org-startup-indented t))
