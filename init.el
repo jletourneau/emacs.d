@@ -85,7 +85,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Per-package configs
 
+(use-package comp
+  :straight (:type built-in)
+  :init
+  (setq
+   native-comp-async-report-warnings-errors nil))
+
 (use-package exec-path-from-shell
+  ;; emacs-plus 28 and up inject $PATH during build
+  :disabled (>= emacs-major-version 28)
   :init
   (setq
    exec-path-from-shell-arguments (list "-l"))

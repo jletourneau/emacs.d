@@ -12,3 +12,4 @@ include/_local_custom.el
 ac-comphist.dat
 straight/*
 !straight/versions
+eln-cache
