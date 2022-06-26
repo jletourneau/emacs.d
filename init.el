@@ -359,6 +359,11 @@
    (locate-user-emacs-file
     (convert-standard-filename ".transient/history.el"))))
 
+;; GitHub credentials for Forge are stored in ~/.authinfo --
+;; see https://magit.vc/manual/ghub/Storing-a-Token.html
+(use-package forge
+  :after magit)
+
 (use-package git-link
   :bind (("C-c u" . git-link))
   :init
