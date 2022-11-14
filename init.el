@@ -274,7 +274,9 @@
   (key-chord-define-global "zx" 'execute-extended-command)
   (key-chord-define-global "]\\" 'undo)
   (key-chord-define-global "1`" 'other-window)
-  (key-chord-define-global "qw" 'delete-other-windows))
+  (key-chord-define-global "2`" 'delete-other-windows)
+  (key-chord-define-global "3`" 'split-window-below)
+  (key-chord-define-global "qw" 'projectile-command-map))
 
 (use-package use-package-chords)
 
