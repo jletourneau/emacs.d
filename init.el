@@ -406,27 +406,6 @@
   :init
   (setq display-line-numbers-type t))
 
-(use-package lsp-mode
-  :init
-  (setq
-   lsp-keymap-prefix "C-c l"
-   lsp-lens-enable nil
-   ;; If `lsp-volar-take-over-mode' is set to `t' (the default) and the current
-   ;; file does not belong to a previously-identified LSP workspace (saved in
-   ;; `~/.emacs.d/.lsp-session-XX'), lsp-volar will not activate because its
-   ;; activation check (`lsp-volar--activate-p') relies on `lsp-workspace-root'
-   ;; returning a project directory. This option can be set to `t' when working
-   ;; with previously set up workspaces but not when activating new ones.
-   lsp-volar-take-over-mode t
-   read-process-output-max (* 1024 1024))
-  :commands lsp
-  :hook
-  (lsp-mode . lsp-enable-which-key-integration))
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :after (lsp-mode))
-
 (use-package which-key
   :config
   (which-key-mode))
@@ -500,6 +479,42 @@
         web-mode-auto-close-style 2
         web-mode-enable-auto-indentation nil
         web-mode-enable-auto-pairing nil))
+
+(use-package eglot
+  :hook
+  (eglot-server-initialized . flymake-mode)
+  :config
+  (defclass eglot-volar (eglot-lsp-server) ()
+    :documentation "Volar Language Server for Vue")
+  (cl-defmethod eglot-initialization-options ((server eglot-volar))
+    "Required initialization options for Volar"
+    `(:typescript
+      (:tsdk
+       ,(let ((project-typescript-lib
+               (expand-file-name
+                (concat (project-root (project-current))
+                        "node_modules/typescript/lib"))))
+          (if (file-directory-p project-typescript-lib)
+              project-typescript-lib
+            "/usr/local/lib/node_modules/typescript/lib")))
+      :languageFeatures
+      (:references
+       t
+       :definition t
+       :typeDefinition t
+       :hover t
+       :rename t
+       :signatureHelp t
+       :completion (:defaultTagNameCase "both" :defaultAttrNameCase "kebabCase")
+       :documentHighlight t
+       :workspaceSymbol t
+       :codeAction t
+       :diagnostics t)
+      :documentFeatures
+      (:documentSymbol t)))
+  (add-to-list
+   'eglot-server-programs
+   '(jal/vue-web-mode . (eglot-volar "vue-language-server" "--stdio"))))
 
 (use-package flycheck
   :hook
