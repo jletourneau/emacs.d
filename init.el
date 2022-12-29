@@ -91,9 +91,11 @@
   (setq
    native-comp-async-report-warnings-errors nil))
 
+;; The `emacs-plus' package in Homebrew injects $PATH into the plist loaded at
+;; launch, but that plist is written at the time Emacs is installed, not each
+;; time Emacs is launched. Explicitly invoking this package ensures an
+;; up-to-date `exec-path' variable.
 (use-package exec-path-from-shell
-  ;; emacs-plus 28 and up inject $PATH during build
-  :disabled (>= emacs-major-version 28)
   :init
   (setq
    exec-path-from-shell-arguments (list "-l"))
@@ -519,9 +521,13 @@
 (use-package flycheck
   :hook
   (python-mode . flycheck-mode)
-  (jal/vue-web-mode . (lambda ()
-                        (setq flycheck-checker 'javascript-eslint)
-                        (flycheck-mode)))
+  (jal/vue-web-mode
+   .
+   (lambda ()
+     (when (executable-find "eslint_d")
+       (setq flycheck-javascript-eslint-executable "eslint_d"))
+     (setq flycheck-checker 'javascript-eslint)
+     (flycheck-mode)))
   :bind
   (("s-[" . flycheck-previous-error)
    ("s-]" . flycheck-next-error)
@@ -534,19 +540,23 @@
    flycheck-stylelintrc '(".stylelintrc"
                           ".stylelintrc.json"
                           "stylelint.config.js"))
-  (when (executable-find "eslint_d")
-    (setq flycheck-javascript-eslint-executable "eslint_d"))
   :config
   (flycheck-add-mode 'javascript-eslint 'jal/vue-web-mode)
   (flycheck-add-mode 'css-stylelint 'jal/vue-web-mode)
   (flycheck-add-next-checker 'javascript-eslint 'css-stylelint))
 
 (use-package eslintd-fix
-  :if (executable-find "eslint_d")
   :hook
-  (jal/vue-web-mode . eslintd-fix-mode))
+  (jal/vue-web-mode
+   .
+   (lambda ()
+     (when (executable-find "eslint_d")
+       (eslintd-fix-mode)))))
 
 (use-package add-node-modules-path
+  :init
+  ;; HACK: package wants to run `npm bin' but that command is gone as of v9
+  (setq add-node-modules-path-command "echo \"$(npm root)/.bin\"")
   :hook
   (web-mode . add-node-modules-path))
 
