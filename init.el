@@ -151,7 +151,8 @@
   :init
   (setq
    custom-file
-   (expand-file-name "include/_local_custom.el" user-emacs-directory)))
+   (expand-file-name "include/_local_custom.el" user-emacs-directory))
+  (load custom-file t))
 
 (use-package simple
   :straight (:type built-in)
