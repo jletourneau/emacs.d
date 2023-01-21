@@ -105,9 +105,7 @@
 
 (use-package zenburn-theme
   :config
-  (load-theme 'zenburn t)
-  (unless IS-GUI
-    (set-face-background 'default "unspecified-bg")))
+  (load-theme 'zenburn t))
 
 (use-package hl-line
   :if IS-GUI
