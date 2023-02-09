@@ -82,6 +82,25 @@
 (when IS-GUI
   (load "_fonts"))
 
+;; Monkeypatching JSON parsing to handle (escaped) null bytes emitted by
+;; typescript-language-server (legal but they blow up the native parser).
+;; See https://github.com/emacs-lsp/lsp-mode/issues/2681
+
+(advice-add
+ 'json-parse-string
+ :around
+ (lambda (oldfn string &rest rest)
+   (apply oldfn (s-replace "\\u0000" "" string) rest)))
+
+(advice-add
+ 'json-parse-buffer
+ :around
+ (lambda (oldfn &rest args)
+   (save-excursion
+     (while (search-forward "\\u0000" nil t)
+       (replace-match "" nil t)))
+   (apply oldfn args)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Per-package configs
 
@@ -481,6 +500,14 @@
         web-mode-enable-auto-indentation nil
         web-mode-enable-auto-pairing nil))
 
+(use-package company
+  :hook
+  (eglot-server-initialized . company-mode))
+
+(use-package yasnippet
+  :hook
+  (eglot-server-initialized . yas-minor-mode))
+
 (use-package eglot
   :hook
   (eglot-server-initialized . flymake-mode)
@@ -557,7 +584,8 @@
   ;; HACK: package wants to run `npm bin' but that command is gone as of v9
   (setq add-node-modules-path-command "echo \"$(npm root)/.bin\"")
   :hook
-  (web-mode . add-node-modules-path))
+  (web-mode . add-node-modules-path)
+  (js-mode . add-node-modules-path))
 
 (use-package autoinsert
   :straight (:type built-in)
