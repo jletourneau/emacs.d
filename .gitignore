@@ -14,3 +14,4 @@ straight/*
 !straight/versions
 eln-cache
 forge-database.sqlite
+projects
