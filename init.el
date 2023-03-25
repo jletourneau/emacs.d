@@ -508,6 +508,32 @@
   :hook
   (eglot-server-initialized . yas-minor-mode))
 
+(use-package lsp-mode
+  :init
+  (setq
+   lsp-keymap-prefix "C-c l"
+   lsp-lens-enable nil
+   ;; If `lsp-volar-take-over-mode' is set to `t' (the default) and the current
+   ;; file does not belong to a previously-identified LSP workspace (saved in
+   ;; `~/.emacs.d/.lsp-session-XX'), lsp-volar will not activate because its
+   ;; activation check (`lsp-volar--activate-p') relies on `lsp-workspace-root'
+   ;; returning a project directory. This option can be set to `t' when working
+   ;; with previously set up workspaces but not when activating new ones.
+   lsp-volar-take-over-mode t
+   read-process-output-max (* 1024 1024))
+  :commands lsp
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :after (lsp-mode))
+
+(use-package project
+  ;; This package does not provide `project-name' as an autoload but Eglot
+  ;; wants to call it when it is activated in a buffer.
+  :autoload project-name)
+
 (use-package eglot
   :hook
   (eglot-server-initialized . flymake-mode)
@@ -525,6 +551,12 @@
           (if (file-directory-p project-typescript-lib)
               project-typescript-lib
             "/usr/local/lib/node_modules/typescript/lib")))
+      ;; Something is not right with this. Invoking any Eglot functionality
+      ;; throws errors such as the following:
+      ;;
+      ;; [eglot] Unsupported or ignored LSP capability `:implementationProvider'
+      ;; [eglot] Unsupported or ignored LSP capability `:declarationProvider'
+      ;; [eglot] Unsupported or ignored LSP capability `:renameProvider'
       :languageFeatures
       (:references
        t
