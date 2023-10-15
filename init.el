@@ -320,7 +320,7 @@
   (setq org-element-cache-persist nil)
   :custom
   (org-startup-folded nil)
-  (org-startup-indented t))
+  (org-startup-indented nil))
 
 (use-package markdown-mode
   :commands gfm-mode
