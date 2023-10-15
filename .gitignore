@@ -13,5 +13,5 @@ ac-comphist.dat
 straight/*
 !straight/versions
 eln-cache
-forge-database.sqlite
+forge-database*.sqlite
 projects
