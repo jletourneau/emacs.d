@@ -80,7 +80,9 @@
 (add-hook 'kill-buffer-query-functions 'jal/kill-buffer-query)
 
 (when IS-GUI
-  (load "_fonts"))
+  (load "_fonts")
+  (context-menu-mode)
+  (pixel-scroll-precision-mode))
 
 ;; Monkeypatching JSON parsing to handle (escaped) null bytes emitted by
 ;; typescript-language-server (legal but they blow up the native parser).
@@ -288,6 +290,7 @@
 (use-package key-chord
   :config
   (key-chord-mode 1)
+  (setq key-chord-safety-interval-forward 0.2)
   (key-chord-define-global "jj" 'ido-find-file)
   (key-chord-define-global "kk" 'ido-switch-buffer)
   (key-chord-define-global "qp" 'jal/kill-current-buffer)
