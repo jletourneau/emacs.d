@@ -442,13 +442,6 @@
    js-indent-level 2
    js-switch-indent-offset js-indent-level))
 
-(use-package coffee-mode
-  :mode "\\.coffee\\'"
-  :commands coffee-mode
-  :init
-  (setq
-   coffee-tab-width 2))
-
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :commands typescript-mode
@@ -477,7 +470,6 @@
                                   ((executable-find "python2") "python2")
                                   (t "python"))))
 
-(use-package haml-mode)
 (use-package sass-mode)
 
 (use-package css-mode
