@@ -609,7 +609,8 @@
 (use-package add-node-modules-path
   :init
   ;; HACK: package wants to run `npm bin' but that command is gone as of v9
-  (setq add-node-modules-path-command "echo \"$(npm root)/.bin\"")
+  ;; See https://github.com/codesuki/add-node-modules-path/issues/23
+  (setq add-node-modules-path-command '("echo \"$(npm root)/.bin\""))
   :hook
   (web-mode . add-node-modules-path)
   (js-mode . add-node-modules-path))
