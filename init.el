@@ -85,29 +85,13 @@
   (pixel-scroll-precision-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Per-package configs
+;; Per-package configs (built-in packages)
 
 (use-package comp
   :straight (:type built-in)
   :init
   (setq
    native-comp-async-report-warnings-errors nil))
-
-;; The `emacs-plus' package in Homebrew injects $PATH into the plist loaded at
-;; launch, but that plist is written at the time Emacs is installed, not each
-;; time Emacs is launched. Explicitly invoking this package ensures an
-;; up-to-date `exec-path' variable.
-(use-package exec-path-from-shell
-  :init
-  (setq
-   exec-path-from-shell-arguments (list "-l"))
-  :config
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize)))
-
-(use-package zenburn-theme
-  :config
-  (load-theme 'zenburn t))
 
 (use-package hl-line
   :if IS-GUI
@@ -172,34 +156,6 @@
    kill-whole-line t)
   :config
   (column-number-mode 1))
-
-(use-package ido
-  :init
-  (setq
-   ido-confirm-unique-completion t
-   ido-enable-flex-matching t
-   ido-enable-last-directory-history nil
-   ido-enable-tramp-completion nil
-   ido-max-work-directory-list 0
-   ido-max-work-file-list 0
-   ido-record-commands nil
-   ido-show-dot-for-dired t)
-  :config
-  (ido-mode 1))
-
-(use-package ido-vertical-mode
-  :requires ido
-  :init
-  (setq
-   ido-vertical-define-keys 'C-n-and-C-p-only
-   ido-vertical-indicator " »")
-  :config
-  (ido-vertical-mode 1))
-
-(use-package flx-ido
-  :requires ido
-  :config
-  (flx-ido-mode 1))
 
 (use-package solar
   :straight (:type built-in)
@@ -267,6 +223,170 @@
 (use-package misc
   :straight (:type built-in)
   :bind (("C-M-z" . zap-up-to-char)))
+
+(use-package whitespace
+  :straight (:type built-in)
+  :hook (find-file . whitespace-mode)
+  :init
+  (setq whitespace-style '(face trailing tabs tab-mark)
+        whitespace-display-mappings '((tab-mark 9 [8594 9]))))
+
+(use-package display-line-numbers
+  :straight (:type built-in)
+  :hook (find-file . display-line-numbers-mode)
+  :init
+  (setq display-line-numbers-type t))
+
+(use-package js
+  :straight (:type built-in)
+  :mode (("\\.[cm]?js\\'" . js-mode)
+         ("\\.es[56]\\'" . js-mode))
+  :init
+  (setq
+   js-indent-level 2
+   js-switch-indent-offset js-indent-level))
+
+(use-package ruby-mode
+  :straight (:type built-in)
+  :mode "\\.rb\\'"
+  :commands ruby-mode
+  :init
+  (setq ruby-insert-encoding-magic-comment nil)
+  :config
+  (when (require 'rvm nil t)
+    (rvm-autodetect-ruby)))
+
+(use-package python
+  :straight (:type built-in)
+  :commands python-mode
+  :init
+  (setq
+   python-indent-offset 2
+   python-indent-guess-indent-offset-verbose nil
+   python-shell-interpreter (cond ((executable-find "python3") "python3")
+                                  ((executable-find "python2") "python2")
+                                  (t "python"))))
+
+(use-package css-mode
+  :straight (:type built-in)
+  :mode (("\\.css\\'" . css-mode)
+         ("\\.scss\\'" . css-mode))
+  :commands (css-mode scss-mode)
+  :init
+  (setq
+   css-indent-offset 2
+   scss-compile-at-save nil))
+
+(use-package autoinsert
+  :straight (:type built-in)
+  :hook (find-file . auto-insert-mode)
+  :init
+  (setq
+   auto-insert-directory
+   (expand-file-name "auto-insert/" user-emacs-directory)
+   auto-insert-query nil)
+  :config
+  (define-auto-insert "\\.vue\\'" "template.vue")
+  (define-auto-insert "\\.html\\'" "template.html"))
+
+(use-package grep
+  :straight (:type built-in)
+  :commands grep
+  :init
+  (setq
+   grep-save-buffers nil
+   grep-command
+   (cond
+    ((executable-find "rg")
+     "rg --with-filename --no-heading --color never --smart-case ")
+    ((executable-find "ag")
+     "ag --filename --silent --nogroup --nocolor --smart-case ")
+    ((executable-find "ack")
+     "ack -Hs --nogroup --nocolor --smart-case ")
+    (t
+     "grep -Hs --line-number --recursive --ignore-case "))))
+
+(use-package replace
+  :straight (:type built-in)
+  :bind (("C-c r" . replace-string)
+         ("C-c M-r" . replace-regexp)))
+
+(use-package ffap
+  :straight (:type built-in)
+  :bind (("C-c C-x C-f" . find-file-at-point)))
+
+(use-package calc
+  :straight (:type built-in)
+  :bind (("M-#" . calc)))
+
+(use-package abbrev
+  :straight (:type built-in)
+  :bind (("M-'" . expand-abbrev)))
+
+(use-package align
+  :straight (:type built-in)
+  :bind (("M-=" . align-regexp)))
+
+(use-package server
+  :if IS-GUI
+  :straight (:type built-in)
+  :hook (emacs-startup . (lambda ()
+                           (unless (server-running-p)
+                             (server-start)))))
+
+(use-package time
+  :straight (:type built-in)
+  :hook
+  (after-init . (lambda ()
+                  (message
+                   (format "Emacs init time: %s" (emacs-init-time))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Per-package configs (extensions)
+
+;; The `emacs-plus' package in Homebrew injects $PATH into the plist loaded at
+;; launch, but that plist is written at the time Emacs is installed, not each
+;; time Emacs is launched. Explicitly invoking this package ensures an
+;; up-to-date `exec-path' variable.
+(use-package exec-path-from-shell
+  :init
+  (setq
+   exec-path-from-shell-arguments (list "-l"))
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+
+(use-package zenburn-theme
+  :config
+  (load-theme 'zenburn t))
+
+(use-package ido
+  :init
+  (setq
+   ido-confirm-unique-completion t
+   ido-enable-flex-matching t
+   ido-enable-last-directory-history nil
+   ido-enable-tramp-completion nil
+   ido-max-work-directory-list 0
+   ido-max-work-file-list 0
+   ido-record-commands nil
+   ido-show-dot-for-dired t)
+  :config
+  (ido-mode 1))
+
+(use-package ido-vertical-mode
+  :requires ido
+  :init
+  (setq
+   ido-vertical-define-keys 'C-n-and-C-p-only
+   ido-vertical-indicator " »")
+  :config
+  (ido-vertical-mode 1))
+
+(use-package flx-ido
+  :requires ido
+  :config
+  (flx-ido-mode 1))
 
 (use-package key-chord
   :config
@@ -397,31 +517,9 @@
   (git-gutter:hide-gutter t)
   (git-gutter:verbosity 0))
 
-(use-package whitespace
-  :straight (:type built-in)
-  :hook (find-file . whitespace-mode)
-  :init
-  (setq whitespace-style '(face trailing tabs tab-mark)
-        whitespace-display-mappings '((tab-mark 9 [8594 9]))))
-
-(use-package display-line-numbers
-  :straight (:type built-in)
-  :hook (find-file . display-line-numbers-mode)
-  :init
-  (setq display-line-numbers-type t))
-
 (use-package which-key
   :config
   (which-key-mode))
-
-(use-package js
-  :straight (:type built-in)
-  :mode (("\\.[cm]?js\\'" . js-mode)
-         ("\\.es[56]\\'" . js-mode))
-  :init
-  (setq
-   js-indent-level 2
-   js-switch-indent-offset js-indent-level))
 
 (use-package typescript-mode
   :mode "\\.ts\\'"
@@ -430,38 +528,7 @@
   (setq
    typescript-indent-level 2))
 
-(use-package ruby-mode
-  :straight (:type built-in)
-  :mode "\\.rb\\'"
-  :commands ruby-mode
-  :init
-  (setq ruby-insert-encoding-magic-comment nil)
-  :config
-  (when (require 'rvm nil t)
-    (rvm-autodetect-ruby)))
-
-(use-package python
-  :straight (:type built-in)
-  :commands python-mode
-  :init
-  (setq
-   python-indent-offset 2
-   python-indent-guess-indent-offset-verbose nil
-   python-shell-interpreter (cond ((executable-find "python3") "python3")
-                                  ((executable-find "python2") "python2")
-                                  (t "python"))))
-
 (use-package sass-mode)
-
-(use-package css-mode
-  :straight (:type built-in)
-  :mode (("\\.css\\'" . css-mode)
-         ("\\.scss\\'" . css-mode))
-  :commands (css-mode scss-mode)
-  :init
-  (setq
-   css-indent-offset 2
-   scss-compile-at-save nil))
 
 (use-package web-mode
   :mode
@@ -596,70 +663,6 @@
   (web-mode . add-node-modules-path)
   (js-mode . add-node-modules-path))
 
-(use-package autoinsert
-  :straight (:type built-in)
-  :hook (find-file . auto-insert-mode)
-  :init
-  (setq
-   auto-insert-directory
-   (expand-file-name "auto-insert/" user-emacs-directory)
-   auto-insert-query nil)
-  :config
-  (define-auto-insert "\\.vue\\'" "template.vue")
-  (define-auto-insert "\\.html\\'" "template.html"))
-
-(use-package grep
-  :straight (:type built-in)
-  :commands grep
-  :init
-  (setq
-   grep-save-buffers nil
-   grep-command
-   (cond
-    ((executable-find "rg")
-     "rg --with-filename --no-heading --color never --smart-case ")
-    ((executable-find "ag")
-     "ag --filename --silent --nogroup --nocolor --smart-case ")
-    ((executable-find "ack")
-     "ack -Hs --nogroup --nocolor --smart-case ")
-    (t
-     "grep -Hs --line-number --recursive --ignore-case "))))
-
 (use-package rg
   :if (executable-find "rg")
   :hook (after-init . rg-enable-default-bindings))
-
-(use-package replace
-  :straight (:type built-in)
-  :bind (("C-c r" . replace-string)
-         ("C-c M-r" . replace-regexp)))
-
-(use-package ffap
-  :straight (:type built-in)
-  :bind (("C-c C-x C-f" . find-file-at-point)))
-
-(use-package calc
-  :straight (:type built-in)
-  :bind (("M-#" . calc)))
-
-(use-package abbrev
-  :straight (:type built-in)
-  :bind (("M-'" . expand-abbrev)))
-
-(use-package align
-  :straight (:type built-in)
-  :bind (("M-=" . align-regexp)))
-
-(use-package server
-  :if IS-GUI
-  :straight (:type built-in)
-  :hook (emacs-startup . (lambda ()
-                           (unless (server-running-p)
-                             (server-start)))))
-
-(use-package time
-  :straight (:type built-in)
-  :hook
-  (after-init . (lambda ()
-                  (message
-                   (format "Emacs init time: %s" (emacs-init-time))))))
