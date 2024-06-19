@@ -84,25 +84,6 @@
   (context-menu-mode)
   (pixel-scroll-precision-mode))
 
-;; Monkeypatching JSON parsing to handle (escaped) null bytes emitted by
-;; typescript-language-server (legal but they blow up the native parser).
-;; See https://github.com/emacs-lsp/lsp-mode/issues/2681
-
-(advice-add
- 'json-parse-string
- :around
- (lambda (oldfn string &rest rest)
-   (apply oldfn (s-replace "\\u0000" "" string) rest)))
-
-(advice-add
- 'json-parse-buffer
- :around
- (lambda (oldfn &rest args)
-   (save-excursion
-     (while (search-forward "\\u0000" nil t)
-       (replace-match "" nil t)))
-   (apply oldfn args)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Per-package configs
 
